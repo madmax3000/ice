@@ -1,0 +1,6 @@
+wire,wire,wire,wire,wire,wire,wire,wire
+wire,,,,,wire,,wire
+VoltageSource_v1,,,,,wire,,Voltmeter_v1
+wire,,,,,Resistor_r1,,wire
+wire,,,,,wire,,wire
+wire,wire,Resistor_r4,wire,wire,wire,wire,wire

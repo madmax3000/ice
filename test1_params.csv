@@ -1,0 +1,4 @@
+VoltageSource, v1, 3A, Peak (Volts) = 0.000000, Frequency (Hertz) = 0.000000, Phase (degrees) = 0.000000, Dc offset = 100.000000, Positive polarity towards (cell) = 4A, 
+Voltmeter, v1, 3H, Rated voltage level to be measured = 120.0, Positive polarity towards (cell) = 4H, 
+Resistor, r1, 4F, 100.0, 
+Resistor, r4, 6C, 100.0, 
