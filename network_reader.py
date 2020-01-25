@@ -1374,15 +1374,16 @@ def determine_loops(conn_matrix,  node_list,  branch_map):
             if branch_map[c1][c2]:
                 branch_count_check += len(branch_map[c1][c2])
 
-    print("Number of nodes = {}".format(str(len(node_list))))
-    print()
-
-    print("Number of branches = {}".format(str(branch_count_check)))
-    print()
-
-    loop_count=len(loop_list)
-    print("Number of loops = {}".format(str(loop_count)))
-    print()
+    if gv.c==0:
+        print("Number of nodes = {}".format(str(len(node_list))))
+        print()
+    
+        print("Number of branches = {}".format(str(branch_count_check)))
+        print()
+    
+        loop_count=len(loop_list)
+        print("Number of loops = {}".format(str(loop_count)))
+        print()
 
 
     test_branch_count = 0
@@ -2408,9 +2409,10 @@ def read_circuit_parameters(nw_input, conn_matrix, branch_params, component_obje
     if gv.c == 1:  # here too automation of user input has been done to stop repetition of user input
         cont_ans="y"
     #cont_ans="y"
-    print("The following circuit schematics have the corresponding parameter files:")
-    for c1 in range(len(nw_input)):
-        print("{} ---> {}".format(nw_input[c1]+".csv", parameters_file[c1]))
+    if gv.c ==0:
+        print("The following circuit schematics have the corresponding parameter files:")
+        for c1 in range(len(nw_input)):
+            print("{} ---> {}".format(nw_input[c1]+".csv", parameters_file[c1]))
 
     while cont_ans.lower()!="y":
         cont_ans = input("Enter parameters in files above. When done, \
@@ -2590,13 +2592,15 @@ def update_control_code(component_objects, components_found, controlled_elements
     # Wait for the user to enter parameters before
     # reading the *_desc.csv file.
     if control_files:
-        cont_ans = "n"
-        while cont_ans.lower()!="y":
-            print("Enter control parameters in the following files --> ")
-            for c1 in range(len(control_descs)):
-                print("{} ".format(control_descs[c1]))
-            cont_ans = input("When ready press y and enter to continue -> ")
-
+        if gv.c == 0:
+            cont_ans = "n"
+            while cont_ans.lower()!="y":
+                print("Enter control parameters in the following files --> ")
+                for c1 in range(len(control_descs)):
+                    print("{} ".format(control_descs[c1]))
+                cont_ans = input("When ready press y and enter to continue -> ")
+        else:
+           cont_ans = "y"
 
     # Read the parameters from the descriptor spreadsheet.
     control_desc_handles = []
@@ -2780,14 +2784,16 @@ def update_control_code(component_objects, components_found, controlled_elements
 
     # Wait for use to update the control code.
     if control_files:
-        cont_ans = "n"
-        #cont_ans = "y"
-        while cont_ans.lower()!="y":
-            print("Enter control code in the following files --> ")
-            for c1 in range(len(control_files)):
-                print("{} ".format(control_files[c1]))
-            cont_ans = input("When ready press y and enter to continue -> ")
-
+        if gv.c == 0:
+            cont_ans = "n"
+            #cont_ans = "y"
+            while cont_ans.lower()!="y":
+                print("Enter control code in the following files --> ")
+                for c1 in range(len(control_files)):
+                    print("{} ".format(control_files[c1]))
+                cont_ans = input("When ready press y and enter to continue -> ")
+        else:
+            cont_ans = "y"
 
     # This list will contain the control
     # code as lists of strings.

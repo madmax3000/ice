@@ -660,13 +660,14 @@ folder/directory as circuit_solver.py".format(nw_layout[c1]))
     # Assign the parameters to the circuit elements.
     NwRdr.read_circuit_parameters(nw_input, conn_ckt_mat, branch_params, component_objects, components_found)
 
-    print()
-    print("*"*50)
-    # Just checking the objects
-    for items in component_objects.keys():
-        component_objects[items].display()
-    print("*"*50)
-    print()
+    if (gv.c==0):
+        print()
+        print("*"*50)
+        # Just checking the objects
+        for items in component_objects.keys():
+            component_objects[items].display()
+        print("*"*50)
+        print()
 
 
     # Read the control code and the descriptions of the control code
@@ -697,26 +698,27 @@ folder/directory as circuit_solver.py".format(nw_layout[c1]))
     t_store = dt_store
 
 
-    print()
-    print()
-    print("*"*50)
-    print("Output file is in columns and the columns are in the following sequence")
-    print("1 => Time")
-    print("Meters are in the following sequence:")
-    for count1 in range(len(meter_list)):
-        print("{prt_index} => {prt_meter_type}_{prt_meter_tag} at {prt_meter_pos}".format(
-                prt_index=str(count1+2),
-                prt_meter_type=component_objects[meter_list[count1]].type,
-                prt_meter_tag=component_objects[meter_list[count1]].tag,
-                prt_meter_pos=component_objects[meter_list[count1]].pos
-        ))
-    if plotted_variable_list:
-        print("Control variables to be plotted are in the following sequence")
-        for count2 in range(len(plotted_variable_list)):
-            print("{} => {}".format(str(count1 + count2 + 3), plotted_variable_list[count2]))
-
-    print()
-    print("*"*50)
+    if (gv.c==0):
+        print()
+        print()
+        print("*"*50)
+        print("Output file is in columns and the columns are in the following sequence")
+        print("1 => Time")
+        print("Meters are in the following sequence:")
+        for count1 in range(len(meter_list)):
+            print("{prt_index} => {prt_meter_type}_{prt_meter_tag} at {prt_meter_pos}".format(
+                    prt_index=str(count1+2),
+                    prt_meter_type=component_objects[meter_list[count1]].type,
+                    prt_meter_tag=component_objects[meter_list[count1]].tag,
+                    prt_meter_pos=component_objects[meter_list[count1]].pos
+            ))
+        if plotted_variable_list:
+            print("Control variables to be plotted are in the following sequence")
+            for count2 in range(len(plotted_variable_list)):
+                print("{} => {}".format(str(count1 + count2 + 3), plotted_variable_list[count2]))
+    
+        print()
+        print("*"*50)
 
 
     start_time = time.time()
