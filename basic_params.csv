@@ -1,7 +1,0 @@
-Ammeter, A1, 1A, Positive polarity towards (cell) = 2A, 
-Resistor, r1, 1C, 100.0, 
-Resistor, R2, 4E, 12.9, 
-Resistor, r9, 7C, 100.0, 
-Resistor, r3, 11D, 100.0, 
-VoltageSource, V1, 4A, Peak (Volts) = 0.000000, Frequency (Hertz) = 0.000000, Phase (degrees) = 0.000000, Dc offset = 10.000000, Positive polarity towards (cell) = 5A, 
-Voltmeter, V1, 4G, Rated voltage level to be measured = 120.0, Positive polarity towards (cell) = 5G, 
