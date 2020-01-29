@@ -5,23 +5,19 @@ Created on Mon Oct 21 21:38:32 2019
 @author: JOHNuMon
 """
 
-from platypus import OMOPSO, Problem, Real,nondominated,InjectedPopulation,Solution
+from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
 from function import avg,ripple,rms,signalselector,thd
 import numpy as np
 import circuit_solver as cs
 import plotter as pt
 import gv
-import csv
 import statistics
 import pandas as pd
 gv.counter=0
 def write(a,b,c):
-    with open('buck_ckt_params.csv','r') as f:
-        reader = csv.reader(f) #read parameter file 
-        urlist=list(reader)  #converting parameter file as a list
-    urlist[a][b]=c    #assigning parameter value to the list
-    new = pd.DataFrame(urlist)  #rewriting the parameters back
-    new.to_csv("buck_ckt_params.csv",sep=',',header=False,index=False,)   
+    f=pd.read_csv("buck_ckt_params.csv",header=False,index=False,)
+    f.iloc[a,b]=c
+    f.to_csv("buck_ckt_params.csv",sep=',',header=False,index=False,)   
 
 def readus_avg(out):
     data=np.loadtxt('ckt_output2.dat')
@@ -53,16 +49,9 @@ def evaluator(vars):
     gv.counter=gv.counter+1
     print("the counter value is ",gv.counter)
     for m in range(0,len(gv.bigres)):
-        #simin.append(vars[m])
-        #if gv.bigres[m][4]==1:
         a=gv.bigres[m][2]#write parameters to the circuit para meters
         b=gv.bigres[m][3]
         write(a,b,vars[m])#vars is the output from the prediction of genetic algorithm
-        '''
-        else:
-            gv.d=vars[m]
-            print("duty ratio now is ",gv.d)
-        '''
     cs.main()
     for n in range(0,len(gv.bigout)):
         if gv.bigout[n][3]== 1.0 :#read circuit output parameters
@@ -75,20 +64,7 @@ def evaluator(vars):
             x=readus_ripple(lol-1)
             gv.bigout[n][2]=x
             #print("this is ripple",x)
-    '''
-    count=0
-    for n in range(0,len(gv.bigout)):
-        k=gv.bigout[n][0]
-        l=gv.bigout[n][1]
-        j=gv.bigout[n][3]#comparing each output
-        if(k>=j and l<=j):
-            count=count+1
-    if(count==len(gv.bigout)):
-        for m in range(0,len(gv.bigres)):
-            print("the value of element",m ,"is",vars[m])
-            exit#time to exit code
-    else:
-        '''
+   
     lis=[]
     for n in range(0,len(gv.bigout)):
         a=(gv.bigout[n][2]-gv.bigout[n][3])**2
@@ -138,9 +114,6 @@ def optimizer():
             outermean=statistics.mean(outer)
             outer.append(outermean)
             rval=float(input("1 for avg,2 for ripple : "))#take mean set as an target value
-            #data=np.loadtxt('ckt_output2.dat') #read data from output
-            #x=data[8,out] #assignn value to a variable
-            #outer.append(x)
             outer.append(rval)
             pos=int(input("enter output meter no in output file "))
             outer.append(pos)
@@ -152,8 +125,7 @@ def optimizer():
 def ga(variables,outpu):
     problem = Problem(variables,outpu) #specify the no of objectives and inputs
     for i in range(0,len(gv.bigres)):
-        for j in range(0,len(gv.bigres[i])-2):
-            problem.types[i:i+1] = [Real(gv.bigres[i][j],gv.bigres[i][j+1])] #loop to intialise the limkits
+            problem.types[i:i+1] = [Real(gv.bigres[i][1],gv.bigres[i][0])] #loop to intialise the limkits
     
     problem.function = evaluator#call the simulator
     v_population_size = 10
@@ -163,19 +135,9 @@ def ga(variables,outpu):
     for i in range(v_population_size):
         init_pop[i].variables = pop_indiv[i]
 	
-    algorithm = OMOPSO(problem,10, population_size=v_population_size, generator=InjectedPopulation(init_pop))
+    algorithm = NSGAII(problem, population_size=v_population_size, generator=InjectedPopulation(init_pop))
     algorithm.run(200)   
     feasible_solutions = [s for s in algorithm.result if s.feasible] 
-    '''
-    algorithm = NSGAII(problem)# goes to the algorithm
-    algorithm.run(500) #give value to run times (iterations)
-    feasible_solutions = [s for s in algorithm.result if s.feasible]  ''' 
-    '''
-    for i in range(len(feasible_solutions)):
-        for k in range(len(gv.bigres)):
-            print(feasible_solutions[i].variables[k])
-        print("*****************")
-    '''    
     nondominanted_solutions=nondominated(algorithm.result)
     new = pd.DataFrame(nondominanted_solutions)  #rewriting the parameters back
     new.to_csv("nondominant.csv",sep=',',header=False,index=False,) 
