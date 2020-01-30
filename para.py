@@ -145,5 +145,5 @@ def ga(variables,outpu):
     ned.to_csv("feasible.csv",sep=',',header=False,index=False,) 
 
     return 
-    
+ #this is a test messege
 optimizer()    #starts calling the main program
