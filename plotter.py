@@ -15,8 +15,11 @@ def plot():
     Y=data[x:y,2]
     Z=data[x:y,3]
     plt.plot(X,Y,'r',label='Inductor Current')
+    plt.grid(True, color='k')
     plt.legend()
     plt.show()
     plt.plot(N,Z,'b',label='Output Voltage')
     plt.legend()
+    plt.grid(True, color='k')
     plt.show()
+
