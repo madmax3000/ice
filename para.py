@@ -4,7 +4,7 @@ Created on Mon Oct 21 21:38:32 2019
 
 @author: JOHNuMon
 """
-#this is my craze
+
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
 from function import avg,ripple,rms,signalselector,thd
 import numpy as np
