@@ -4,17 +4,13 @@ Created on Wed Jan 29 14:50:33 2020
 
 @author: JENSON JOSE
 """
+import mainframe as main
 import pandas as pd
-
-def reader(p):
-    f=pd.read_csv("buck_ckt.csv",header=None,index_col=False)
-    ele=f.iloc[p[0],p[1]]
-    return ele
-
-
 # Python function to print permutations of a given list 
 
 def permutation(lst): 
+
+  
 
     # If lst is empty then there are no permutations 
 
@@ -76,16 +72,11 @@ def permutation(lst):
   
 # Driver program to test above function 
 
-data = list('123') 
 
-for p in permutation(data): 
-
-    print (p) 
-
-
-
-
-
+def reader(p):
+    f=pd.read_csv("buck_ckt.csv",header=None,index_col=False)
+    ele=f.iloc[p[0],p[1]]
+    return ele
 
 def indexfinder(f):
     posl=[]
@@ -126,14 +117,38 @@ def indexfinder(f):
             posl.append(c)
             return posl
         
+def write(address,element_to_write):
+    a=indexfinder(address)
+    f=pd.read_csv("buck_ckt.csv",header=None,index_col=False)
+    f.iloc[a[0],a[1]]=element_to_write
+    f.to_csv("buck_ckt.csv",sep=',',header=False,index=False,) 
+    return
 
-n=int(input("enter the no of elements to change"))
-addr=[]
-elm=[]
-for i in range(0,n):
-    y=input("enter the positions")
-    addr.append(y)
-    print(addr)  
-    m=indexfinder(addr[i]) 
-    elm.append((reader(m))) 
-print(elm)          
+def vctmain():
+
+    n=int(input("enter the no of elements to change"))
+    addr=[]
+    elm=[]
+    superlist=[]
+
+    for i in range(0,n):
+        y=input("enter the positions")
+        addr.append(y)
+        print(addr)
+        m=indexfinder(addr[i])
+        print(m)
+        elm.append((reader(m)))
+    superlist=permutation(elm)
+    print(elm)
+    print(superlist)
+
+    for i in range(len(superlist)):
+        for j in range(len(addr)):
+            write(addr[j],superlist[i][j])
+            main.initalization()
+            main.ga()
+            return
+
+
+
+              
