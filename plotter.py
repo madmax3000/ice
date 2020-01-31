@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 def plot(flname,meterno,ttl):
     data=np.loadtxt(flname)
     X=data[:,0]
-    Y=data[:,meterno]
+    Y=data[:,meterno-1]
     plt.plot(X,Y,'r')
     plt.title(ttl)
     plt.show()
@@ -26,7 +26,7 @@ def plot(flname,meterno,ttl):
             if (result[i] <= y):
                 t2 = i + 1
         X = data[t1:t2, 0]
-        Y = data[t1:t2, meterno]
+        Y = data[t1:t2, meterno-1]
         plt.plot(X, Y, 'r')
         plt.title(ttl)
         plt.show()
