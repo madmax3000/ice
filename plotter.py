@@ -1,25 +1,35 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Oct  5 05:55:17 2019
-
-@author: JOHN
-"""
 import numpy as np
 from matplotlib import pyplot as plt
-def plot():
-    data=np.loadtxt('ckt_output2.dat')
-    x=1
-    y=4500
-    X=data[x:y,0]
-    N=data[x:y,0]
-    Y=data[x:y,2]
-    Z=data[x:y,3]
-    plt.plot(X,Y,'r',label='Inductor Current')
-    plt.grid(True, color='k')
-    plt.legend()
+
+def plot(flname,meterno,ttl):
+    data=np.loadtxt(flname)
+    X=data[:,0]
+    Y=data[:,meterno]
+    plt.plot(X,Y,'r')
+    plt.title(ttl)
     plt.show()
-    plt.plot(N,Z,'b',label='Output Voltage')
-    plt.legend()
-    plt.grid(True, color='k')
-    plt.show()
+    a='y'
+    while(a=='y'):
+
+        x = float((input("Enter T-min")))
+        y = float((input("Enter T-max")))
+        data = np.loadtxt(flname)
+        result = data[:, 0]
+        print(result)
+        t1 = 0
+        t2 = 0
+        c = 0
+        for i in range(0, len(result)):
+            if (result[i] >= x and c == 0):
+                t1 = i
+                c = 1
+            if (result[i] <= y):
+                t2 = i + 1
+        X = data[t1:t2, 0]
+        Y = data[t1:t2, meterno]
+        plt.plot(X, Y, 'r')
+        plt.title(ttl)
+        plt.show()
+        a = input("Do you want to specify the time period.....y/n ")
+
 
