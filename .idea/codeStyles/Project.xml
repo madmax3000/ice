@@ -1,0 +1,11 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <CsvCodeStyleSettings>
+      <option name="SPACE_AFTER_SEPARATOR" value="true" />
+      <option name="WHITE_SPACES_OUTSIDE_QUOTES" value="false" />
+    </CsvCodeStyleSettings>
+    <codeStyleSettings language="csv">
+      <option name="WRAP_LONG_LINES" value="true" />
+    </codeStyleSettings>
+  </code_scheme>
+</component>

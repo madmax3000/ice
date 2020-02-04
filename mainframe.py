@@ -1,5 +1,5 @@
 import circuit_solver as cs
-from vector import permutation,indexfinder,reader,write
+from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
 from function import avg,ripple,rms,signalselector,thd
 import circuit_solver as cs
@@ -184,7 +184,7 @@ def vctmain():
 
     for i in range(len(superlist)):
         for j in range(len(addr)):
-            write(addr[j], superlist[i][j])
+            writer_of_vector(addr[j], superlist[i][j])
             initalization()
             ga()
             return

@@ -6,6 +6,7 @@ Created on Wed Jan 29 14:50:33 2020
 """
 import gv
 import pandas as pd
+import csv
 # Python function to print permutations of a given list 
 
 def permutation(lst): 
@@ -117,10 +118,21 @@ def indexfinder(f):
             posl.append(c)
             return posl
         
-def write(address,element_to_write):
-    a=indexfinder(address)
+def writer_of_vector(address,element_to_write):
+    abe=indexfinder(address)
+    a=abe[0]
+    b=abe[1]
+    c=element_to_write
+    with open(gv.cktfile, 'r') as f:
+        readprofile = csv.reader(f)  # read parameter file
+        urlize = list(readprofile)  # converting parameter file as a list
+    urlize[a][b] = c  # assigning parameter value to the list
+    new = pd.DataFrame(urlize)  # rewriting the parameters back
+    new.to_csv(gv.cktfile, sep=',', header=False, index=False, )
+    return
+    '''
     f=pd.read_csv(gv.cktfile,header=None,index_col=False)
     f.iloc[a[0],a[1]]=element_to_write
     f.to_csv(gv.cktfile,sep=',',header=False,index=False,)
     return
-
+    '''
