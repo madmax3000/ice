@@ -14,3 +14,4 @@ algo=200#no of default iterations
 outpu1="ckt_output.dat"
 paramsfile="ckt_params.csv"
 cktfile="ckt.csv"
+inti_repeat='0'

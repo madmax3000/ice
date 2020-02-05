@@ -181,10 +181,14 @@ def vctmain():
     superlist = permutation(elm)
     print(elm)
     print(superlist)
+    chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
+    if chi =='y':
+        gv.inti_repeat = 1
     for i in range(len(superlist)):
         for j in range(len(addr)):
             writer_of_vector(addr[j], superlist[i][j])
-            initalization()
+            if gv.inti_repeat == 0:
+                initalization()
             ga()
             return
 
