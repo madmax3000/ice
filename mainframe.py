@@ -166,11 +166,11 @@ def starter():#user initialisation
 
 
 def vctmain():
+    gv.cktfile = input("enter the filename in which vectorization is to be done:\n")
     n = int(input("enter the no of elements to change"))
     addr = []
     elm = []
     superlist = []
-
     for i in range(0, n):
         y = input("enter the positions")
         addr.append(y)
@@ -181,7 +181,6 @@ def vctmain():
     superlist = permutation(elm)
     print(elm)
     print(superlist)
-
     for i in range(len(superlist)):
         for j in range(len(addr)):
             writer_of_vector(addr[j], superlist[i][j])

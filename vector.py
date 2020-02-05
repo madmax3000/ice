@@ -75,7 +75,7 @@ def permutation(lst):
 
 
 def reader(p):
-    f=pd.read_csv("buck_ckt.csv",header=None,index_col=False)
+    f=pd.read_csv(gv.cktfile,header=None,index_col=False)
     ele=f.iloc[p[0],p[1]]
     return ele
 

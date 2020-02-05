@@ -12,5 +12,5 @@ l=[]#list which stores the samples produced during timeperiod t1
 n3=0#for signal selector
 algo=200#no of default iterations
 outpu1="ckt_output.dat"
-paramsfile="ckt_file.csv"
-cktfile="ckt_file.csv"
+paramsfile="ckt_params.csv"
+cktfile="ckt.csv"
