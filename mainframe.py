@@ -58,14 +58,14 @@ def write(a, b, c):
     new = pd.DataFrame(urlist)  # rewriting the parameters back
     new.to_csv(gv.paramsfile, sep=',', header=False, index=False, )
 
-
+#-----------------------------------------------------------------------------------------------------------
 def readus_avg(out):
     data = np.loadtxt(gv.outpu1)
     x = data[:, out]  # read data file
     y = signalselector(x)
     m = avg(y)
     return m
-
+#----------------------------------------------------------------------------------------------------------
 
 def readus_ripple(out):
     data = np.loadtxt(gv.outpu1)
@@ -73,7 +73,7 @@ def readus_ripple(out):
     y = signalselector(x)
     n = ripple(y)
     return n
-
+#-------------------------------------------------------------------------------------------------------------
 
 def readus_rms(out):
     data = np.loadtxt(gv.outpu1)
@@ -82,7 +82,7 @@ def readus_rms(out):
     p = rms(y)
     return p
 
-
+#------------------------------------------------------------------------------------------------------------------
 def readus_thd(out):
     data = np.loadtxt(gv.outpu1)
     x = data[:, out]  # read data file
@@ -137,10 +137,14 @@ def ga(variables, outpu):#genetic algorithm function
     algorithm.run(gv.algo)
     feasible_solutions = [s for s in algorithm.result if s.feasible]
     nondominanted_solutions = nondominated(algorithm.result)
+    f = pd.read_csv("nondominant.csv", header=None, index_col=False)
     new = pd.DataFrame(nondominanted_solutions)  # rewriting the parameters back
+    news=f.append(new,ignore_index= True)
     new.to_csv("nondominant.csv", sep=',', header=False, index=False, )
+    f = pd.read_csv("feasible.csv", header=None, index_col=False)
     ned = pd.DataFrame(feasible_solutions)  # rewriting the parameters back
-    ned.to_csv("feasible.csv", sep=',', header=False, index=False, )
+    neder=f.append(ned,ignore_index= True)
+    neder.to_csv("feasible.csv", sep=',', header=False, index=False, )
 
     return
 
