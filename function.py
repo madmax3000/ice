@@ -7,10 +7,13 @@ Created on Wed Nov 20 14:22:10 2019
 import gv
 from scipy.fftpack import fft
 import numpy as np
+import pandas as pd
 #import statistics
 def signalselector(a):
-    t2=1.00e-06#t2-step size,f-switching frequency
-    t1=1/60#t1-time period
+    f = pd.read_csv("circuit_inputs.csv", header=None, index_col=False)
+    ele = f.iloc[2,2]
+    t2=ele #t2-step size
+    t1=1/60 #default time period
     #n1=len(a)#n1-total number of samples
     n2=t1/t2 #n2-number of samples in one time period t1
     gv.n3=int(n2)    
