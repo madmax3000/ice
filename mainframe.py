@@ -139,11 +139,11 @@ def ga(variables, outpu):#genetic algorithm function
     nondominanted_solutions = nondominated(algorithm.result)
     f = pd.read_csv("nondominant.csv", header=None, index_col=False)
     new = pd.DataFrame(nondominanted_solutions)  # rewriting the parameters back
-    news=f.append(new,ignore_index= True)
+    news=f.append(new,ignore_index= True) #appending to old values of non-dominated solutions
     new.to_csv("nondominant.csv", sep=',', header=False, index=False, )
     f = pd.read_csv("feasible.csv", header=None, index_col=False)
     ned = pd.DataFrame(feasible_solutions)  # rewriting the parameters back
-    neder=f.append(ned,ignore_index= True)
+    neder=f.append(ned,ignore_index= True) #appending to old values of feasiblesolutions
     neder.to_csv("feasible.csv", sep=',', header=False, index=False, )
 
     return
