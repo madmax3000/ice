@@ -41,7 +41,8 @@ def initalization():
         gv.bigout.append(outer)  # update to a global matix
         for r in range(0, len(gv.bigout)):
             print(gv.bigout[r])
-    ga(variables, outpu)  # call genetic algorithm
+    if (gv.vector==0):
+        ga(variables, outpu)  # call genetic algorithm
     return
 
 #---------------------------------------------------------------------------------------------------------
@@ -191,13 +192,13 @@ def vctmain():
     superlist = permutation(elm)
     print(elm)
     print(superlist)
-    #gv.vector=1
+    gv.vector=1
     initalization()
     chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
     if chi =='y':
         gv.inti_repeat = 1
-    for i in range(len(superlist)):
-        for j in range(len(addr)):
+    for i in range(0,len(superlist)):
+        for j in range(0,len(addr)):
             writer_of_vector(addr[j], superlist[i][j])
             if gv.inti_repeat == 0:
                 initalization()

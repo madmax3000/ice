@@ -82,7 +82,7 @@ def reader(p):
 def indexfinder(f):
     posl=[]
     b=list(f)
-    k=int(b[0])
+    k=int(b[1])
     r=k-1
     alpha={ "A":0,
         "B":1,
@@ -112,7 +112,7 @@ def indexfinder(f):
         "Z":25
         }
     for x in alpha:
-        if (b[1] == x):
+        if (b[0] == x):
             c = alpha[x]
             posl.append(r)
             posl.append(c)
