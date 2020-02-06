@@ -90,6 +90,20 @@ def readus_thd(out):
     y = signalselector(x)
     th = thd(y)
     return th
+#----------------------------------------------------------------------------------
+def listToString(s):
+
+    # initialize an empty string
+    str1 = ""
+
+    # traverse in the string
+    for ele in s:
+        str1 += ele +"\n"
+
+        # return string
+    return str1
+
+
 
 #--------------------------------------------------------------------------------------------------------
 def evaluator(vars):
@@ -139,20 +153,18 @@ def ga(variables, outpu):#genetic algorithm function
     algorithm.run(gv.algo)
     feasible_solutions = [s for s in algorithm.result if s.feasible]
     nondominanted_solutions = nondominated(algorithm.result)
-    f = pd.read_csv("nondominant.csv", header=None, index_col=False)
-    new = pd.DataFrame(nondominanted_solutions)  # rewriting the parameters back
-    news=f.append(new,ignore_index= True) #appending to old values of non-dominated solutions
-    news.to_csv("nondominant.csv", sep=',', header=False, index=False, )
-    '''f
-    with open("feasible.csv", 'r') as f:
-        reader = csv.reader(f)  # read parameter file
-        urlist = list(reader)  # converting parameter file as a list
-    f = pd.DataFrame(urlist)  # rewriting the parameters back
-    '''
-    f = pd.read_csv("feasible.csv", header=None, index_col=False)
-    ned = pd.DataFrame(feasible_solutions)  # rewriting the parameters back
-    neder=f.append(ned,ignore_index= True) #appending to old values of feasiblesolutions
-    neder.to_csv("feasible.csv", sep=',', header=False, index=False, )
+    stalker=[]
+    for kim in feasible_solutions:
+        stalker[kim]=str(feasible_solutions[kim])
+    stalker1 = []
+    for kim in nondominanted_solutions:
+        stalker1[kim] = str(nondominanted_solutions[kim])
+    f = open("feasible.txt", "a")
+    f.write(listToString(stalker))
+    f.close()
+    f = open("nondominanted_solutions.txt", "a")
+    f.write(listToString(stalker1))
+    f.close()
 
     return
 
@@ -194,7 +206,7 @@ def vctmain():
     superlist = permutation(elm)
     print(elm)
     print(superlist)
-    gv.vector=1
+    gv.vector= 1
     initalization()
     chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
     if chi =='y':

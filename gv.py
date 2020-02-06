@@ -14,5 +14,5 @@ algo=200#no of default iterations
 outpu1="ckt_output.dat"#default value of output file name
 paramsfile="ckt_params.csv" #default value of ckt params file
 cktfile="ckt.csv" #default value of ckt
-inti_repeat='0' #variable to stop repeated initialisation
-vector='0' #variable to see if vectorization has taken place
+inti_repeat=0 #variable to stop repeated initialisation
+vector=0 #variable to see if vectorization has taken place
