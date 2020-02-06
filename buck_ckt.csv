@@ -1,8 +1,8 @@
-wire,wire,wire,Ammeter_source,wire,wire,Switch_S1,wire,wire,wire,wire,Resistor_ind,wire,Ammeter_inductor,wire,Inductor_buck,wire,wire,wire,wire,wire,wire,wire,wire,wire
+wire,wire,wire,Ammeter_source,wire,wire,Switch_S1,wire,wire,wire,wire,Resistor_ind,wire,Ammeter_inductor,wire,Capacitor_vout,wire,wire,wire,wire,wire,wire,wire,wire,wire
 wire,,,,,,,,,wire,,,,,,,,,wire,,,wire,,,wire
 wire,,,,,,,,,wire,,,,,,,,,wire,,,wire,,,wire
 wire,,,,,,,,,Diode_D1,,,,,,,,,wire,,,wire,,,wire
-wire,,,,,,,,,wire,,,,,,,,,Capacitor_vout,,,wire,,,wire
+wire,,,,,,,,,wire,,,,,,,,,Inductor_buck,,,wire,,,wire
 VoltageSource_v1,,,,,,,,,wire,,,,,,,,,wire,,,Resistor_rload,,,Voltmeter_vout
 wire,,,,,,,,,wire,,,,,,,,,wire,,,wire,,,wire
 wire,,,,,,,,,wire,,,,,,,,,Resistor_cdc,,,wire,,,wire

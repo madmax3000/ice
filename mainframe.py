@@ -121,7 +121,8 @@ def evaluator(vars):
 
 #-----------------------------------------------------------------------------------------------------------------
 def ga(variables, outpu):#genetic algorithm function
-    gv.algo=int(input("Enter the no: of iterations"))
+    if gv.vector==0:
+        gv.algo=int(input("Enter the no: of iterations"))
     problem = Problem(variables, outpu)  # specify the no of objectives and inputs
     for i in range(0, len(gv.bigres)):
         problem.types[i:i + 1] = [Real(gv.bigres[i][1], gv.bigres[i][0])]  # loop to intialise the limkits
@@ -141,7 +142,7 @@ def ga(variables, outpu):#genetic algorithm function
     f = pd.read_csv("nondominant.csv", header=None, index_col=False)
     new = pd.DataFrame(nondominanted_solutions)  # rewriting the parameters back
     news=f.append(new,ignore_index= True) #appending to old values of non-dominated solutions
-    new.to_csv("nondominant.csv", sep=',', header=False, index=False, )
+    news.to_csv("nondominant.csv", sep=',', header=False, index=False, )
     '''f
     with open("feasible.csv", 'r') as f:
         reader = csv.reader(f)  # read parameter file
@@ -178,6 +179,7 @@ def starter():#user initialisation
 
 def vctmain():
     gv.cktfile = input("enter the filename in which vectorization is to be done:\n")
+    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?"))
     n = int(input("enter the no of elements to change"))
     addr = []
     elm = []
@@ -200,10 +202,10 @@ def vctmain():
     for i in range(0,len(superlist)):
         for j in range(0,len(addr)):
             writer_of_vector(addr[j], superlist[i][j])
-            if gv.inti_repeat == 0:
-                initalization()
-            ga(len(gv.bigres),len(gv.bigout))
-            return
+        if gv.inti_repeat == 0:
+            initalization()
+        ga(len(gv.bigres),len(gv.bigout))
+    return
 
 
 starter()

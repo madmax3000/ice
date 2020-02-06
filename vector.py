@@ -129,6 +129,7 @@ def writer_of_vector(address,element_to_write):
     urlize[a][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlize)  # rewriting the parameters back
     new.to_csv(gv.cktfile, sep=',', header=False, index=False, )
+    print("writing is working") #for debug
     return
     '''
     f=pd.read_csv(gv.cktfile,header=None,index_col=False)
