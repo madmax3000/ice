@@ -98,7 +98,7 @@ def listToString(s):
 
     # traverse in the string
     for ele in s:
-        str1 += ele +"\n"
+        str1 += ele
 
         # return string
     return str1
@@ -153,17 +153,19 @@ def ga(variables, outpu):#genetic algorithm function
     algorithm.run(gv.algo)
     feasible_solutions = [s for s in algorithm.result if s.feasible]
     nondominanted_solutions = nondominated(algorithm.result)
+    '''
     stalker=[]
     for kim in feasible_solutions:
         stalker[kim]=str(feasible_solutions[kim])
     stalker1 = []
     for kim in nondominanted_solutions:
         stalker1[kim] = str(nondominanted_solutions[kim])
+    '''
     f = open("feasible.txt", "a")
-    f.write(listToString(stalker))
+    f.write(listToString(feasible_solutions.__str__()))
     f.close()
     f = open("nondominanted_solutions.txt", "a")
-    f.write(listToString(stalker1))
+    f.write(listToString(nondominanted_solutions.__str__()))
     f.close()
 
     return
