@@ -13,11 +13,11 @@ def initalization():
     print(" \n!!!!  optimization algorithum is running   !!!!\n")
     gv.c = 1  # global variable
     # optimizer  input intialisation
-    gv.paramsfile=input("Enter circuit file name")
-    variables = int(input("enter no of elements to vary"))
+    gv.paramsfile=input("Enter circuit_params_file name\n")
+    variables = int(input("enter no of elements to vary\n"))
     for res in range(0, variables):
         spec = []
-        spec=input("Specify the elements parameters in the following format \n (max,min,row)")
+        spec=input("Specify the element's parameters in the following format \n (max,min,row)")
         spec=spec.split(",")
         spec.append(3)#column no:
         for i  in range(0,len(spec)):
@@ -37,7 +37,7 @@ def initalization():
         ole =ole.split(",")#ole is a list of max and min values
         me=(float(ole[0])+float(ole[1]))/2
         outer.append(me)
-        outer.append(2.5)
+        outer.append(2.5)#
         gv.bigout.append(outer)  # update to a global matix
         for r in range(0, len(gv.bigout)):
             print(gv.bigout[r])
@@ -141,6 +141,12 @@ def ga(variables, outpu):#genetic algorithm function
     new = pd.DataFrame(nondominanted_solutions)  # rewriting the parameters back
     news=f.append(new,ignore_index= True) #appending to old values of non-dominated solutions
     new.to_csv("nondominant.csv", sep=',', header=False, index=False, )
+    '''f
+    with open("feasible.csv", 'r') as f:
+        reader = csv.reader(f)  # read parameter file
+        urlist = list(reader)  # converting parameter file as a list
+    f = pd.DataFrame(urlist)  # rewriting the parameters back
+    '''
     f = pd.read_csv("feasible.csv", header=None, index_col=False)
     ned = pd.DataFrame(feasible_solutions)  # rewriting the parameters back
     neder=f.append(ned,ignore_index= True) #appending to old values of feasiblesolutions
@@ -185,6 +191,8 @@ def vctmain():
     superlist = permutation(elm)
     print(elm)
     print(superlist)
+    #gv.vector=1
+    initalization()
     chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
     if chi =='y':
         gv.inti_repeat = 1
@@ -193,7 +201,7 @@ def vctmain():
             writer_of_vector(addr[j], superlist[i][j])
             if gv.inti_repeat == 0:
                 initalization()
-            ga()
+            ga(len(gv.bigres),len(gv.bigout))
             return
 
 

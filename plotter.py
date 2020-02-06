@@ -15,12 +15,12 @@ def plot(flname,meterno,ttl):
     plt.plot(X,Y,'r')
     plt.title(ttl)
     plt.show()
-    a='y'
+    a=input("do you want plot a specific range of values?\npress y or n\n")
     while(a=='y'):
         a = input("Do you want to specify the time period.....y/n ")
         x = float((input("Enter T-min")))
         y = float((input("Enter T-max")))
-        data = np.loadtxt("ckt_output2.dat")
+        data = np.loadtxt(flname)
         result = data[:, 0]
         print(result)
         t1 = 0
@@ -37,7 +37,7 @@ def plot(flname,meterno,ttl):
         plt.plot(X, Y, 'r')
         plt.title(ttl)
         plt.show()
-
+#plot("ckt_output2.dat",4,"output_voltage")
 
 
 

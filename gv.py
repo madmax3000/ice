@@ -15,3 +15,4 @@ outpu1="ckt_output.dat"
 paramsfile="ckt_params.csv"
 cktfile="ckt.csv"
 inti_repeat='0'
+vector='0'

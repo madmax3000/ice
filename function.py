@@ -12,7 +12,7 @@ import pandas as pd
 def signalselector(a):
     f = pd.read_csv("circuit_inputs.csv", header=None, index_col=False)
     ele = f.iloc[2,2]
-    t2=ele #t2-step size
+    t2=float(ele) #t2-step size
     t1=1/60 #default time period
     #n1=len(a)#n1-total number of samples
     n2=t1/t2 #n2-number of samples in one time period t1
