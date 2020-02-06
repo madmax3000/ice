@@ -153,20 +153,22 @@ def ga(variables, outpu):#genetic algorithm function
     algorithm.run(gv.algo)
     feasible_solutions = [s for s in algorithm.result if s.feasible]
     nondominanted_solutions = nondominated(algorithm.result)
-    '''
-    stalker=[]
-    for kim in feasible_solutions:
-        stalker[kim]=str(feasible_solutions[kim])
-    stalker1 = []
-    for kim in nondominanted_solutions:
-        stalker1[kim] = str(nondominanted_solutions[kim])
-    '''
     f = open("feasible.txt", "a")
-    f.write(listToString(feasible_solutions.__str__()))
+    f.write("\nthis is a set of values\n")
     f.close()
     f = open("nondominanted_solutions.txt", "a")
-    f.write(listToString(nondominanted_solutions.__str__()))
+    f.write("\nthis is a set of values\n")
     f.close()
+    for st in range(len(feasible_solutions)):
+        f = open("feasible.txt", "a")
+        f.write(listToString(feasible_solutions[st].__str__()))
+        f.write("\n")
+        f.close()
+    for tui in range(len(nondominanted_solutions)):
+        f = open("nondominanted_solutions.txt", "a")
+        f.write(listToString(nondominanted_solutions[tui].__str__()))
+        f.write("\n")
+        f.close()
 
     return
 
