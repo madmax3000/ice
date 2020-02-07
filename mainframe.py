@@ -1,4 +1,5 @@
 from test1 import input
+
 import circuit_solver as cs
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution

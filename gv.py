@@ -16,3 +16,8 @@ paramsfile="ckt_params.csv" #default value of ckt params file
 cktfile="ckt.csv" #default value of ckt
 inti_repeat=0 #variable to stop repeated initialisation
 vector=0 #variable to see if vectorization has taken place
+
+
+#used for testing purpose
+z=0#test2
+k=0#test1,test2
