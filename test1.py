@@ -34,5 +34,5 @@ def input(abbas):
     if (abbas == "Enter the max and min limits of the output in the following format \n ( max,min)"):
         return '6,5.9'
     if (abbas == "Enter the no: of iterations"):
-        return 11
+        return 10
    

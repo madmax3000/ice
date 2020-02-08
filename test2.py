@@ -51,6 +51,6 @@ def input(abbas):
     if (abbas == "Enter the max and min limits of the output in the following format \n ( max,min)"):
         return '6,5.9'
     if (abbas == "Enter the no: of iterations"):
-        return 11
+        return 10
     if (abbas == "do you want to keep same initialisation file for all run?\ny/n\n"):
         return 'y'
