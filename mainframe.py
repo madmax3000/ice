@@ -218,6 +218,12 @@ def vctmain():
     for i in range(0,len(superlist)):
         for j in range(0,len(addr)):
             writer_of_vector(addr[j], superlist[i][j])
+            f = open("feasible.txt", "a")
+            f.write("\n")
+            f.write(superlist[i][j])
+            f.write("   address: ")
+            f.write(addr[j])
+            f.close()
         if gv.inti_repeat == 0:
             initalization()
         ga(len(gv.bigres),len(gv.bigout))

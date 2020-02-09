@@ -10,7 +10,7 @@ def input(abbas):
     if (abbas == "enter the filename in which vectorization is to be done:\n"):
         return 'buck_ckt.csv'
     if (abbas == "Enter the no: of iterations in each vectorization instance?"):
-        return 5
+        return 10
 
     if (abbas == "enter the no of elements to change"):
         return 2
@@ -51,6 +51,6 @@ def input(abbas):
     if (abbas == "Enter the max and min limits of the output in the following format \n ( max,min)"):
         return '6,5.9'
     if (abbas == "Enter the no: of iterations"):
-        return 100
+        return 10
     if (abbas == "do you want to keep same initialisation file for all run?\ny/n\n"):
         return 'y'
