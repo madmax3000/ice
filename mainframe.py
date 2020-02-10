@@ -220,8 +220,14 @@ def vctmain():
             writer_of_vector(addr[j], superlist[i][j])
             f = open("feasible.txt", "a")
             f.write("\n")
-            f.write(superlist[i][j])
+            f.write(superlist[i][j])    #writing before each file creation to see list positions
             f.write("   address: ")
+            f.write(addr[j])
+            f.close()
+            f = open("nondominanted_solutions.txt", "a")
+            f.write("\n")
+            f.write(superlist[i][j])
+            f.write("   address: ") #nondominated solutions have option for writing properly
             f.write(addr[j])
             f.close()
         if gv.inti_repeat == 0:
