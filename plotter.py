@@ -7,7 +7,7 @@ Created on Sat Oct  5 05:55:17 2019
 
 import numpy as np
 from matplotlib import pyplot as plt
-
+'''
 def plot(flname,meterno,ttl):
     data=np.loadtxt(flname)
     X=data[:,0]
@@ -38,11 +38,36 @@ def plot(flname,meterno,ttl):
         plt.title(ttl)
         plt.show()
 #plot("ckt_output2.dat",4,"output_voltage")
+'''
+def multiplot():
+    #ckt_output2.dat
+
+    n=int(input("How many plots do you want"))
+    fl=input("enter the filename")
+    m=int(input("enter the number of meters"))
+    mr=[]
+    for i in range(n):
+        mn=int(input("Enter meter numbers"))
+        mr.append(mn)
+    data = np.loadtxt(fl)
+    X=data[:,0]
+    if(n==2):
+        Y1=data[:,mr[0]]
+        Y2=data[:,mr[1]]
+        plt.plot(X,Y1,label=mr[0])
+        plt.plot(X, Y2,label=mr[1])
+        plt.show()
+    if (n == 3):
+        Y1 = data[:, mr[0]]
+        Y2 = data[:, mr[1]]
+        Y3 = data[:, mr[2]]
+        plt.plot(X, Y1,label=mr[0])
+        plt.plot(X, Y2,label=mr[1])
+        plt.plot(X, Y3,label=mr[2])
+        plt.show()
 
 
-
-
-
+multiplot()
 
 
 
