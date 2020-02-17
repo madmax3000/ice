@@ -1,7 +1,7 @@
 #from test2 import input
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
-from function import avg,ripple,rms,signalselector,thd
+from function import avg,ripple,rms,signalselector,thd,efficiency,moving_avg,peak
 import circuit_solver as cs
 import gv
 import csv
@@ -29,15 +29,21 @@ def initalization():
     outpu = int(input("enter no of output parameters to optimize"))
     for out in range(1, outpu + 1):
         outer = []
-        pos = int(input("enter output meter no in output file "))
-        outer.append(pos)
-        rval = float(input("1 for avg\n2 for ripple\n3 for rms \n 4 for THD "))  # take mean set as an target value
+        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for efficency in percentage \n6 for moving average\n7 for peak"))  # take mean set as an target value
         outer.append(rval)
+        if rval==5:
+            gv.esse.append(int(input("enter the meter no of output voltage:\n"))-1)#enter the output voltage meter no
+            gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the output current meter no
+            gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
+            gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the input current meter no
+        else:
+            pos = int(input("enter output meter no in output file "))
+            outer.append(pos-1)
         ole=input("Enter the max and min limits of the output in the following format \n ( max,min)")
         ole =ole.split(",")#ole is a list of max and min values
         me=(float(ole[0])+float(ole[1]))/2
         outer.append(me)
-        outer.append(2.5)#
+        outer.append(2.5)#dummmy value to store future values
         gv.bigout.append(outer)  # update to a global matix
         for r in range(0, len(gv.bigout)):
             print(gv.bigout[r])
@@ -74,6 +80,14 @@ def readus_ripple(out):
     y = signalselector(x)
     n = ripple(y)
     return n
+
+#-------------------------------------------------------------------------------------------------------------
+def readus_peak(out):
+    data = np.loadtxt(gv.outpu1)
+    x = data[:, out]  # read data file
+    y = signalselector(x)
+    n = peak(y)
+    return n
 #-------------------------------------------------------------------------------------------------------------
 
 def readus_rms(out):
@@ -90,6 +104,12 @@ def readus_thd(out):
     y = signalselector(x)
     th = thd(y)
     return th
+def moving_average(out):
+    data = np.loadtxt(gv.outpu1)
+    x = data[:, out]  # read data file
+    y = signalselector(x)
+    m = moving_avg(y)
+    return m
 #----------------------------------------------------------------------------------
 def listToString(s):
 
@@ -115,17 +135,40 @@ def evaluator(vars):
         write(a, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     cs.main()
     for n in range(0, len(gv.bigout)):
-        if gv.bigout[n][3] == 1.0:  # read circuit output parameters
-            lol = gv.bigout[n][0]
-            x = readus_avg(lol - 1)
+        if gv.bigout[n][0] == 1.0:  # read circuit output parameters
+            lol = gv.bigout[n][1]
+            x = readus_avg(lol)
             gv.bigout[n][3] = x
             # print("this is avg value",x)
-        else:
-            lol = gv.bigout[n][0]
-            x = readus_ripple(lol - 1)
+        elif gv.bigout[n][0] == 2:
+            lol = gv.bigout[n][1]
+            x = readus_ripple(lol)
             gv.bigout[n][3] = x
             # print("this is ripple",x)
-
+        elif gv.bigout[n][0] == 3:
+            lol = gv.bigout[n][1]
+            x = readus_rms(lol)
+            gv.bigout[n][3] = x
+            # print("this is rms",x)
+        elif gv.bigout[n][0] == 4:
+            lol = gv.bigout[n][1]
+            x = readus_thd(lol)
+            gv.bigout[n][3] = x
+            # print("this is thd",x)
+        elif gv.bigout[n][0] == 5:
+            x = efficiency()
+            gv.bigout[n][3] = x
+            # print("this is efficency",x)
+        elif gv.bigout[n][0] == 6:
+            lol = gv.bigout[n][1]
+            x = moving_average(lol)
+            gv.bigout[n][3] = x
+            # print("this is moving average",x)
+        elif gv.bigout[n][0] == 7:
+            lol = gv.bigout[n][1]
+            x = readus_peak(lol)
+            gv.bigout[n][3] = x
+            # print("this is peak",x)
     lis = []
     for n in range(0, len(gv.bigout)):
         a = (gv.bigout[n][2] - gv.bigout[n][3]) ** 2

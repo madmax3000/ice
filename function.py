@@ -55,9 +55,16 @@ def thd(t):
     sq_harmonics=sq_sum-(max(abs_data))**2.0
     thd=100*sq_harmonics**0.5/max(abs_data)
     return thd
-'''
-data=np.loadtxt('ckt_output2.dat')
-Z=data[0:50,2]
-a=avg(Z)
-print(a)
-'''
+def efficiency():
+    p1 = avg(gv.esse[0])
+    p2 = avg(gv.esse[1])
+    p3 = avg(gv.esse[2])
+    p4 = avg(gv.esse[3])
+    n=((p1*p2)/(p3*p4))
+    return n*100
+def moving_avg(a):
+    n=np.ma.average(a)
+    return n[len(n)-1] #moving average implemented
+def peak(a):
+    c = max(a) #peak implemented
+    return c
