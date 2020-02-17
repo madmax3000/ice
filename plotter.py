@@ -7,7 +7,6 @@ Created on Sat Oct  5 05:55:17 2019
 
 import numpy as np
 from matplotlib import pyplot as plt
-
 def plot(flname,meterno,ttl):
     data=np.loadtxt(flname)
     X=data[:,0]
@@ -37,8 +36,6 @@ def plot(flname,meterno,ttl):
         plt.plot(X, Y, 'r')
         plt.title(ttl)
         plt.show()
-#plot("ckt_output2.dat",4,"output_voltage")
-
 def multiplot():
     #ckt_output2.dat
 
@@ -88,8 +85,6 @@ def multiplot():
         plt.plot(X, Y5, label=mr[4])
         plt.show()
 
-
-multiplot()
 
 
 
