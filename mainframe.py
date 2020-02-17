@@ -6,7 +6,7 @@ import circuit_solver as cs
 import gv
 import csv
 import pandas as pd
-from plotter import plot
+from plotter import plot, multiplot
 import numpy as np
 gv.counter=0
 def initalization():
@@ -176,7 +176,11 @@ def ga(variables, outpu):#genetic algorithm function
 def starter():#user initialisation
     cs.main()
     a=input("Do you want to plot?\n y or n")
-    while(a=='y'):
+    if a=='y':
+        b=input("plotting options available are:\n1.single plot\n2.multiplot")
+        if b==2:
+            multiplot()
+    while(b=='1'):
         flname=input("Enter the output file which you want to plot?\n")
         meterno=int(input("Enter the Meter number\n"))
         title=input("Enter the title of the plot\n")
