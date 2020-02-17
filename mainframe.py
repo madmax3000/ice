@@ -1,4 +1,4 @@
-from test2 import input
+#from test2 import input
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
 from function import avg,ripple,rms,signalselector,thd
