@@ -16,12 +16,11 @@ def plot(flname,meterno,ttl):
     plt.show()
     a=input("do you want plot a specific range of values?\npress y or n\n")
     while(a=='y'):
-        a = input("Do you want to specify the time period.....y/n ")
         x = float((input("Enter T-min")))
         y = float((input("Enter T-max")))
         data = np.loadtxt(flname)
         result = data[:, 0]
-        print(result)
+        #print(result)
         t1 = 0
         t2 = 0
         c = 0
@@ -36,12 +35,12 @@ def plot(flname,meterno,ttl):
         plt.plot(X, Y, 'r')
         plt.title(ttl)
         plt.show()
+        a = input("Do you want to specify the time period again.....y/n ")
 def multiplot():
     #ckt_output2.dat
 
     n=int(input("How many plots do you want\n maximum 5 plots are only possible"))
     fl=input("enter the filename")
-    m=int(input("enter the number of meters"))
     mr=[]
     for i in range(n):
         mn=int(input("Enter meter numbers"))

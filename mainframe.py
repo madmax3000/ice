@@ -217,18 +217,20 @@ def ga(variables, outpu):#genetic algorithm function
 
 #-----------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
-    cs.main()
+    #cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are:\n1.single plot\n2.multiplot")
-        if b==2:
+        if b=='2':
             multiplot()
-    while(b=='1'):
-        flname=input("Enter the output file which you want to plot?\n")
-        meterno=int(input("Enter the Meter number\n"))
-        title=input("Enter the title of the plot\n")
-        plot(flname,meterno,title)
-        a=input("Do you want to plot again?\n y or n")
+        else:
+            go='y'
+            while(go=='y'):
+                flname=input("Enter the output file which you want to plot?\n")
+                meterno=int(input("Enter the Meter number\n"))
+                title=input("Enter the title of the plot\n")
+                plot(flname,meterno,title)
+                go=input("Do you want to plot again?\n y or n")
 
     opt=input("Do you want to optimize?\n y or n")
     if(opt=='y'):
