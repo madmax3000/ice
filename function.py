@@ -6,6 +6,7 @@ Created on Wed Nov 20 14:22:10 2019
 """
 import gv
 from scipy.fftpack import fft
+from scipy.signal import savgol_filter as sv
 import numpy as np
 import pandas as pd
 #import statistics
@@ -20,7 +21,7 @@ def signalselector(a):
     
     for i in range(0,gv.n3):
         gv.l.append(a[i])
-    #print (gv.l)
+    print (gv.l)
     return gv.l
     
 def ripple(a):
@@ -34,7 +35,7 @@ def avg(a):
     for x in range(0,len(gv.l)):
         s+=gv.l[x]
     av=s/len(gv.l)#average value
-    print(av,"this the isasue")
+    print(av,"this is the avg")
     return av
 
 def rms(d):
@@ -63,8 +64,9 @@ def efficiency():
     n=((p1*p2)/(p3*p4))
     return n*100
 def moving_avg(a):
-    n=np.ma.average(a)
-    return n[len(n)-1] #moving average implemented
+    n=sv(a,5,2)
+    fs=len(n)
+    return n[fs-1] #moving average implemented
 def peak(a):
     c = max(a) #peak implemented
     return c

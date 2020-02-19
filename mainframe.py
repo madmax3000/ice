@@ -35,7 +35,7 @@ def initalization():
             gv.esse.append(int(input("enter the meter no of output voltage:\n"))-1)#enter the output voltage meter no
             gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the output current meter no
             gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
-            gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the input current meter no
+            gv.esse.append(int(input("enter the meter no of input current:\n"))-1)  # enter the input current meter no
         else:
             pos = int(input("enter output meter no in output file "))
             outer.append(pos-1)
@@ -51,7 +51,7 @@ def initalization():
         ga(variables, outpu)  # call genetic algorithm
     return
 
-#---------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------
 def write(a, b, c):
     '''
     f = pd.read_csv(gv.paramsfile, header=False, index=False, )
@@ -72,7 +72,7 @@ def readus_avg(out):
     y = signalselector(x)
     m = avg(y)
     return m
-#----------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------------
 
 def readus_ripple(out):
     data = np.loadtxt(gv.outpu1)
@@ -81,14 +81,14 @@ def readus_ripple(out):
     n = ripple(y)
     return n
 
-#-------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------------
 def readus_peak(out):
     data = np.loadtxt(gv.outpu1)
     x = data[:, out]  # read data file
     y = signalselector(x)
     n = peak(y)
     return n
-#-------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------------------------
 
 def readus_rms(out):
     data = np.loadtxt(gv.outpu1)
@@ -97,7 +97,7 @@ def readus_rms(out):
     p = rms(y)
     return p
 
-#------------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------------------
 def readus_thd(out):
     data = np.loadtxt(gv.outpu1)
     x = data[:, out]  # read data file
@@ -217,7 +217,7 @@ def ga(variables, outpu):#genetic algorithm function
 
 #-----------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
-    #cs.main()
+    cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are:\n1.single plot\n2.multiplot")
