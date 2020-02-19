@@ -61,7 +61,7 @@ def write(a, b, c):
     with open(gv.paramsfile, 'r') as f:
         reader = csv.reader(f)  # read parameter file
         urlist = list(reader)  # converting parameter file as a list
-    urlist[a][b] = c  # assigning parameter value to the list
+    urlist[a-1][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlist)  # rewriting the parameters back
     new.to_csv(gv.paramsfile, sep=',', header=False, index=False, )
 
