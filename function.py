@@ -10,6 +10,11 @@ from scipy.signal import savgol_filter as sv
 import numpy as np
 import pandas as pd
 #import statistics
+def data_extractor(out):
+    data = np.loadtxt(gv.outpu1)
+    x = data[:, out]  # read data file
+    y = signalselector(x)
+    return y
 def signalselector(a):
     f = pd.read_csv("circuit_inputs.csv", header=None, index_col=False)
     ele = f.iloc[2,2]
@@ -57,10 +62,10 @@ def thd(t):
     thd=100*sq_harmonics**0.5/max(abs_data)
     return thd
 def efficiency():
-    p1 = avg(gv.esse[0])
-    p2 = avg(gv.esse[1])
-    p3 = avg(gv.esse[2])
-    p4 = avg(gv.esse[3])
+    p1 = avg(data_extractor(gv.esse[0]))
+    p2 = avg(data_extractor(gv.esse[1]))
+    p3 = avg(data_extractor(gv.esse[2]))
+    p4 = avg(data_extractor(gv.esse[3]))
     n=((p1*p2)/(p3*p4))
     return n*100
 def moving_avg(a):
