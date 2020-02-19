@@ -21,7 +21,7 @@ def signalselector(a):
     
     for i in range(0,gv.n3):
         gv.l.append(a[i])
-    print (gv.l)
+    #print (gv.l)
     return gv.l
     
 def ripple(a):
