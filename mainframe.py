@@ -36,6 +36,7 @@ def initalization():
             gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the output current meter no
             gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
             gv.esse.append(int(input("enter the meter no of input current:\n"))-1)  # enter the input current meter no
+            outer.append(9)
         else:
             pos = int(input("enter output meter no in output file "))
             outer.append(pos-1)

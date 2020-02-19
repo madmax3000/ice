@@ -40,7 +40,7 @@ def avg(a):
     for x in range(0,len(gv.l)):
         s+=gv.l[x]
     av=s/len(gv.l)#average value
-    print(av,"this is the avg")
+    #print(av,"this is the avg")
     return av
 
 def rms(d):
