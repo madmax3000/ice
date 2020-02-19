@@ -132,7 +132,7 @@ def evaluator(vars):
     for m in range(0, len(gv.bigres)):
         a = int(gv.bigres[m][2])  # write parameters to the circuit para meters
         b = int(gv.bigres[m][3])
-        write(a, b, vars[m])  # vars is the output from the prediction of genetic algorithm
+        write(a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     cs.main()
     for n in range(0, len(gv.bigout)):
         if gv.bigout[n][0] == 1.0:  # read circuit output parameters
