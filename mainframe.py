@@ -8,12 +8,13 @@ import csv
 import pandas as pd
 from plotter import plot, multiplot
 import numpy as np
+import globalfile as gf
 gv.counter=0
 def initalization():
     print(" \n!!!!  optimization algorithum is running   !!!!\n")
     gv.c = 1  # global variable
     # optimizer  input intialisation
-    gv.paramsfile=input("Enter circuit_params_file name\n")
+    #gv.paramsfile=input("Enter circuit_params_file name\n")
     variables = int(input("enter no of elements to vary\n"))
     for res in range(0, variables):
         spec = []
