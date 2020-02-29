@@ -1,0 +1,16 @@
+jumpT1wdg1term1,wire,wire,Inductor_l1,wire,Resistor_rl1,wire,wire,wire,wire,wire,Capacitor_c3,wire,VariableResistor_T1wdg1,wire,wire,wire,wire,Ammeter_T1wdg1,wire,wire,wire,wire,,wire,wire,VariableResistor_T1wdg2,wire,wire,wire,wire,Resistor_b6,wire,Ammeter_T2wdg2,wire,wire,wire,Inductor_l2,wire,Resistor_rl2,wire,jumpT1wdg2term1
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,Resistor_rc2,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,Resistor_rc4,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,Capacitor_c2,,,,,,,,,,,,,ControlledVoltageSource_T1wdg1,,ControlledVoltageSource_T1wdg2,,,,,Capacitor_c4,,,,,,wire,,,,,,
+,,,,,,,Voltmeter_T1wdg1,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,Voltmeter_T1wdg2,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+,,,,,,,wire,,wire,,,,,,,,,,,,,wire,,wire,,,,,wire,,,,,,wire,,,,,,
+jumpT1wdg1term2,wire,wire,Resistor_b1,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,Resistor_b2,wire,wire,wire,wire,wire,wire,wire,,wire,wire,wire,Resistor_b3,wire,wire,wire,wire,Resistor_b4,wire,wire,wire,wire,wire,Resistor_b5,wire,wire,jumpT1wdg2term2
