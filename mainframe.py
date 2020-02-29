@@ -1,3 +1,8 @@
+"""
+Created on Wed JAN 20 14:22:10 2020
+
+@author: John JOSE
+"""
 #from test2 import input
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
@@ -8,6 +13,7 @@ import csv
 import pandas as pd
 from plotter import plot, multiplot
 import numpy as np
+import externalvariable as ev
 import globalfile as gf
 gv.counter=0
 def initalization():
@@ -18,7 +24,7 @@ def initalization():
     variables = int(input("enter no of elements to vary\n"))
     for res in range(0, variables):
         spec = []
-        spec=input("Specify the element's parameters in the following format \n (max,min,row)")
+        spec=input("Specify the element's parameters in the following format \n (element sheet no ,element row no ,max,min)")
         spec=spec.split(",")
         spec.append(3)#column no:
         for i  in range(0,len(spec)):
@@ -26,11 +32,11 @@ def initalization():
         gv.bigres.append(spec)  # combine to a large matrix global matrix in gv.py
     for r in range(0, len(gv.bigres)):
         print(gv.bigres[r])
-    gv.outpu1 = input("Enter the output file in which the optimization targets are present \n ")
+    #gv.outpu1 = input("Enter the output file in which the optimization targets are present \n ")
     outpu = int(input("enter no of output parameters to optimize"))
     for out in range(1, outpu + 1):
         outer = []
-        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for efficency in percentage \n6 for moving average\n7 for peak"))  # take mean set as an target value
+        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for efficency in percentage \n6 for moving average\n7 for peak\n8for optimizing an external variable or expression"))  # take mean set as an target value
         outer.append(rval)
         if rval==5:
             gv.esse.append(int(input("enter the meter no of output voltage:\n"))-1)#enter the output voltage meter no
@@ -38,6 +44,8 @@ def initalization():
             gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
             gv.esse.append(int(input("enter the meter no of input current:\n"))-1)  # enter the input current meter no
             outer.append(9)
+        if rval==8:
+
         else:
             pos = int(input("enter output meter no in output file "))
             outer.append(pos-1)
@@ -132,10 +140,11 @@ def evaluator(vars):
     gv.counter = gv.counter + 1
     print("the counter value is ", gv.counter)
     for m in range(0, len(gv.bigres)):
-        a = int(gv.bigres[m][2])  # write parameters to the circuit para meters
-        b = int(gv.bigres[m][3])
+        a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
+        b = int(gv.bigres[m][4])
         write(a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     cs.main()
+    gf.external_variable=ev.uservariable()
     for n in range(0, len(gv.bigout)):
         if gv.bigout[n][0] == 1.0:  # read circuit output parameters
             lol = gv.bigout[n][1]
@@ -184,7 +193,7 @@ def ga(variables, outpu):#genetic algorithm function
         gv.algo=int(input("Enter the no: of iterations"))
     problem = Problem(variables, outpu)  # specify the no of objectives and inputs
     for i in range(0, len(gv.bigres)):
-        problem.types[i:i + 1] = [Real(gv.bigres[i][1], gv.bigres[i][0])]  # loop to intialise the limkits
+        problem.types[i:i + 1] = [Real(gv.bigres[i][3], gv.bigres[i][2])]  # loop to intialise the limkits
 
     problem.function = evaluator  # call the simulator
     v_population_size = 10
@@ -287,7 +296,9 @@ def vctmain():
     return
 
 
-starter()
+if __name__ == "__main__":
+    starter()
+
 
 
 

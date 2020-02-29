@@ -1,5 +1,6 @@
 import userclasser as uc
-def uservariable()
+def uservariable():
+    # external variable 1
     cf = uc.user()
     ap = cf.element(1,0)
     ap1 = cf.element(1,1)
@@ -8,9 +9,7 @@ def uservariable()
     cf.store(kik)   # a sample external variable
     print(cf.value)
 
-
-
-
+    # external variable 2
     cf1 = uc.user()
     ap2 = cf1.element(1,3)
     ap3 = cf1.element(1,2)
@@ -18,5 +17,6 @@ def uservariable()
     ou1 = cf1.peak(1,3)
     kiku=(m3*(ap2*ap3)/ou1)
     cf1.store(kiku) # a second external variable
-    print(cf1.value)
-    return cf1,cf
+    print(cf1)
+    return
+uservariable()

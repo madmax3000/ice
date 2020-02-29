@@ -48,3 +48,6 @@ class user:
     def store(self, value):
         self.value = value
         return
+    def __str__(self):
+        return str(self.value)
+
