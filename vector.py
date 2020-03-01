@@ -76,7 +76,7 @@ def permutation(lst):
 
 # reader to find the element from its location
 def reader(flno,p):
-    f=pd.read_csv(gf.diagramarray,header=None,index_col=False)
+    f=pd.read_csv(gf.diagramarray[flno],header=None,index_col=False)
     ele=f.iloc[p[0],p[1]]
     return ele
 
