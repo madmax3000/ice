@@ -1,0 +1,16 @@
+jumpT1wdg1term1,wire,wire,wire,wire,wire,wire,wire,VariableResistor_T1wdg1,wire,wire,wire,Ammeter_T1wdg1,wire,wire,wire,wire,,wire,wire,VariableResistor_T1wdg2,wire,wire,wire,wire,wire,Ammeter_T2wdg2,wire,wire,wire,wire,wire,wire,jumpT1wdg2term1
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,ControlledVoltageSource_T1wdg1,,ControlledVoltageSource_T1wdg2,,,,,,,,,,wire,,,,,
+,,,,,Voltmeter_T1wdg1,,,,,,,,,,,wire,,wire,,,,,,,,,,Voltmeter_T1wdg2,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+,,,,,wire,,,,,,,,,,,wire,,wire,,,,,,,,,,wire,,,,,
+jumpT1wdg1term2,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,jumpT1wdg2term2

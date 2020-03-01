@@ -1,0 +1,8 @@
+VariableResistor, T1wdg1, 1I, Initial resistance = 100.0, Name of control signal = RT1wdg1, 
+VariableResistor, T1wdg2, 1U, Initial resistance = 100.0, Name of control signal = RT1wdg2, 
+Ammeter, T1wdg1, 1M, Positive polarity towards (cell) = 1N, 
+Ammeter, T2wdg2, 1AA, Positive polarity towards (cell) = 1Z, 
+ControlledVoltageSource, T1wdg1, 8Q, Positive polarity towards (cell) = 7Q, Name of control signal = VT1wdg1, 
+ControlledVoltageSource, T1wdg2, 8S, Positive polarity towards (cell) = 7S, Name of control signal = VT1wdg2, 
+Voltmeter, T1wdg1, 9F, Rated voltage level to be measured = 600.0, Positive polarity towards (cell) = 8F, 
+Voltmeter, T1wdg2, 9AC, Rated voltage level to be measured = 600.0, Positive polarity towards (cell) = 8AC, 
