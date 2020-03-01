@@ -83,7 +83,8 @@ def reader(flno,p):
 def indexfinder(f):
     posl=[]
     b=list(f)
-    k=int(b[1])
+    b=b[::-1]
+    k=int(b[0])
     r=k-1
     alpha={ "A":0,
         "B":1,
@@ -110,10 +111,41 @@ def indexfinder(f):
         "W":22,
         "X":23,
         "Y":24,
-        "Z":25
+        "Z":25,
+        "AA": 26,
+        "AB": 27,
+        "AC": 28,
+        "AD": 29,
+        "AE": 30,
+        "AF": 31,
+        "AG": 32,
+        "AH": 33,
+        "AI": 34,
+        "AJ": 35,
+        "AK": 36,
+        "AL": 37,
+        "AM": 38,
+        "AN": 39,
+        "AO": 40,
+        "AP": 41,
+        "AQ": 42,
+        "AR": 43,
+        "AS": 44,
+        "AT": 45,
+        "AU": 46,
+        "AV": 47,
+        "AW": 48,
+        "AX": 49,
+        "AY": 50,
+        "AZ": 51
         }
-    for x in alpha:
-        if (b[0] == x):
+    lu = []
+    for n in range(1, len(k)):
+        lu.append(k[n])
+    var = ''.join(lu)
+
+    for x in alpha:# a permanant fix for this index long issue is required
+        if (var == x):
             c = alpha[x]
             posl.append(r)
             posl.append(c)
