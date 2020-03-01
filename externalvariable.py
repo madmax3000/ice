@@ -1,4 +1,5 @@
 import userclasser as uc
+import gv
 def uservariable():
     # external variable 1
     cf = uc.user()
@@ -18,5 +19,5 @@ def uservariable():
     kiku=(m3*(ap2*ap3)/ou1)
     cf1.store(kiku) # a second external variable
     print(cf1)
+    gv.externalvariable=[cf,cf1]
     return
-uservariable()

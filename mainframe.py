@@ -6,7 +6,7 @@ Created on Wed JAN 20 14:22:10 2020
 #from test2 import input
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
-from function import avg,ripple,rms,signalselector,thd,efficiency,moving_avg,peak
+from function import avg,ripple,rms,signalselector,thd,efficiency,moving_avg,peak,
 import circuit_solver as cs
 import gv
 import csv
@@ -43,10 +43,15 @@ def initalization():
             gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the output current meter no
             gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
             gv.esse.append(int(input("enter the meter no of input current:\n"))-1)  # enter the input current meter no
-            outer.append(9)
+            outer.append(9) #junk value to make the matrix work as a charm
+            outer.append(8)  # junk value to get the matrix right it is used to make squared error works for all
         if rval==8:
-
+            posoffile = int(input("enter the  variable list no"))
+            outer.append(posoffile)
+            outer.append(9)#junk value to make it work
         else:
+            posoffile = int(input("enter the  output file no"))
+            outer.append(posoffile)
             pos = int(input("enter output meter no in output file "))
             outer.append(pos-1)
         ole=input("Enter the max and min limits of the output in the following format \n ( max,min)")
@@ -62,64 +67,19 @@ def initalization():
     return
 
 #-----------------------------------------------------------------------------------------------------------------------------------
-def write(a, b, c):
+def write(flname,a, b, c):
     '''
     f = pd.read_csv(gv.paramsfile, header=False, index=False, )
     f.iloc[a, b] = c
     f.to_csv(gv.paramsfile, sep=',', header=False, index=False, )
     '''
-    with open(gv.paramsfile, 'r') as f:
+    with open(gf.paramsarray[flname-1], 'r') as f:
         reader = csv.reader(f)  # read parameter file
         urlist = list(reader)  # converting parameter file as a list
     urlist[a][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlist)  # rewriting the parameters back
-    new.to_csv(gv.paramsfile, sep=',', header=False, index=False, )
-
-#-----------------------------------------------------------------------------------------------------------
-def readus_avg(out):
-    data = np.loadtxt(gv.outpu1)
-    x = data[:, out]  # read data file
-    y = signalselector(x)
-    m = avg(y)
-    return m
-#---------------------------------------------------------------------------------------------------------------------------------------
-
-def readus_ripple(out):
-    data = np.loadtxt(gv.outpu1)
-    x = data[:, out]  # read data file
-    y = signalselector(x)
-    n = ripple(y)
-    return n
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-def readus_peak(out):
-    data = np.loadtxt(gv.outpu1)
-    x = data[:, out]  # read data file
-    y = signalselector(x)
-    n = peak(y)
-    return n
-#--------------------------------------------------------------------------------------------------------------------------------------------
-
-def readus_rms(out):
-    data = np.loadtxt(gv.outpu1)
-    x = data[:, out]  # read data file
-    y = signalselector(x)
-    p = rms(y)
-    return p
-
-#------------------------------------------------------------------------------------------------------------------------------------------------
-def readus_thd(out):
-    data = np.loadtxt(gv.outpu1)
-    x = data[:, out]  # read data file
-    y = signalselector(x)
-    th = thd(y)
-    return th
-def moving_average(out):
-    data = np.loadtxt(gv.outpu1)
-    x = data[:, out]  # read data file
-    y = signalselector(x)
-    m = moving_avg(y)
-    return m
+    new.to_csv(gf.paramsarray[flname-1], sep=',', header=False, index=False, )
+    return
 #----------------------------------------------------------------------------------
 def listToString(s):
 
@@ -140,49 +100,59 @@ def evaluator(vars):
     gv.counter = gv.counter + 1
     print("the counter value is ", gv.counter)
     for m in range(0, len(gv.bigres)):
+        flname = int(gv.bigres[m][0]) #the no in the params
         a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
         b = int(gv.bigres[m][4])
-        write(a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
+        write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     cs.main()
-    gf.external_variable=ev.uservariable()
+    ev.uservariable()
     for n in range(0, len(gv.bigout)):
         if gv.bigout[n][0] == 1.0:  # read circuit output parameters
-            lol = gv.bigout[n][1]
-            x = readus_avg(lol)
-            gv.bigout[n][3] = x
+            lol = gv.bigout[n][2] #it has the file no of params file so it find the right file name
+            lul = gv.bigout[n][1] #it has the meter number
+            x = avg(lul,lol)
+            gv.bigout[n][4] = x
             # print("this is avg value",x)
         elif gv.bigout[n][0] == 2:
-            lol = gv.bigout[n][1]
-            x = readus_ripple(lol)
-            gv.bigout[n][3] = x
+            lol = gv.bigout[n][2]
+            lul = gv.bigout[n][1]
+            x = ripple(lul,lol)
+            gv.bigout[n][4] = x
             # print("this is ripple",x)
         elif gv.bigout[n][0] == 3:
-            lol = gv.bigout[n][1]
-            x = readus_rms(lol)
-            gv.bigout[n][3] = x
+            lol = gv.bigout[n][2]
+            lul = gv.bigout[n][1]
+            x = rms(lul,lol)
+            gv.bigout[n][4] = x
             # print("this is rms",x)
         elif gv.bigout[n][0] == 4:
-            lol = gv.bigout[n][1]
-            x = readus_thd(lol)
-            gv.bigout[n][3] = x
+            lol = gv.bigout[n][2]
+            lul = gv.bigout[n][1]
+            x = thd(lul,lol)
+            gv.bigout[n][4] = x
             # print("this is thd",x)
         elif gv.bigout[n][0] == 5:
-            x = efficiency()
-            gv.bigout[n][3] = x
+            x = efficiency() # returns the current efficency
+            gv.bigout[n][4] = x #places to an early dummy value
             # print("this is efficency",x)
         elif gv.bigout[n][0] == 6:
-            lol = gv.bigout[n][1]
-            x = moving_average(lol)
-            gv.bigout[n][3] = x
+            lol = gv.bigout[n][2]
+            lul = gv.bigout[n][1]
+            x = moving_avg(lul,lol)
+            gv.bigout[n][4] = x
             # print("this is moving average",x)
         elif gv.bigout[n][0] == 7:
-            lol = gv.bigout[n][1]
-            x = readus_peak(lol)
-            gv.bigout[n][3] = x
+            lol = gv.bigout[n][2]
+            lul = gv.bigout[n][1]
+            x = peak(lul,lol)
+            gv.bigout[n][4] = x
             # print("this is peak",x)
+        elif gv.bigout[n][0] == 8:
+            lol = gv.bigout[n][1] # the variable location
+            gv.bigout[n][4]=(gv.externalvariable[lol-1]).value  #gets the variables value
     lis = []
     for n in range(0, len(gv.bigout)):
-        a = (gv.bigout[n][2] - gv.bigout[n][3]) ** 2
+        a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
         lis.append(a)  # returns result out put to genetic algorithm
 
     return lis
@@ -254,9 +224,16 @@ def starter():#user initialisation
 
 
 def vctmain():
-    gv.cktfile = input("enter the filename in which vectorization is to be done:\n")
-    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?"))
     n = int(input("enter the no of elements to change"))
+    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?"))
+    vect=[]
+    for i in range(0, n):
+        fno = int(input("enter the details in the format:\n1.file no,2.address,"))
+        vect=fno.split(,)
+    '''
+    gv.cktfile = input("enter the filename in which vectorization is to be done:\n")
+    
+
     addr = []
     elm = []
     superlist = []
@@ -270,6 +247,7 @@ def vctmain():
     superlist = permutation(elm)
     print(elm)
     print(superlist)
+    '''
     gv.vector= 1
     initalization()
     chi = input("do you want to keep same initialisation file for all run?\ny/n\n")

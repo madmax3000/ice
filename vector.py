@@ -7,6 +7,7 @@ Created on Wed Jan 29 14:50:33 2020
 import gv
 import pandas as pd
 import csv
+import globalfile as gf
 # Python function to print permutations of a given list 
 
 def permutation(lst): 
@@ -73,9 +74,9 @@ def permutation(lst):
   
 # Driver program to test above function 
 
-
-def reader(p):
-    f=pd.read_csv(gv.cktfile,header=None,index_col=False)
+# reader to find the element from its location
+def reader(flno,p):
+    f=pd.read_csv(gf.diagramarray,header=None,index_col=False)
     ele=f.iloc[p[0],p[1]]
     return ele
 
@@ -118,17 +119,17 @@ def indexfinder(f):
             posl.append(c)
             return posl
         
-def writer_of_vector(address,element_to_write):
+def writer_of_vector(address,element_to_write,fileno):
     abe=indexfinder(address)
     a=abe[0]
     b=abe[1]
     c=element_to_write
-    with open(gv.cktfile, 'r') as f:
+    with open(gf.diagramarray[fileno], 'r') as f:
         readprofile = csv.reader(f)  # read parameter file
         urlize = list(readprofile)  # converting parameter file as a list
     urlize[a][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlize)  # rewriting the parameters back
-    new.to_csv(gv.cktfile, sep=',', header=False, index=False, )
+    new.to_csv(gf.diagramarray[fileno], sep=',', header=False, index=False, )
     print("writing is working") #for debug
     return
     '''

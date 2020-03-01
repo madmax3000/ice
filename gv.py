@@ -7,6 +7,7 @@ Created on Tue Oct 22 14:36:30 2019
 c = 0# to stop seeing repeated steps
 bigres=[]#the big matrix of parameters which can be changed
 bigout=[]#the big matrix of output targets to be achieved
+bigvect=[]
 counter=0#debugging
 l=[]#list which stores the samples produced during timeperiod t1
 n3=0#for signal selector
@@ -17,7 +18,7 @@ cktfile="ckt.csv" #default value of ckt
 inti_repeat=0 #variable to stop repeated initialisation
 vector=0 #variable to see if vectorization has taken place
 esse=[]
-
+externalvariable=[]# used for storing external variables
 #used for testing purpose
 z=0#test2
 k=0#test1,test2
