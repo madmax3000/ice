@@ -81,21 +81,7 @@ def write(flname,a, b, c):
     new.to_csv(gf.paramsarray[flname-1], sep=',', header=False, index=False, )
     return
 #----------------------------------------------------------------------------------
-def listToString(s):
 
-    # initialize an empty string
-    str1 = ""
-
-    # traverse in the string
-    for ele in s:
-        str1 += ele
-
-        # return string
-    return str1
-
-
-
-#--------------------------------------------------------------------------------------------------------
 def evaluator(vars):
     gv.counter = gv.counter + 1
     print("the counter value is ", gv.counter)
@@ -178,20 +164,26 @@ def ga(variables, outpu):#genetic algorithm function
     feasible_solutions = [s for s in algorithm.result if s.feasible]
     nondominanted_solutions = nondominated(algorithm.result)
     f = open("feasible.txt", "a")
-    f.write("\nthis is a set of values\n")
+    f.write("\nthis is a set of feasible_solutions values\n")
     f.close()
-    f = open("nondominanted_solutions.txt", "a")
-    f.write("\nthis is a set of values\n")
-    f.close()
-    for st in range(len(feasible_solutions)):
+    for i in range(len(feasible_solutions[0].variables)):
         f = open("feasible.txt", "a")
-        f.write(listToString(feasible_solutions[st].__str__()))
-        f.write("\n")
+        f.write(str(i) + " th element" + " value is " + str(feasible_solutions[0].variables[i]) + "\n")
         f.close()
-    for tui in range(len(nondominanted_solutions)):
-        f = open("nondominanted_solutions.txt", "a")
-        f.write(listToString(nondominanted_solutions[tui].__str__()))
-        f.write("\n")
+    for i in range(len(feasible_solutions[0].objectives)):
+        f = open("feasible.txt", "a")
+        f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
+        f.close()
+    f = open("nondominanted_solutions.txt", "a")
+    f.write("\nthis is a set of nondominanted_solutions values\n")
+    f.close()
+    for i in range(len(nondominanted_solutions[0].variables)):
+        f = open("nondominanted_solutions.txt.txt", "a")
+        f.write(str(i) + " th element" + " value is " + str(nondominanted_solutions[0].variables[i]) + "\n")
+        f.close()
+    for i in range(len(nondominanted_solutions[0].objectives)):
+        f = open("nondominanted_solutions.txt.txt", "a")
+        f.write(str(i) + " th  objective error " + " value is " + str(nondominanted_solutions[0].objectives[i]) + "\n")
         f.close()
 
     return

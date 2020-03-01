@@ -19,14 +19,20 @@ problem.types[:] = [Real(0, 5), Real(0, 3)]
 problem.function = belegundu
 
 algorithm = NSGAII(problem)
-algorithm.run(1000)
+algorithm.run(100)
 #print(algorithm.result)
 feasible_solutions = [s for s in algorithm.result if s.feasible]
-print(feasible_solutions[0].variables)
-print(feasible_solutions[0])
-new = pd.DataFrame(feasible_solutions)  #rewriting the parameters back
-new.to_csv("buck_ckt_pams.csv",sep=',',header=False,index=False,) 
-print('***********************************')
-print(algorithm.result)  
-print('***********************************')
+#print(feasible_solutions[0].variables[0])
+#print("\n",feasible_solutions[0].variables[1])
+#print(feasible_solutions[0].objectives[0])
 nondominanted_solutions=nondominated(algorithm.result)
+for i in range(len(feasible_solutions[0].variables)):
+    f = open("feasible_test.txt", "a")
+    f.write(str(i)+" th element" + " value is "+str(feasible_solutions[0].variables[i])+"\n")
+    #f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
+    f.close()
+for i in range(len(feasible_solutions[0].objectives)):
+    f = open("feasible_test.txt", "a")
+    #f.write(str(i)+" th element" + " value is "+str(feasible_solutions[0].variables[i])+"\n")
+    f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
+    f.close()
