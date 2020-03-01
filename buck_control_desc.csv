@@ -1,5 +1,0 @@
-Output, Element name in circuit spreadsheet =     Switch_S1, Control tag defined in parameters spreadsheet     = S1control, Desired variable name in control code =     S1_gate, Initial output value =     0.0, 
-StaticVariable, Desired variable name in control code = carr_signal, Initial value of variable = 0.0, ,,
-TimeEvent, Desired variable name in control code = t1, First time event = 0.0, ,,
-VariableStorage, Desired variable name in control code = VarStor1, Initial value of variable = 0.0, Plot variable in output file = yes, ,
-VariableStorage, Desired variable name in control code = VarStor2, Initial value of variable = 0.0, Plot variable in output file = yes, ,
