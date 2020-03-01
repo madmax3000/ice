@@ -6,7 +6,7 @@ Created on Wed JAN 20 14:22:10 2020
 #from test2 import input
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
-from function import avg,ripple,rms,signalselector,thd,efficiency,moving_avg,peak,
+from function import avg,ripple,rms,thd,efficiency,moving_avg,peak
 import circuit_solver as cs
 import gv
 import csv
@@ -224,12 +224,31 @@ def starter():#user initialisation
 
 
 def vctmain():
-    n = int(input("enter the no of elements to change"))
-    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?"))
-    vect=[]
+    n = int(input("enter the no of elements to change")) # eneter the no of elements in which vectorization is to be done
+    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?")) # the no of iterations in each veactorization instance
     for i in range(0, n):
-        fno = int(input("enter the details in the format:\n1.file no,2.address,"))
-        vect=fno.split(,)
+        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address)")
+        spec = spec.split(",")
+        spec[0]=int(spec[0])
+        gv.bigvect.append(spec)
+        ''' this loop just took done the ckt file no details and elemanet addreses in coma format then turns no from string to 
+        an integer so as to process it later on'''
+    address=[]
+    elements=[]
+    for i in range(n):
+        value1 = indexfinder(gv.bigvect[i][1])
+        element = reader(gv.bigvect[i][0],value1)
+        address.append(gv.bigvect[i][1])
+        elements.append(element)
+        print(elements)
+    superlist=permutation(elements)
+    print(superlist)
+
+
+    ''' the above session just read the elemnt names from the respective lists 
+    and then it would create a permutation of elemants so that all combinations could be tried out.'''
+
+
     '''
     gv.cktfile = input("enter the filename in which vectorization is to be done:\n")
     
@@ -254,19 +273,19 @@ def vctmain():
     if chi =='y':
         gv.inti_repeat = 1
     for i in range(0,len(superlist)):
-        for j in range(0,len(addr)):
-            writer_of_vector(addr[j], superlist[i][j])
+        for j in range(0,len(address)):
+            writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][1])
             f = open("feasible.txt", "a")
             f.write("\n")
             f.write(superlist[i][j])    #writing before each file creation to see list positions
             f.write("   address: ")
-            f.write(addr[j])
+            f.write(address[j])
             f.close()
             f = open("nondominanted_solutions.txt", "a")
             f.write("\n")
             f.write(superlist[i][j])
             f.write("   address: ") #nondominated solutions have option for writing properly
-            f.write(addr[j])
+            f.write(address[j])
             f.close()
         if gv.inti_repeat == 0:
             initalization()
