@@ -2,6 +2,7 @@ import userclasser as uc
 import gv
 def uservariable():
     # external variable 1
+    '''
     cf = uc.user()
     ap = cf.element(1,0)
     ap1 = cf.element(1,1)
@@ -20,4 +21,5 @@ def uservariable():
     cf1.store(kiku) # a second external variable
     print(cf1)
     gv.externalvariable=[cf,cf1]
+    '''
     return

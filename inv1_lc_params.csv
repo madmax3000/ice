@@ -7,4 +7,4 @@ Diode, D3inv1, 7N, Voltage level (V) = 600.000000, Cathode polarity towards (cel
 Diode, D2inv1, 19H, Voltage level (V) = 600.000000, Cathode polarity towards (cell) = 18H, 
 Diode, D4inv1, 19N, Voltage level (V) = 600.000000, Cathode polarity towards (cell) = 18N, 
 VoltageSource, inv1vdc, 9A, Peak (Volts) = 0.000000, Frequency (Hertz) = 0.000000, Phase (degrees) = 0.000000, Dc offset = 350.000000, Positive polarity towards (cell) = 8A, 
-Resistor, inv1vdc, 14A, 0.01, 
+Resistor, inv1vdc, 14A, 0.07922798522280394, 
