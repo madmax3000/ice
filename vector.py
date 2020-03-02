@@ -140,8 +140,8 @@ def indexfinder(f):
         "AZ": 51
         }
     lu = []
-    for n in range(1, len(k)):
-        lu.append(k[n])
+    for n in range(1, len(b)+1):
+        lu.append(b[n])
     var = ''.join(lu)
 
     for x in alpha:# a permanant fix for this index long issue is required
