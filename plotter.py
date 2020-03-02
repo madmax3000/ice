@@ -4,7 +4,7 @@ Created on Sat Oct  5 05:55:17 2019
 
 @author: JOHN
 """
-
+import globalfile as gf
 import numpy as np
 from matplotlib import pyplot as plt
 def plot(flname,meterno,ttl):
@@ -40,7 +40,7 @@ def multiplot():
     #ckt_output2.dat
 
     n=int(input("How many plots do you want\n maximum 5 plots are only possible"))
-    fl=input("enter the filename")
+    fl=gf.outputarray[int(input("Enter the output file no you want to plot?\n"))-1]
     mr=[]
     for i in range(n):
         mn=int(input("Enter meter numbers"))

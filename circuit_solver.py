@@ -1794,7 +1794,25 @@ folder/directory as circuit_solver.py".format(nw_layout[c1]))
     end_time = time.time()
 
     print(str(end_time-start_time))
-
+    if gv.c == 0:
+        gv.time = float(str(end_time - start_time))
+    if gv.c != 0:
+        tv = float(str(end_time-start_time))
+        gv.timetotal = gv.timetotal-tv
+        if not gv.timetotal<=0:
+            print("estimated remaining time is:",gv.timetotal,"seconds")
+        else:
+            print(" sorry for keeping you waited it is gonna take a bit longer than expected")
+    if (gv.optotimer == 0):
+        tv = gv.time
+        expectation = 0.2
+        gv.timetotal = tv*gv.algo + (tv*gv.algo)*expectation
+        print(" the total time for optimization is: ",gv.timetotal,'seconds')
+    if (gv.vectotimer == 0 and gv.inti_repeat == 0 and gv.vector == 1):
+        tv = gv.time
+        expectation = 0.2
+        gv.timetotal = (tv*gv.algo + (tv*gv.algo)*expectation)*gv.ele_chg
+        print(" the total time for optimization is: ",gv.timetotal,'seconds')
 
 
 if __name__ == "__main__":

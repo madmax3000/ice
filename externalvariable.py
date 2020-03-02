@@ -22,4 +22,11 @@ def uservariable():
     print(cf1)
     gv.externalvariable=[cf,cf1]
     '''
+    cf = uc.user()
+    ap = cf.element(3, 8)
+    ap1 = cf.element(3, 9)
+    m = 0.3
+    kik = m * (ap * ap1)
+    cf.store(kik)
+    gv.externalvariable = [cf]
     return

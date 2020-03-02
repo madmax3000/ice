@@ -92,6 +92,8 @@ def evaluator(vars):
         write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     cs.main()
     ev.uservariable()
+    gv.optotimer = 1
+    gv.vectotimer = 1
     for n in range(0, len(gv.bigout)):
         if gv.bigout[n][0] == 1.0:  # read circuit output parameters
             lol = gv.bigout[n][2] #it has the file no of params file so it find the right file name
@@ -191,7 +193,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-   # cs.main()
+    cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are:\n1.single plot\n2.multiplot")
@@ -200,7 +202,7 @@ def starter():#user initialisation
         else:
             go='y'
             while(go=='y'):
-                flname=input("Enter the output file which you want to plot?\n")
+                flname=gf.outputarray[int(input("Enter the output file no you want to plot?\n"))-1]
                 meterno=int(input("Enter the Meter number\n"))
                 title=input("Enter the title of the plot\n")
                 plot(flname,meterno,title)
@@ -218,6 +220,7 @@ def starter():#user initialisation
 
 def vctmain():
     n = int(input("enter the no of elements to change")) # eneter the no of elements in which vectorization is to be done
+    gv.ele_chg = n
     gv.algo = int(input("Enter the no: of iterations in each vectorization instance?")) # the no of iterations in each veactorization instance
     for i in range(0, n):
         spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address)")
@@ -236,30 +239,6 @@ def vctmain():
         print(elements)
     superlist=permutation(elements)
     print(superlist)
-
-
-    ''' the above session just read the elemnt names from the respective lists 
-    and then it would create a permutation of elemants so that all combinations could be tried out.'''
-
-
-    '''
-    gv.cktfile = input("enter the filename in which vectorization is to be done:\n")
-    
-
-    addr = []
-    elm = []
-    superlist = []
-    for i in range(0, n):
-        y = input("enter the positions")
-        addr.append(y)
-        print(addr)
-        m = indexfinder(addr[i])
-        print(m)
-        elm.append((reader(m)))
-    superlist = permutation(elm)
-    print(elm)
-    print(superlist)
-    '''
     gv.vector= 1
     initalization()
     chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
