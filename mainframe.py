@@ -51,7 +51,7 @@ def initalization():
             outer.append(9)#junk value to make it work
         else:
             posoffile = int(input("enter the  output file no"))
-            outer.append(posoffile)
+            outer.append(posoffile-1)
             pos = int(input("enter output meter no in output file "))
             outer.append(pos-1)
         ole=input("Enter the max and min limits of the output in the following format \n ( max,min)")
@@ -80,7 +80,7 @@ def write(flname,a, b, c):
     new = pd.DataFrame(urlist)  # rewriting the parameters back
     new.to_csv(gf.paramsarray[flname-1], sep=',', header=False, index=False, )
     return
-#----------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------
 
 def evaluator(vars):
     gv.counter = gv.counter + 1
@@ -143,7 +143,7 @@ def evaluator(vars):
 
     return lis
 
-#-----------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------------------
 def ga(variables, outpu):#genetic algorithm function
     if gv.vector==0:
         gv.algo=int(input("Enter the no: of iterations"))
@@ -166,31 +166,32 @@ def ga(variables, outpu):#genetic algorithm function
     f = open("feasible.txt", "a")
     f.write("\nthis is a set of feasible_solutions values\n")
     f.close()
-    for i in range(len(feasible_solutions[0].variables)):
+    for i in range(len(feasible_solutions[0].variables)+1):
         f = open("feasible.txt", "a")
-        f.write(str(i) + " th element" + " value is " + str(feasible_solutions[0].variables[i]) + "\n")
+        f.write(str(i+1) + " th element" + " value is " + str(feasible_solutions[0].variables[i]) + "\n")
         f.close()
     for i in range(len(feasible_solutions[0].objectives)):
         f = open("feasible.txt", "a")
-        f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
+        f.write(str(i+1) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
         f.close()
     f = open("nondominanted_solutions.txt", "a")
     f.write("\nthis is a set of nondominanted_solutions values\n")
     f.close()
-    for i in range(len(nondominanted_solutions[0].variables)):
-        f = open("nondominanted_solutions.txt.txt", "a")
-        f.write(str(i) + " th element" + " value is " + str(nondominanted_solutions[0].variables[i]) + "\n")
+    for i in range(len(nondominanted_solutions[0].variables)+1):
+        f = open("nondominanted_solutions.txt", "a")
+        f.write(str(i+1) + " th element" + " value is " + str(nondominanted_solutions[0].variables[i]) + "\n")
         f.close()
     for i in range(len(nondominanted_solutions[0].objectives)):
-        f = open("nondominanted_solutions.txt.txt", "a")
-        f.write(str(i) + " th  objective error " + " value is " + str(nondominanted_solutions[0].objectives[i]) + "\n")
+        f = open("nondominanted_solutions.txt", "a")
+        f.write(str(i+1) + " th  objective error " + " value is " + str(nondominanted_solutions[0].objectives[i]) + "\n")
         f.close()
 
     return
 
-#-----------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
-    cs.main()
+
+   # cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are:\n1.single plot\n2.multiplot")

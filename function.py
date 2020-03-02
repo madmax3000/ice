@@ -9,6 +9,7 @@ from scipy.fftpack import fft
 from scipy.signal import savgol_filter as sv
 import numpy as np
 import pandas as pd
+import gv
 #import statistics
 def data_extractor(outputarrayno,meterno):
     data = np.loadtxt(gf.outputarray[outputarrayno]) #load data
@@ -17,17 +18,19 @@ def data_extractor(outputarrayno,meterno):
     return y
 def signalselector(a):
     f = pd.read_csv("circuit_inputs.csv", header=None, index_col=False)
-    ele = f.iloc[2,2]
+    ele = f.iloc[3,2]
     t2=float(ele) #t2-step size
     t1=1/60 #default time period
     #n1=len(a)#n1-total number of samples
     n2=t1/t2 #n2-number of samples in one time period t1
-    n3=int(n2)
-    l=[]
-    for i in range(0,n3):
-        l.append(a[i])
+    gv.n3=int(n2)
+    if len(a)<gv.n3:
+        gv.n3=len(a)
+    gv.l=[]
+    for i in range(0,gv.n3):
+        gv.l.append(a[i])
     #print (l)
-    return l
+    return gv.l
     
 def ripple(c,a):
     m=data_extractor(c,a)
