@@ -2,8 +2,8 @@ import math
 
 dt = 1.0e-6
 
-V1rating = 120.0
-V2rating = 480.0
+V1rating = 120
+V2rating = 240
 turns_ratio = V2rating/V1rating
 Rw1 = 0.1
 Rw2 = 0.1*turns_ratio*turns_ratio

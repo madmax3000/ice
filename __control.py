@@ -4,22 +4,22 @@ import math
 
 def mag_transf_func(interface_inputs, interface_outputs, interface_static, interface_time, interface_variablestore,                                 interface_events, circuit_components, pos, t_clock, sys_t_events):
 	v1meas=circuit_components['9F0'].op_value
-	v2meas=circuit_components['9AC0'].op_value
-	iprim=circuit_components['1M0'].op_value
+	v2meas=circuit_components['9AE0'].op_value
+	iprim=circuit_components['1O0'].op_value
 	flux=interface_static[pos]['flux']
 	curr_vector=interface_static[pos]['curr_vector']
 	t1=interface_time[pos]['t1']
 	T1_flux=interface_variablestore['T1_flux'][0]
 	VarStor1=interface_variablestore['VarStor1'][0]
-	VT1wdg1=interface_outputs[pos]['8Q0'][1][2]
-	VT1wdg2=interface_outputs[pos]['8S0'][1][2]
-	RT1wdg1=interface_outputs[pos]['1I0'][1][2]
-	RT1wdg2=interface_outputs[pos]['1U0'][1][2]
+	VT1wdg1=interface_outputs[pos]['8S0'][1][2]
+	VT1wdg2=interface_outputs[pos]['8U0'][1][2]
+	RT1wdg1=interface_outputs[pos]['1K0'][1][2]
+	RT1wdg2=interface_outputs[pos]['1W0'][1][2]
 	
 	dt = 1.0e-6
 	
-	V1rating = 120.0
-	V2rating = 480.0
+	V1rating = 120
+	V2rating = 240
 	turns_ratio = V2rating/V1rating
 	Rw1 = 0.1
 	Rw2 = 0.1*turns_ratio*turns_ratio
@@ -89,26 +89,26 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 
 	interface_events[pos] = 0
 
-	if not interface_outputs[pos]['8Q0'][1][2]==VT1wdg1:
+	if not interface_outputs[pos]['8S0'][1][2]==VT1wdg1:
 		interface_events[pos] = 1
 
-	if not interface_outputs[pos]['8S0'][1][2]==VT1wdg2:
+	if not interface_outputs[pos]['8U0'][1][2]==VT1wdg2:
 		interface_events[pos] = 1
 
-	if not interface_outputs[pos]['1I0'][1][2]==RT1wdg1:
+	if not interface_outputs[pos]['1K0'][1][2]==RT1wdg1:
 		interface_events[pos] = 1
 
-	if not interface_outputs[pos]['1U0'][1][2]==RT1wdg2:
+	if not interface_outputs[pos]['1W0'][1][2]==RT1wdg2:
 		interface_events[pos] = 1
 
-	circuit_components['8Q0'].control_values[0]=VT1wdg1
-	interface_outputs[pos]['8Q0'][1][2]=VT1wdg1
-	circuit_components['8S0'].control_values[0]=VT1wdg2
-	interface_outputs[pos]['8S0'][1][2]=VT1wdg2
-	circuit_components['1I0'].control_values[0]=RT1wdg1
-	interface_outputs[pos]['1I0'][1][2]=RT1wdg1
-	circuit_components['1U0'].control_values[0]=RT1wdg2
-	interface_outputs[pos]['1U0'][1][2]=RT1wdg2
+	circuit_components['8S0'].control_values[0]=VT1wdg1
+	interface_outputs[pos]['8S0'][1][2]=VT1wdg1
+	circuit_components['8U0'].control_values[0]=VT1wdg2
+	interface_outputs[pos]['8U0'][1][2]=VT1wdg2
+	circuit_components['1K0'].control_values[0]=RT1wdg1
+	interface_outputs[pos]['1K0'][1][2]=RT1wdg1
+	circuit_components['1W0'].control_values[0]=RT1wdg2
+	interface_outputs[pos]['1W0'][1][2]=RT1wdg2
 	interface_static[pos]['flux']=flux
 	interface_static[pos]['curr_vector']=curr_vector
 	interface_time[pos]['t1']=t1

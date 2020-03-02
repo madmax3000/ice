@@ -267,7 +267,7 @@ def vctmain():
         gv.inti_repeat = 1
     for i in range(0,len(superlist)):
         for j in range(0,len(address)):
-            writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][1])
+            writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][0])
             f = open("feasible.txt", "a")
             f.write("\n")
             f.write(superlist[i][j])    #writing before each file creation to see list positions

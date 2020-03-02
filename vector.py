@@ -76,7 +76,7 @@ def permutation(lst):
 
 # reader to find the element from its location
 def reader(flno,p):
-    f=pd.read_csv(gf.diagramarray[flno],header=None,index_col=False)
+    f=pd.read_csv(gf.diagramarray[flno-1],header=None,index_col=False)
     ele=f.iloc[p[0],p[1]]
     return ele
 
@@ -140,7 +140,7 @@ def indexfinder(f):
         "AZ": 51
         }
     lu = []
-    for n in range(1, len(b)+1):
+    for n in range(1, len(b)):
         lu.append(b[n])
     var = ''.join(lu)
 
@@ -156,12 +156,12 @@ def writer_of_vector(address,element_to_write,fileno):
     a=abe[0]
     b=abe[1]
     c=element_to_write
-    with open(gf.diagramarray[fileno], 'r') as f:
+    with open(gf.diagramarray[int(fileno)-1], 'r') as f:
         readprofile = csv.reader(f)  # read parameter file
         urlize = list(readprofile)  # converting parameter file as a list
     urlize[a][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlize)  # rewriting the parameters back
-    new.to_csv(gf.diagramarray[fileno], sep=',', header=False, index=False, )
+    new.to_csv(gf.diagramarray[int(fileno)-1], sep=',', header=False, index=False, )
     print("writing is working") #for debug
     return
     '''
