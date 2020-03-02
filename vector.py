@@ -162,7 +162,7 @@ def writer_of_vector(address,element_to_write,fileno):
     urlize[a][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlize)  # rewriting the parameters back
     new.to_csv(gf.diagramarray[int(fileno)-1], sep=',', header=False, index=False, )
-    print("writing is working") #for debug
+    print("writing is working") #for  fix of writer
     return
     '''
     f=pd.read_csv(gv.cktfile,header=None,index_col=False)
