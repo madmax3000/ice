@@ -79,13 +79,24 @@ def reader(flno,p):
     f=pd.read_csv(gf.diagramarray[flno-1],header=None,index_col=False)
     ele=f.iloc[p[0],p[1]]
     return ele
-
+#-----------------------------------------------------------------
+def splitString(str):
+    alpha = ""
+    num = ""
+    special = ""
+    for i in range(len(str)):
+        if (str[i].isdigit()):
+            num = num + str[i]
+        elif ((str[i] >= 'A' and str[i] <= 'Z') or
+              (str[i] >= 'a' and str[i] <= 'z')):
+            alpha += str[i]
+        else:
+            special += str[i]
+    return [alpha,num]
+#-----------------------------------------------------------------------
 def indexfinder(f):
-    posl=[]
-    b=list(f)
-    b=b[::-1]
-    k=int(b[0])
-    r=k-1
+    apna = splitString(f.upper())
+    r=int(apna[1])-1  #now support added for
     alpha={ "A":0,
         "B":1,
         "C":2,
@@ -139,13 +150,9 @@ def indexfinder(f):
         "AY": 50,
         "AZ": 51
         }
-    lu = []
-    for n in range(1, len(b)):
-        lu.append(b[n])
-    var = ''.join(lu)
-
+    posl=[]
     for x in alpha:# a permanant fix for this index long issue is required
-        if (var == x):
+        if (apna[0] == x):
             c = alpha[x]
             posl.append(r)
             posl.append(c)
@@ -164,9 +171,7 @@ def writer_of_vector(address,element_to_write,fileno):
     new.to_csv(gf.diagramarray[int(fileno)-1], sep=',', header=False, index=False, )
     print("writing is working") #for  fix of writer
     return
-    '''
-    f=pd.read_csv(gv.cktfile,header=None,index_col=False)
-    f.iloc[a[0],a[1]]=element_to_write
-    f.to_csv(gv.cktfile,sep=',',header=False,index=False,)
-    return
-    '''
+
+
+
+
