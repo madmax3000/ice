@@ -205,7 +205,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-    #cs.main()
+    cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are:\n1.single plot\n2.multiplot")
@@ -293,7 +293,7 @@ def vctmain():
             f.close()
         if gv.inti_repeat == 0:
             initalization()
-        #ga(len(gv.bigres),len(gv.bigout))
+        ga(len(gv.bigres),len(gv.bigout))
     return
 
 

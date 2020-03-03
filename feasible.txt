@@ -1,0 +1,53 @@
+
+Capacitor_filter   address: 1J
+Inductor_filter   address: 11X
+this is a set of feasible_solutions values
+
+ this is solution  1
+1 th element value is 0.0007444900018324344
+1 th  objective error  value is 0.24999878442266074
+
+ this is solution  2
+1 th element value is 0.00047308083609500987
+1 th  objective error  value is 0.2499992275697492
+
+ this is solution  3
+1 th element value is 0.0006907583619104455
+1 th  objective error  value is 0.24999887215371158
+
+ this is solution  4
+1 th element value is 0.0008659551384739855
+1 th  objective error  value is 0.24999858609889752
+
+ this is solution  5
+1 th element value is 0.0007553826090622464
+1 th  objective error  value is 0.24999876663761308
+
+ this is solution  6
+1 th element value is 0.0008545517795374464
+1 th  objective error  value is 0.24999860471787502
+
+ this is solution  7
+1 th element value is 2.385823488004883e-05
+1 th  objective error  value is 0.24999996104505942
+
+ this is solution  8
+1 th element value is 0.0001298787331657212
+1 th  objective error  value is 0.24999978793831623
+
+ this is solution  9
+1 th element value is 0.00021316320510027413
+1 th  objective error  value is 0.24999965195424273
+
+ this is solution  10
+1 th element value is 0.0005802700222122794
+1 th  objective error  value is 0.24999905255506852
+
+Inductor_filter   address: 1J
+Capacitor_filter   address: 11X
+Inductor_filter   address: 1J
+Inductor_filter   address: 1J
+Capacitor_filter   address: 11X
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 11X
