@@ -205,7 +205,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-    cs.main()
+    #cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are:\n1.single plot\n2.multiplot")
@@ -264,18 +264,18 @@ def vctmain():
             print(x[0]) #debug
             if x[0]=="Capacitor":  #"check for polar elemnet"
                 fileno=gv.bigvect[j][0]
-                with open(gf.diagramarray[int(fileno) - 1], 'r') as f:
+                with open(gf.paramsarray[int(fileno) - 1], 'r') as f:
                     readprofile = csv.reader(f)  # read parameter file
                     urlize = list(readprofile)  # converting parameter file as a list
                 index=100
                 for k in range(len(urlize)):
                     if x[0]==urlize[k][0]:
                         index=k   #find the capacitor elemnt
-                    if x[1]==urlize[k][0]:
+                    if x[1]==urlize[k][1]:
                         if index == k:   #find elemnt name
                             urlize[k][4] = "Positive polarity towards (cell) = "+str(gv.bigvect[j][2]) # assigning polarity  value to the list
                 new = pd.DataFrame(urlize)  # rewriting the parameters back
-                new.to_csv(gf.diagramarray[int(fileno) - 1], sep=',', header=False, index=False, )
+                new.to_csv(gf.paramsarray[int(fileno) - 1], sep=',', header=False, index=False, )
 
             f = open("feasible.txt", "a")
             f.write("\n")
@@ -291,7 +291,7 @@ def vctmain():
             f.close()
         if gv.inti_repeat == 0:
             initalization()
-        ga(len(gv.bigres),len(gv.bigout))
+        #ga(len(gv.bigres),len(gv.bigout))
     return
 
 

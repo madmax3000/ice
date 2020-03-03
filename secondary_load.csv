@@ -8,7 +8,7 @@ jumpT1wdg2term1,wire,wire,wire,wire,Resistor_filter,wire,wire,wire,Capacitor_fil
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,Resistor_l1
 ,,,,,,,,,,,,,,,wire,,,Voltmeter_load,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
-,,,,,,,,,,,,,,,wire,,,wire,,,,,Inductor_filter
+,,,,,,,,,,,,,,,wire,,,wire,,,,,Capacitor_filter
 ,,,,,,,,,,,,,,,Resistor_Cfilter,,,wire,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
