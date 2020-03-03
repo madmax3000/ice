@@ -10,6 +10,7 @@ from function import avg,ripple,rms,thd,efficiency,moving_avg,peak
 import circuit_solver as cs
 import gv
 import csv
+import re
 import pandas as pd
 from plotter import plot, multiplot
 import numpy as np
@@ -234,7 +235,7 @@ def vctmain():
     gv.ele_chg = n
     gv.algo = int(input("Enter the no: of iterations in each vectorization instance?")) # the no of iterations in each veactorization instance
     for i in range(0, n):
-        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address)")
+        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address,polarity address)")
         spec = spec.split(",")
         spec[0]=int(spec[0])
         gv.bigvect.append(spec)
@@ -259,6 +260,23 @@ def vctmain():
     for i in range(0,len(superlist)):
         for j in range(0,len(address)):
             writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][0])
+            x = re.split("\_", superlist[i][j])  # split the file at '_'
+            print(x[0]) #debug
+            if x[0]=="Capacitor":  #"check for polar elemnet"
+                fileno=gv.bigvect[j][0]
+                with open(gf.diagramarray[int(fileno) - 1], 'r') as f:
+                    readprofile = csv.reader(f)  # read parameter file
+                    urlize = list(readprofile)  # converting parameter file as a list
+                index=100
+                for i in range(len(urlize)):
+                    if x[0]==urlize[i][0]:
+                        index=i
+                    if x[1]==urlize[i][0]:
+                        if index == i:
+                            urlize[i][4] = "Positive polarity towards (cell) = "+str(i) # assigning polarity  value to the list
+                new = pd.DataFrame(urlize)  # rewriting the parameters back
+                new.to_csv(gf.diagramarray[int(fileno) - 1], sep=',', header=False, index=False, )
+
             f = open("feasible.txt", "a")
             f.write("\n")
             f.write(superlist[i][j])    #writing before each file creation to see list positions

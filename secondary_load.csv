@@ -1,10 +1,10 @@
-jumpT1wdg2term1,wire,wire,wire,wire,Resistor_filter,wire,wire,wire,Resistor_load,wire,wire,Ammeter_filter,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire
+jumpT1wdg2term1,wire,wire,wire,wire,Resistor_filter,wire,wire,wire,Capacitor_filter,wire,wire,Ammeter_filter,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,Ammeter_load
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
-,,,,,,,,,,,,,,,Capacitor_filter,,,wire,,,,,wire
+,,,,,,,,,,,,,,,Resistor_load,,,wire,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,Resistor_l1
 ,,,,,,,,,,,,,,,wire,,,Voltmeter_load,,,,,wire
 ,,,,,,,,,,,,,,,wire,,,wire,,,,,wire
