@@ -1802,7 +1802,7 @@ folder/directory as circuit_solver.py".format(nw_layout[c1]))
         if  gv.timetotal>0:
             print("estimated remaining time is:",gv.timetotal,"seconds")
         else:
-            print(" sorry for keeping you waited it is gonna take a bit longer than expected")
+            print(" sorry for keeping you waiting  it is gonna take a bit longer than expected")
     if (gv.optotimer == 0 and gv.c != 0):
         tv = gv.time
         expectation = 0.01

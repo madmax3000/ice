@@ -238,6 +238,7 @@ def vctmain():
         spec = spec.split(",")
         spec[0]=int(spec[0])
         gv.bigvect.append(spec)
+        #se = input("pleases specify if ")
         ''' this loop just took done the ckt file no details and elemanet addreses in coma format then turns no from string to 
         an integer so as to process it later on'''
     address=[]
