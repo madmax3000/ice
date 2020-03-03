@@ -1805,12 +1805,12 @@ folder/directory as circuit_solver.py".format(nw_layout[c1]))
             print(" sorry for keeping you waited it is gonna take a bit longer than expected")
     if (gv.optotimer == 0 and gv.c != 0):
         tv = gv.time
-        expectation = 0.1
+        expectation = 0.01
         gv.timetotal = tv*gv.algo + (tv*gv.algo)*expectation
         print(" the total time for optimization is: ",gv.timetotal,'seconds')
     if (gv.vectotimer == 0 and gv.inti_repeat == 0 and gv.vector == 1):
         tv = gv.time
-        expectation = 0.2
+        expectation = 0.02
         gv.timetotal = (tv*gv.algo + (tv*gv.algo)*expectation)*gv.ele_chg
         print(" the total time for optimization is: ",gv.timetotal,'seconds')
 

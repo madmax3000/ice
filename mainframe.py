@@ -171,22 +171,26 @@ def ga(variables, outpu):#genetic algorithm function
     f.write("\nthis is a set of feasible_solutions values\n")
     f.close()
     for ki in range(len(feasible_solutions)):
-
+        f = open("feasible.txt", "a")
+        f.write("\n this is solution  " + str(ki + 1) + "\n")
+        f.close()
         for i in range(len(feasible_solutions[ki].variables)):
             f = open("feasible.txt", "a")
-            f.write("\n this is solution  "+str(ki+1)+"\n")
             f.write(str(i+1) + " th element" + " value is " + str(feasible_solutions[ki].variables[i]) + "\n")
             f.close()
         for i in range(len(feasible_solutions[ki].objectives)):
             f = open("feasible.txt", "a")
             f.write(str(i+1) + " th  objective error " + " value is " + str(feasible_solutions[ki].objectives[i]) + "\n")
             f.close()
-        f = open("nondominanted_solutions.txt", "a")
-        f.write("\nthis is a set of nondominanted_solutions values\n")
-        f.close()
+    f = open("nondominanted_solutions.txt", "a")
+    f.write("\nthis is a set of nondominanted_solutions values\n")
+    f.close()
     for ki in range(len(nondominanted_solutions)):
+        f = open("nondominanted_solutions.txt", "a")
+        f.write("\n this is solution  " + str(ki + 1) + "\n")
+        f.close()
         for i in range(len(nondominanted_solutions[ki].variables)):
-            f.write("\n this is solution  " + str(ki + 1) + "\n")
+
             f = open("nondominanted_solutions.txt", "a")
             f.write(str(i+1) + " th element" + " value is " + str(nondominanted_solutions[ki].variables[i]) + "\n")
             f.close()
