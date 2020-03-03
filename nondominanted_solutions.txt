@@ -1,0 +1,22 @@
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+1 th element value is 0.2926227332579495
+1 th  objective error  value is 0.0003481399522478067

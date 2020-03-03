@@ -1,0 +1,27 @@
+
+this is a set of feasible_solutions values
+1 th element value is 0.5844862321202022
+
+this is a set of feasible_solutions values
+
+this is a set of feasible_solutions values
+1 th element value is 0.40162698184218937
+1 th  objective error  value is 0.04488586524316352
+1 th element value is 0.8361318166164825
+1 th  objective error  value is 0.9643239363346366
+1 th element value is 0.6251093657030508
+1 th  objective error  value is 0.3696320157674017
+1 th element value is 0.7597912045629154
+1 th  objective error  value is 0.7168843295843119
+1 th element value is 0.23107020781750265
+1 th  objective error  value is 0.008179416599807908
+1 th element value is 0.15344221585431683
+1 th  objective error  value is 0.051998450651725515
+1 th element value is 0.2926227332579495
+1 th  objective error  value is 0.0003481399522478067
+1 th element value is 0.6393526353874646
+1 th  objective error  value is 0.40096648951052466
+1 th element value is 0.6886455748555749
+1 th  objective error  value is 0.5192475101499896
+1 th element value is 0.6743110574295748
+1 th  objective error  value is 0.4832767965896295

@@ -90,8 +90,10 @@ def evaluator(vars):
         a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
         b = int(gv.bigres[m][4])
         write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
+    print("simulation running started")
     cs.main()
     ev.uservariable()
+    print("simulation running stopped")
     gv.optotimer = 1
     gv.vectotimer = 1
     for n in range(0, len(gv.bigout)):
@@ -168,25 +170,30 @@ def ga(variables, outpu):#genetic algorithm function
     f = open("feasible.txt", "a")
     f.write("\nthis is a set of feasible_solutions values\n")
     f.close()
-    for i in range(len(feasible_solutions[0].variables)+1):
-        f = open("feasible.txt", "a")
-        f.write(str(i+1) + " th element" + " value is " + str(feasible_solutions[0].variables[i]) + "\n")
-        f.close()
-    for i in range(len(feasible_solutions[0].objectives)):
-        f = open("feasible.txt", "a")
-        f.write(str(i+1) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
-        f.close()
-    f = open("nondominanted_solutions.txt", "a")
-    f.write("\nthis is a set of nondominanted_solutions values\n")
-    f.close()
-    for i in range(len(nondominanted_solutions[0].variables)+1):
+    for ki in range(len(feasible_solutions)):
+
+        for i in range(len(feasible_solutions[ki].variables)):
+            f = open("feasible.txt", "a")
+            f.write("\n this is solution  "+str(ki+1)+"\n")
+            f.write(str(i+1) + " th element" + " value is " + str(feasible_solutions[ki].variables[i]) + "\n")
+            f.close()
+        for i in range(len(feasible_solutions[ki].objectives)):
+            f = open("feasible.txt", "a")
+            f.write(str(i+1) + " th  objective error " + " value is " + str(feasible_solutions[ki].objectives[i]) + "\n")
+            f.close()
         f = open("nondominanted_solutions.txt", "a")
-        f.write(str(i+1) + " th element" + " value is " + str(nondominanted_solutions[0].variables[i]) + "\n")
+        f.write("\nthis is a set of nondominanted_solutions values\n")
         f.close()
-    for i in range(len(nondominanted_solutions[0].objectives)):
-        f = open("nondominanted_solutions.txt", "a")
-        f.write(str(i+1) + " th  objective error " + " value is " + str(nondominanted_solutions[0].objectives[i]) + "\n")
-        f.close()
+    for ki in range(len(nondominanted_solutions)):
+        for i in range(len(nondominanted_solutions[ki].variables)):
+            f.write("\n this is solution  " + str(ki + 1) + "\n")
+            f = open("nondominanted_solutions.txt", "a")
+            f.write(str(i+1) + " th element" + " value is " + str(nondominanted_solutions[ki].variables[i]) + "\n")
+            f.close()
+        for i in range(len(nondominanted_solutions[ki].objectives)):
+            f = open("nondominanted_solutions.txt", "a")
+            f.write(str(i+1) + " th  objective error " + " value is " + str(nondominanted_solutions[ki].objectives[i]) + "\n")
+            f.close()
 
     return
 

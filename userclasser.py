@@ -22,7 +22,7 @@ class user:
         with open(gf.paramsarray[paramsfileno-1], 'r') as f:
             reader = csv.reader(f)  # read parameter file
             urlist = list(reader)  # converting parameter file as a list
-        c = float(urlist[rowno][3])  # assigning valve bacck
+        c = float(urlist[rowno-1][3])  # assigning valve bacck
         new = pd.DataFrame(urlist)  # rewriting the parameters back
         new.to_csv(gf.paramsarray[paramsfileno-1], sep=',', header=False, index=False, )
         return c
