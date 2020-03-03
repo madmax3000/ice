@@ -269,10 +269,12 @@ def vctmain():
                     urlize = list(readprofile)  # converting parameter file as a list
                 index=100
                 for k in range(len(urlize)):
-                    if x[0]==urlize[k][0]:
-                        index=k   #find the capacitor elemnt
-                    if x[1]==urlize[k][1]:
-                        if index == k:   #find elemnt name
+                    if x[0]==urlize[k][0]:#find the capacitor elemnt
+                        index=k
+                        urlize[k][1]=urlize[k][1].replace(' ', '') #replace the extra character in the second element
+                    if str(x[1]) == str(urlize[k][1]):
+                        index1=k
+                        if index == index1:   #find elemnt name
                             urlize[k][4] = "Positive polarity towards (cell) = "+str(gv.bigvect[j][2]) # assigning polarity  value to the list
                 new = pd.DataFrame(urlize)  # rewriting the parameters back
                 new.to_csv(gf.paramsarray[int(fileno) - 1], sep=',', header=False, index=False, )

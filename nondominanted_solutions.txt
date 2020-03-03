@@ -14,3 +14,6 @@ Capacitor_filter   address: 11X
 Inductor_filter   address: 1J
 Inductor_filter   address: 1J
 Capacitor_filter   address: 11X
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 11X
