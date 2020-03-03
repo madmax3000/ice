@@ -236,7 +236,7 @@ def vctmain():
     gv.algo = int(input("Enter the no: of iterations in each vectorization instance?")) # the no of iterations in each veactorization instance
     for i in range(0, n):
         spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address,polarity address)")
-        spec = spec.split(",")
+        spec = spec.split(",")  #take splitting of files
         spec[0]=int(spec[0])
         gv.bigvect.append(spec)
         #se = input("pleases specify if ")
@@ -245,12 +245,12 @@ def vctmain():
     address=[]
     elements=[]
     for i in range(n):
-        value1 = indexfinder(gv.bigvect[i][1])
+        value1 = indexfinder(gv.bigvect[i][1])  #find indexes to search and spot parameters
         element = reader(gv.bigvect[i][0],value1)
-        address.append(gv.bigvect[i][1])
+        address.append(gv.bigvect[i][1])  #added upto address matrixes
         elements.append(element)
         print(elements)
-    superlist=permutation(elements)
+    superlist=permutation(elements) #creates a super list
     print(superlist)
     gv.vector= 1
     initalization()
@@ -270,10 +270,10 @@ def vctmain():
                 index=100
                 for i in range(len(urlize)):
                     if x[0]==urlize[i][0]:
-                        index=i
+                        index=i   #find the capacitor elemnt
                     if x[1]==urlize[i][0]:
-                        if index == i:
-                            urlize[i][4] = "Positive polarity towards (cell) = "+str(i) # assigning polarity  value to the list
+                        if index == i:   #find elemnt name
+                            urlize[i][4] = "Positive polarity towards (cell) = "+str(gv.bigvect[j][2]) # assigning polarity  value to the list
                 new = pd.DataFrame(urlize)  # rewriting the parameters back
                 new.to_csv(gf.diagramarray[int(fileno) - 1], sep=',', header=False, index=False, )
 
