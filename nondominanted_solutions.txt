@@ -1,57 +1,16 @@
 
-Capacitor_filter   address: 7p
-Resistor_load   address: x11
-this is a set of nondominanted_solutions values
-
- this is solution  1
-1 th element value is 0.5071231185614071
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  2
-1 th element value is 0.819762905916406
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  3
-1 th element value is 0.09933737818470145
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  4
-1 th element value is 0.879754461630272
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  5
-1 th element value is 0.3789629701736792
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  6
-1 th element value is 0.16446490915438716
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  7
-1 th element value is 0.9414301249185597
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  8
-1 th element value is 0.11321893075496425
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  9
-1 th element value is 0.35817059534419216
-1 th  objective error  value is 0.6753497705819654
-
- this is solution  10
-1 th element value is 0.585661463296486
-1 th  objective error  value is 0.6753497705819654
-
-Resistor_load   address: 7p
-Capacitor_filter   address: x11
-Resistor_load   address: 7p
-Capacitor_filter   address: 11x
-this is a set of nondominanted_solutions values
-
- this is solution  1
-1 th element value is 9.378692035662466e-06
-1 th  objective error  value is 0.24999997901762083
-
-Capacitor_filter   address: 7p
 Resistor_load   address: 11x
+Inductor_filter   address: 1j
+this is a set of nondominanted_solutions values
+
+ this is solution  1
+1 th element value is 9.804978663185371e-06
+1 th  objective error  value is 0.24999997806391563
+
+Inductor_filter   address: 11x
+Resistor_load   address: 1j
+this is a set of nondominanted_solutions values
+
+ this is solution  1
+1 th element value is 4.757416864372484e-06
+1 th  objective error  value is 0.24999998935651951
