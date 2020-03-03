@@ -78,8 +78,8 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 	        dibydt_matrix[count1] = (k_matrix[0] + k_matrix[1]*2 + k_matrix[2]*2 + k_matrix[3])/6.0
 	        curr_vector[count1] += dibydt_matrix[count1]*dt
 	
-	    VT1wdg1 = v1meas - curr_vector[0]*RT1wdg1
-	    VT1wdg2 = v2meas - curr_vector[1]*RT1wdg2/turns_ratio
+	    VT1wdg1 = v1meas + curr_vector[0]*RT1wdg1
+	    VT1wdg2 = v2meas + curr_vector[1]*RT1wdg2/turns_ratio
 	    
 	    flux = (Ls + M)*curr_vector[0] + M*curr_vector[1]/turns_ratio
 	    

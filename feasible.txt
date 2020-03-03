@@ -1,0 +1,47 @@
+
+Resistor_load   address: 7p
+Capacitor_filter   address: 11x
+this is a set of feasible_solutions values
+
+ this is solution  1
+1 th element value is 7.090137612361142e-06
+1 th  objective error  value is 0.24999998413766486
+
+ this is solution  2
+1 th element value is 2.297576878962299e-06
+1 th  objective error  value is 0.24999999485977045
+
+ this is solution  3
+1 th element value is 1.3802607741148966e-06
+1 th  objective error  value is 0.24999999691202618
+
+ this is solution  4
+1 th element value is 6.216632050142481e-07
+1 th  objective error  value is 0.2499999986091906
+
+ this is solution  5
+1 th element value is 7.087815407766273e-06
+1 th  objective error  value is 0.24999998414286015
+
+ this is solution  6
+1 th element value is 4.74743330431921e-06
+1 th  objective error  value is 0.24999998937885515
+
+ this is solution  7
+1 th element value is 1.483612166747337e-06
+1 th  objective error  value is 0.24999999668080436
+
+ this is solution  8
+1 th element value is 9.378692035662466e-06
+1 th  objective error  value is 0.24999997901762083
+
+ this is solution  9
+1 th element value is 7.534070691815181e-06
+1 th  objective error  value is 0.2499999831444803
+
+ this is solution  10
+1 th element value is 2.060335566982304e-06
+1 th  objective error  value is 0.24999999539053605
+
+Capacitor_filter   address: 7p
+Resistor_load   address: 11x
