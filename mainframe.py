@@ -10,6 +10,7 @@ from function import avg,ripple,rms,thd,efficiency,moving_avg,peak
 import circuit_solver as cs
 import gv
 import csv
+import re
 import pandas as pd
 from plotter import plot, multiplot
 import numpy as np
@@ -234,8 +235,8 @@ def vctmain():
     gv.ele_chg = n
     gv.algo = int(input("Enter the no: of iterations in each vectorization instance?")) # the no of iterations in each veactorization instance
     for i in range(0, n):
-        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address)")
-        spec = spec.split(",")
+        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address,polarity address)")
+        spec = spec.split(",")  #take splitting of files
         spec[0]=int(spec[0])
         gv.bigvect.append(spec)
         #se = input("pleases specify if ")
@@ -244,12 +245,12 @@ def vctmain():
     address=[]
     elements=[]
     for i in range(n):
-        value1 = indexfinder(gv.bigvect[i][1])
+        value1 = indexfinder(gv.bigvect[i][1])  #find indexes to search and spot parameters
         element = reader(gv.bigvect[i][0],value1)
-        address.append(gv.bigvect[i][1])
+        address.append(gv.bigvect[i][1])  #added upto address matrixes
         elements.append(element)
         print(elements)
-    superlist=permutation(elements)
+    superlist=permutation(elements) #creates a super list
     print(superlist)
     gv.vector= 1
     initalization()
@@ -259,6 +260,25 @@ def vctmain():
     for i in range(0,len(superlist)):
         for j in range(0,len(address)):
             writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][0])
+            x = re.split("\_", superlist[i][j])  # split the file at '_'
+            print(x[0]) #debug
+            if x[0]=="Capacitor":  #"check for polar elemnet"
+                fileno=gv.bigvect[j][0]
+                with open(gf.paramsarray[int(fileno) - 1], 'r') as f:
+                    readprofile = csv.reader(f)  # read parameter file
+                    urlize = list(readprofile)  # converting parameter file as a list
+                index=100
+                for k in range(len(urlize)):
+                    if x[0]==urlize[k][0]:#find the capacitor elemnt
+                        index=k
+                        urlize[k][1]=urlize[k][1].replace(' ', '') #replace the extra character in the second element
+                    if str(x[1]) == str(urlize[k][1]):
+                        index1=k
+                        if index == index1:   #find elemnt name
+                            urlize[k][4] = "Positive polarity towards (cell) = "+str(gv.bigvect[j][2]) # assigning polarity  value to the list
+                new = pd.DataFrame(urlize)  # rewriting the parameters back
+                new.to_csv(gf.paramsarray[int(fileno) - 1], sep=',', header=False, index=False, )
+
             f = open("feasible.txt", "a")
             f.write("\n")
             f.write(superlist[i][j])    #writing before each file creation to see list positions

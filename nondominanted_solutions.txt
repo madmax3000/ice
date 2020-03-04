@@ -1,16 +1,19 @@
 
-Resistor_load   address: 11x
-Inductor_filter   address: 1j
+Capacitor_filter   address: 1J
+Inductor_filter   address: 11X
+Capacitor_filter   address: 1J
+Inductor_filter   address: 11X
 this is a set of nondominanted_solutions values
 
  this is solution  1
-1 th element value is 9.804978663185371e-06
-1 th  objective error  value is 0.24999997806391563
+1 th element value is 0.0008659551384739855
+1 th  objective error  value is 0.24999858609889752
 
-Inductor_filter   address: 11x
-Resistor_load   address: 1j
-this is a set of nondominanted_solutions values
-
- this is solution  1
-1 th element value is 4.757416864372484e-06
-1 th  objective error  value is 0.24999998935651951
+Inductor_filter   address: 1J
+Capacitor_filter   address: 11X
+Inductor_filter   address: 1J
+Inductor_filter   address: 1J
+Capacitor_filter   address: 11X
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 11X

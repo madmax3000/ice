@@ -1,88 +1,53 @@
 
-Resistor_load   address: 11x
-Inductor_filter   address: 1j
+Capacitor_filter   address: 1J
+Inductor_filter   address: 11X
 this is a set of feasible_solutions values
 
  this is solution  1
-1 th element value is 9.804978663185371e-06
-1 th  objective error  value is 0.24999997806391563
+1 th element value is 0.0007444900018324344
+1 th  objective error  value is 0.24999878442266074
 
  this is solution  2
-1 th element value is 2.8182272768064277e-06
-1 th  objective error  value is 0.24999999369495082
+1 th element value is 0.00047308083609500987
+1 th  objective error  value is 0.2499992275697492
 
  this is solution  3
-1 th element value is 2.627094350387253e-06
-1 th  objective error  value is 0.249999994122561
+1 th element value is 0.0006907583619104455
+1 th  objective error  value is 0.24999887215371158
 
  this is solution  4
-1 th element value is 5.709659678731437e-06
-1 th  objective error  value is 0.24999998722612443
+1 th element value is 0.0008659551384739855
+1 th  objective error  value is 0.24999858609889752
 
  this is solution  5
-1 th element value is 1.286795868874126e-06
-1 th  objective error  value is 0.24999999712112952
+1 th element value is 0.0007553826090622464
+1 th  objective error  value is 0.24999876663761308
 
  this is solution  6
-1 th element value is 3.934387463870034e-06
-1 th  objective error  value is 0.2499999911978333
+1 th element value is 0.0008545517795374464
+1 th  objective error  value is 0.24999860471787502
 
  this is solution  7
-1 th element value is 1.9073927597205576e-06
-1 th  objective error  value is 0.24999999573270573
+1 th element value is 2.385823488004883e-05
+1 th  objective error  value is 0.24999996104505942
 
  this is solution  8
-1 th element value is 9.01019559335358e-06
-1 th  objective error  value is 0.24999997984203556
+1 th element value is 0.0001298787331657212
+1 th  objective error  value is 0.24999978793831623
 
  this is solution  9
-1 th element value is 6.380595318294237e-06
-1 th  objective error  value is 0.24999998572508078
+1 th element value is 0.00021316320510027413
+1 th  objective error  value is 0.24999965195424273
 
  this is solution  10
-1 th element value is 6.008787801734571e-06
-1 th  objective error  value is 0.24999998655690323
+1 th element value is 0.0005802700222122794
+1 th  objective error  value is 0.24999905255506852
 
-Inductor_filter   address: 11x
-Resistor_load   address: 1j
-this is a set of feasible_solutions values
-
- this is solution  1
-1 th element value is 4.757416864372484e-06
-1 th  objective error  value is 0.24999998935651951
-
- this is solution  2
-1 th element value is 5.42165175515016e-06
-1 th  objective error  value is 0.24999999999226208
-
- this is solution  3
-1 th element value is 3.272231249948728e-06
-1 th  objective error  value is 0.2499999999953298
-
- this is solution  4
-1 th element value is 9.245984336353458e-06
-1 th  objective error  value is 0.2499999999868039
-
- this is solution  5
-1 th element value is 6.83032437814199e-07
-1 th  objective error  value is 0.24999999999902517
-
- this is solution  6
-1 th element value is 3.3034548540341343e-06
-1 th  objective error  value is 0.24999999999528522
-
- this is solution  7
-1 th element value is 6.483650566189726e-06
-1 th  objective error  value is 0.24999999999074635
-
- this is solution  8
-1 th element value is 4.036375179878308e-06
-1 th  objective error  value is 0.24999999999423916
-
- this is solution  9
-1 th element value is 9.387168947762163e-06
-1 th  objective error  value is 0.24999999998660238
-
- this is solution  10
-1 th element value is 7.874769011461831e-06
-1 th  objective error  value is 0.24999999998876093
+Inductor_filter   address: 1J
+Capacitor_filter   address: 11X
+Inductor_filter   address: 1J
+Inductor_filter   address: 1J
+Capacitor_filter   address: 11X
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 1J
+Capacitor_filter   address: 11X
