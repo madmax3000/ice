@@ -8,6 +8,7 @@ c = 0# to stop seeing repeated steps
 bigres=[]#the big matrix of parameters which can be changed
 bigout=[]#the big matrix of output targets to be achieved
 bigvect=[]
+bigconst=[]
 counter=0#debugging
 l=[]#list which stores the samples produced during timeperiod t1
 n3=0#for signal selector
@@ -24,6 +25,7 @@ optotimer=0
 vectotimer=0
 timetotal=0.0
 ele_chg=2
+constraint=[]
 #used for testing purpose
 z=0#test2
 k=0#test1,test2

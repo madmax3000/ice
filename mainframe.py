@@ -63,6 +63,14 @@ def initalization():
         gv.bigout.append(outer)  # update to a global matix
         for r in range(0, len(gv.bigout)):
             print(gv.bigout[r])
+    gv.constraint=input("do you want add constraint?\n press y or n\n")
+    con = int(input("enter the no of constraints?"))
+    for kup in range(con):
+        kooper=[]
+        kup1=int(input("enter variable list number : "))
+        kooper.append(kup1)
+        kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))
+        kooper.append(kup2)
     if (gv.vector==0):
         ga(variables, outpu)  # call genetic algorithm
     return
@@ -141,12 +149,22 @@ def evaluator(vars):
         elif gv.bigout[n][0] == 8:
             lol = gv.bigout[n][1] # the variable location
             gv.bigout[n][4]=(gv.externalvariable[lol-1]).value  #gets the variables value
-    lis = []
-    for n in range(0, len(gv.bigout)):
-        a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
-        lis.append(a)  # returns result out put to genetic algorithm
+    if gv.constraint != 'y':
+        lis = []
+        for n in range(0, len(gv.bigout)):
+            a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
+            lis.append(a)  # returns result out put to genetic algorithm
+        return lis
+    if gv.constraint == 'y':
+        coco=[]
+        for kio in range(len(gv.bigconst)):
+            coco.append(gv.bigconst[kio][0])
+        lis = []
+        for n in range(0, len(gv.bigout)):
+            a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
+            lis.append(a)  # returns result out put to genetic algorithm
+        return lis,coco
 
-    return lis
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def ga(variables, outpu):#genetic algorithm function
@@ -155,7 +173,12 @@ def ga(variables, outpu):#genetic algorithm function
     problem = Problem(variables, outpu)  # specify the no of objectives and inputs
     for i in range(0, len(gv.bigres)):
         problem.types[i:i + 1] = [Real(gv.bigres[i][3], gv.bigres[i][2])]  # loop to intialise the limkits
-
+    for i in range(0, len(gv.bigconst)):
+        for j in range(len(gv.bigconst[i])):
+            if gv.bigconst[i][j]==1:
+                problem.constraints[i:i + 1] = "<=0"   #constraint assigning
+            else:
+                problem.constraints[i:i + 1] = ">=0"
     problem.function = evaluator  # call the simulator
     v_population_size = 10
     init_pop = [Solution(problem) for i in range(v_population_size)]
