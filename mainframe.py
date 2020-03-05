@@ -20,6 +20,7 @@ gv.counter=0
 def initalization():
     print(" \n!!!!  optimization algorithum is running   !!!!\n")
     gv.c = 1  # global variable
+    ev.uservariable()
     # optimizer  input intialisation
     #gv.paramsfile=input("Enter circuit_params_file name\n")
     variables = int(input("enter no of elements to vary\n"))
@@ -68,9 +69,12 @@ def initalization():
     for kup in range(con):
         kooper=[]
         kup1=int(input("enter variable list number : "))
-        kooper.append(kup1)
+        tat = kup1-1
+        tata = gv.externalvariable[tat]
+        kooper.append(tata.value)
         kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))
         kooper.append(kup2)
+        gv.bigconst.append(kooper)
     if (gv.vector==0):
         ga(variables, outpu)  # call genetic algorithm
     return
@@ -100,8 +104,8 @@ def evaluator(vars):
         b = int(gv.bigres[m][4])
         write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     print("simulation running started")
-    cs.main()
-    ev.uservariable()
+    #cs.main()
+    #ev.uservariable()
     print("simulation running stopped")
     gv.optotimer = 1
     gv.vectotimer = 1
@@ -170,14 +174,17 @@ def evaluator(vars):
 def ga(variables, outpu):#genetic algorithm function
     if gv.vector==0:
         gv.algo=int(input("Enter the no: of iterations"))
-    problem = Problem(variables, outpu)  # specify the no of objectives and inputs
+    if gv.constraint == "n":
+        problem = Problem(variables, outpu)
+    if gv.constraint == "y":
+        problem = Problem(variables, outpu,len(gv.bigconst))  # specify the no of objectives and inputs
     for i in range(0, len(gv.bigres)):
         problem.types[i:i + 1] = [Real(gv.bigres[i][3], gv.bigres[i][2])]  # loop to intialise the limkits
     for i in range(0, len(gv.bigconst)):
         for j in range(len(gv.bigconst[i])):
-            if gv.bigconst[i][j]==1:
+            if gv.bigconst[i][j] == 1:
                 problem.constraints[i:i + 1] = "<=0"   #constraint assigning
-            else:
+            elif gv.bigconst[i][j] == 2:
                 problem.constraints[i:i + 1] = ">=0"
     problem.function = evaluator  # call the simulator
     v_population_size = 10

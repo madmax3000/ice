@@ -17,3 +17,46 @@ Capacitor_filter   address: 11X
 Capacitor_filter   address: 1J
 Capacitor_filter   address: 1J
 Capacitor_filter   address: 11X
+this is a set of nondominanted_solutions values
+
+this is a set of nondominanted_solutions values
+
+ this is solution  1
+1 th element value is 0.12412151263021776
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  2
+1 th element value is 0.8510721043225592
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  3
+1 th element value is 0.3682217419965138
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  4
+1 th element value is 0.6007579081822594
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  5
+1 th element value is 0.8608017076747743
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  6
+1 th element value is 0.3228576535834269
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  7
+1 th element value is 0.43371328653803554
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  8
+1 th element value is 0.7765590712888042
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  9
+1 th element value is 0.4946284852671555
+1 th  objective error  value is 0.24999848716547673
+
+ this is solution  10
+1 th element value is 0.11285022255132937
+1 th  objective error  value is 0.24999848716547673

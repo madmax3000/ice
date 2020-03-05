@@ -25,7 +25,7 @@ optotimer=0
 vectotimer=0
 timetotal=0.0
 ele_chg=2
-constraint=[]
+constraint="n"
 #used for testing purpose
 z=0#test2
 k=0#test1,test2
