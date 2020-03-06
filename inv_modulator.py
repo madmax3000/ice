@@ -1,33 +1,25 @@
-import math
+sw_freq = 85000.00
+if t_clock >= t1:
 
-dt_carr = 5.0e-7
-carr_freq = 5000.0
-
-
-if t_clock>=tcarr:
-    if (x_tri >= 1.0):
-        x_tri_sign = -1.0
-    
-    if (x_tri <= -1.0):
-        x_tri_sign = 1.0
-    
-    x_tri += x_tri_sign*(4.0*carr_freq)*dt_carr
-    
-    modsignal = 0.97*math.sin(120*math.pi*t_clock)
-    
-    if (x_tri > modsignal):
-        s1logic = 0.0
-        s2logic = 1.0
-        s3logic = 1.0
-        s4logic = 0.0
+    if c==1:
+        S1_gate = 1.0
+        S4_gate = 1.0
+        S2_gate = 0.0
+        S3_gate = 0.0
+        c=0
+        #t1 = t1 + (1 / sw_freq) * (0.5)
+        print(" switching is good1\n")
     else:
-        s1logic = 1.0
-        s2logic = 0.0
-        s3logic = 0.0
-        s4logic = 1.0
-
-    tcarr += dt_carr
-
+        S1_gate = 0.0
+        S4_gate = 0.0
+        S2_gate = 1.0
+        S3_gate = 1.0
+        c=1
+        #t1 = t1 + (1 / sw_freq)*(0.5)
+        print(" switching is good2\n")
+    t1 = t1 + (1 / sw_freq)
+print("tclock : ",t_clock)
+print("t1 : ", t1)
 S1inv1gate = s1logic
 S2inv1gate = s2logic
 S3inv1gate = s3logic

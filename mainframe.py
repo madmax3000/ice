@@ -104,8 +104,8 @@ def evaluator(vars):
         b = int(gv.bigres[m][4])
         write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     print("simulation running started")
-    #cs.main()
-    #ev.uservariable()
+    cs.main()
+    ev.uservariable()
     print("simulation running stopped")
     gv.optotimer = 1
     gv.vectotimer = 1

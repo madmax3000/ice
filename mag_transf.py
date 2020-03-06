@@ -1,14 +1,14 @@
 import math
 
-dt = 1.0e-6
+dt = 1.0e-7
 
-V1rating = 120
-V2rating = 240
+V1rating = 120.0
+V2rating = 240.0
 turns_ratio = V2rating/V1rating
 Rw1 = 0.1
 Rw2 = 0.1*turns_ratio*turns_ratio
-RT1wdg1 = 10000.0
-RT1wdg2 = 10000.0
+RT1wdg1 = 1000000.0
+RT1wdg2 = 1000000.0
 M = 0.5
 Ls = 0.0001
 
@@ -62,8 +62,8 @@ if t_clock>=t1:
         dibydt_matrix[count1] = (k_matrix[0] + k_matrix[1]*2 + k_matrix[2]*2 + k_matrix[3])/6.0
         curr_vector[count1] += dibydt_matrix[count1]*dt
 
-    VT1wdg1 = v1meas + curr_vector[0]*RT1wdg1
-    VT1wdg2 = v2meas + curr_vector[1]*RT1wdg2/turns_ratio
+    VT1wdg1 = v1meas - curr_vector[0]*RT1wdg1
+    VT1wdg2 = v2meas - curr_vector[1]*RT1wdg2/turns_ratio
     
     flux = (Ls + M)*curr_vector[0] + M*curr_vector[1]/turns_ratio
     
