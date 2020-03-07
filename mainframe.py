@@ -65,16 +65,17 @@ def initalization():
         for r in range(0, len(gv.bigout)):
             print(gv.bigout[r])
     gv.constraint=input("do you want add constraint?\n press y or n\n")
-    con = int(input("enter the no of constraints?"))
-    for kup in range(con):
-        kooper=[]
-        kup1=int(input("enter variable list number : "))
-        tat = kup1-1
-        tata = gv.externalvariable[tat]
-        kooper.append(tata.value)
-        kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))
-        kooper.append(kup2)
-        gv.bigconst.append(kooper)
+    if gv.constraint == "y":
+        con = int(input("enter the no of constraints?"))
+        for kup in range(con):
+            kooper=[]
+            kup1=int(input("enter variable list number : "))
+            tat = kup1-1
+            tata = gv.externalvariable[tat]
+            kooper.append(tata.value)
+            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))
+            kooper.append(kup2)
+            gv.bigconst.append(kooper)
     if (gv.vector==0):
         ga(variables, outpu)  # call genetic algorithm
     return

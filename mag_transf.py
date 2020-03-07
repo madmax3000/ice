@@ -1,6 +1,6 @@
 import math
 
-dt = 1.0e-7
+dt = 1.0e-6
 
 V1rating = 120.0
 V2rating = 240.0

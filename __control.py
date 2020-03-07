@@ -1,5 +1,7 @@
 import math
 
+import math
+
 def mag_transf_func(interface_inputs, interface_outputs, interface_static, interface_time, interface_variablestore,                                 interface_events, circuit_components, pos, t_clock, sys_t_events):
 	v1meas=circuit_components['9L2'].op_value
 	v2meas=circuit_components['9AF2'].op_value
@@ -8,7 +10,7 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 	curr_vector=interface_static[pos]['curr_vector']
 	t1=interface_time[pos]['t1']
 	T1_flux=interface_variablestore['T1_flux'][0]
-	c=interface_variablestore['c'][0]
+	VarStor1=interface_variablestore['VarStor1'][0]
 	VT1wdg1=interface_outputs[pos]['8W2'][1][2]
 	VT1wdg2=interface_outputs[pos]['8Y2'][1][2]
 	RT1wdg1=interface_outputs[pos]['1N2'][1][2]
@@ -112,43 +114,53 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 	interface_time[pos]['t1']=t1
 	sys_t_events.append(t1)
 	interface_variablestore['T1_flux'][0]=T1_flux
-	interface_variablestore['c'][0]=c
+	interface_variablestore['VarStor1'][0]=VarStor1
 	return
 
 def inv_modulator_func(interface_inputs, interface_outputs, interface_static, interface_time, interface_variablestore,                                 interface_events, circuit_components, pos, t_clock, sys_t_events):
+	vloadout=circuit_components['8P1'].op_value
+	x_tri=interface_static[pos]['x_tri']
+	x_tri_sign=interface_static[pos]['x_tri_sign']
+	modsignal=interface_static[pos]['modsignal']
 	s1logic=interface_static[pos]['s1logic']
 	s2logic=interface_static[pos]['s2logic']
 	s3logic=interface_static[pos]['s3logic']
 	s4logic=interface_static[pos]['s4logic']
-	t1=interface_time[pos]['t1']
+	tcarr=interface_time[pos]['tcarr']
 	T1_flux=interface_variablestore['T1_flux'][0]
-	c=interface_variablestore['c'][0]
+	VarStor1=interface_variablestore['VarStor1'][0]
 	S1inv1gate=interface_outputs[pos]['7C0'][1][2]
 	S2inv1gate=interface_outputs[pos]['17C0'][1][2]
 	S3inv1gate=interface_outputs[pos]['7H0'][1][2]
 	S4inv1gate=interface_outputs[pos]['17H0'][1][2]
-	sw_freq = 85000.00
-	if t_clock >= t1:
 	
-	    if c==1:
-	        S1_gate = 1.0
-	        S4_gate = 1.0
-	        S2_gate = 0.0
-	        S3_gate = 0.0
-	        c=0
-	        #t1 = t1 + (1 / sw_freq) * (0.5)
-	        print(" switching is good1\n")
+	dt_carr = 5.0e-7
+	carr_freq = 85000.0
+	
+	
+	if t_clock>=tcarr:
+	    if (x_tri >= 1.0):
+	        x_tri_sign = -1.0
+	    
+	    if (x_tri <= -1.0):
+	        x_tri_sign = 1.0
+	    
+	    x_tri += x_tri_sign*(4.0*carr_freq)*dt_carr
+	    
+	    modsignal = 0.97*math.sin(120*math.pi*t_clock)
+	    
+	    if (x_tri > modsignal):
+	        s1logic = 0.0
+	        s2logic = 1.0
+	        s3logic = 1.0
+	        s4logic = 0.0
 	    else:
-	        S1_gate = 0.0
-	        S4_gate = 0.0
-	        S2_gate = 1.0
-	        S3_gate = 1.0
-	        c=1
-	        #t1 = t1 + (1 / sw_freq)*(0.5)
-	        print(" switching is good2\n")
-	    print("tclock : ",t_clock)
-	    print("t1 : ", t1)
-	    t1 = t1 + (1 / sw_freq)
+	        s1logic = 1.0
+	        s2logic = 0.0
+	        s3logic = 0.0
+	        s4logic = 1.0
+	
+	    tcarr += dt_carr
 	
 	S1inv1gate = s1logic
 	S2inv1gate = s2logic
@@ -177,13 +189,16 @@ def inv_modulator_func(interface_inputs, interface_outputs, interface_static, in
 	interface_outputs[pos]['7H0'][1][2]=S3inv1gate
 	circuit_components['17H0'].control_values[0]=S4inv1gate
 	interface_outputs[pos]['17H0'][1][2]=S4inv1gate
+	interface_static[pos]['x_tri']=x_tri
+	interface_static[pos]['x_tri_sign']=x_tri_sign
+	interface_static[pos]['modsignal']=modsignal
 	interface_static[pos]['s1logic']=s1logic
 	interface_static[pos]['s2logic']=s2logic
 	interface_static[pos]['s3logic']=s3logic
 	interface_static[pos]['s4logic']=s4logic
-	interface_time[pos]['t1']=t1
-	sys_t_events.append(t1)
+	interface_time[pos]['tcarr']=tcarr
+	sys_t_events.append(tcarr)
 	interface_variablestore['T1_flux'][0]=T1_flux
-	interface_variablestore['c'][0]=c
+	interface_variablestore['VarStor1'][0]=VarStor1
 	return
 
