@@ -1,3 +1,4 @@
-# optimizer
-circuitoptimization simulator
-this were online development happens pls check it out
+# ICE 
+      it is gonna cool your problems
+ICE (Intelligent Circuit Enhancer)
+  This software is a tool which could help you find different circuit parameters based on a simulation based circuit optimization strategy.
