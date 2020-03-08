@@ -68,12 +68,11 @@ def initalization():
     if gv.constraint == "y":
         con = int(input("enter the no of constraints?"))
         for kup in range(con):
-            kooper=[]
-            kup1=int(input("enter variable list number : "))
-            tat = kup1-1
+            kooper=[]                                                  #creation of a constraint matrix
+            tat  = int(input("enter variable list number : "))         #variable list number
             tata = gv.externalvariable[tat]
             kooper.append(tata.value)
-            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))
+            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))     #constraint type is specified
             kooper.append(kup2)
             gv.bigconst.append(kooper)
     if (gv.vector==0):

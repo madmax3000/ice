@@ -4,7 +4,7 @@ wire,,,,wire,,,wire,,,,,,,,
 wire,,,,wire,,,wire,,,,,,,,
 wire,,,,wire,,,wire,wire,Resistor_r5,Ammeter_load,wire,wire,wire,wire,wire
 wire,,,,wire,,,,,,,Resistor_rf,,wire,,wire
-Diode_D1,,,,Diode_D2,,,,,,,wire,,wire,,wire
+Diode_d1,,,,Diode_d2,,,,,,,wire,,wire,,wire
 wire,,,,wire,,,,,,,Capacitor_CF,,Resistor_RL,,Voltmeter_load
 wire,,,,wire,,,,,,,wire,,wire,,wire
 wire,,,,wire,,,,,,,wire,,wire,,wire
@@ -13,7 +13,7 @@ wire,,,,wire,,,wire,wire,Resistor_r6,wire,wire,wire,wire,wire,wire
 wire,,,,wire,,,wire,,,,,,,,
 wire,,,,wire,,,wire,,,,,,,,
 wire,,,,wire,,,wire,,,,,,,,
-Diode_D3,,,,Diode_D4,,,wire,,,,,,,,
+Diode_d3,,,,Diode_d4,,,wire,,,,,,,,
 wire,,,,wire,,,wire,,,,,,,,
 wire,,,,wire,,,wire,,,,,,,,
 wire,,,,wire,,,wire,,,,,,,,
