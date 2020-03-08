@@ -38,16 +38,16 @@ def initalization():
     outpu = int(input("enter no of output parameters to optimize"))
     for out in range(1, outpu + 1):
         outer = []
-        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for efficency in percentage \n6 for moving average\n7 for peak\n8for optimizing an external variable or expression"))  # take mean set as an target value
+        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # take mean set as an target value
         outer.append(rval)
-        if rval==5:
+        if rval==100: # will be deleted later
             gv.esse.append(int(input("enter the meter no of output voltage:\n"))-1)#enter the output voltage meter no
             gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the output current meter no
             gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
             gv.esse.append(int(input("enter the meter no of input current:\n"))-1)  # enter the input current meter no
             outer.append(9) #junk value to make the matrix work as a charm
             outer.append(8)  # junk value to get the matrix right it is used to make squared error works for all
-        if rval==8:
+        if rval==7:
             posoffile = int(input("enter the  variable list no"))
             outer.append(posoffile)
             outer.append(9)#junk value to make it work
@@ -68,12 +68,11 @@ def initalization():
     if gv.constraint == "y":
         con = int(input("enter the no of constraints?"))
         for kup in range(con):
-            kooper=[]
-            kup1=int(input("enter variable list number : "))
-            tat = kup1-1
+            kooper=[]                                                  #creation of a constraint matrix
+            tat  = int(input("enter variable list number : "))         #variable list number
             tata = gv.externalvariable[tat]
             kooper.append(tata.value)
-            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))
+            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))     #constraint type is specified
             kooper.append(kup2)
             gv.bigconst.append(kooper)
     if (gv.vector==0):
@@ -135,23 +134,23 @@ def evaluator(vars):
             x = thd(lul,lol)
             gv.bigout[n][4] = x
             # print("this is thd",x)
-        elif gv.bigout[n][0] == 5:
-            x = efficiency() # returns the current efficency
+        elif gv.bigout[n][0] == 100:   #will delete later
+            x = efficiency() # returns the curr ent efficency
             gv.bigout[n][4] = x #places to an early dummy value
             # print("this is efficency",x)
-        elif gv.bigout[n][0] == 6:
+        elif gv.bigout[n][0] == 5:
             lol = gv.bigout[n][2]
             lul = gv.bigout[n][1]
             x = moving_avg(lul,lol)
             gv.bigout[n][4] = x
             # print("this is moving average",x)
-        elif gv.bigout[n][0] == 7:
+        elif gv.bigout[n][0] == 6:
             lol = gv.bigout[n][2]
             lul = gv.bigout[n][1]
             x = peak(lul,lol)
             gv.bigout[n][4] = x
             # print("this is peak",x)
-        elif gv.bigout[n][0] == 8:
+        elif gv.bigout[n][0] == 7:
             lol = gv.bigout[n][1] # the variable location
             gv.bigout[n][4]=(gv.externalvariable[lol-1]).value  #gets the variables value
     if gv.constraint != 'y':
@@ -250,6 +249,33 @@ def starter():#user initialisation
                 title=input("Enter the title of the plot\n")
                 plot(flname,meterno,title)
                 go=input("Do you want to plot again?\n y or n")
+    appa = input("do you want to compute any values from the data like avg,rms,etc? press y or n")
+    if appa == 'y':
+        while appa == 'y':
+            rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # compute vallues
+            if (rval == 1):
+                num = (int(input("enter file output number")) - 1)
+                print(avg(num,rval))
+            if (rval == 2):
+                num = (int(input("enter file output number")) - 1)
+                print(ripple(num,rval))
+            if (rval == 3):
+                num = (int(input("enter file output number")) - 1)
+                print(rms(num,rval))
+            if (rval == 4):
+                num = (int(input("enter file output number")) - 1)
+                print(thd(num,rval))
+            if (rval == 5):
+                num = (int(input("enter file output number")) - 1)
+                print(moving_avg(num,rval))
+            if (rval == 6):
+                num = (int(input("enter file output number")) - 1)
+                print(peak(num,rval))
+            if (rval == 7):
+                posoffile = int(input("enter the  variable list no"))
+                ev.uservariable()
+                print((gv.externalvariable[posoffile - 1]).value)
+            appa = input("do you want to compute any values from the data like avg,rms,etc again? press y or n")
 
     opt=input("Do you want to optimize?\n y or n")
     if(opt=='y'):

@@ -16,7 +16,7 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 	RT1wdg1=interface_outputs[pos]['1N2'][1][2]
 	RT1wdg2=interface_outputs[pos]['1AA2'][1][2]
 	
-	dt = 1.0e-7
+	dt = 1.0e-6
 	
 	V1rating = 120.0
 	V2rating = 240.0

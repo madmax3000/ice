@@ -30,7 +30,7 @@ class Resistor:
         self.has_voltage = "no"
         self.is_meter = "no"
         self.has_control = "no"
-        self.resistor = 100.0
+        self.resistor = 0.001
         self.voltage = 0.0
         self.current = 0.0
 
