@@ -28,22 +28,22 @@ class user:
         return c
 
     def avg(self, outputfileno, meterno):
-        return fu.avg(outputfileno, meterno)  # the avg is computed
+        return fu.avg(outputfileno-1, meterno-1)  # the avg is computed
 
     def rms(self, outputfileno, meterno):
-        return fu.rms(outputfileno, meterno)
+        return fu.rms(outputfileno-1, meterno-1)
 
     def thd(self, outputfileno, meterno):
-        return fu.thd(outputfileno, meterno)
+        return fu.thd(outputfileno-1, meterno-1)
 
     def peak(self, outputfileno, meterno):
-        return fu.peak(outputfileno, meterno)
+        return fu.peak(outputfileno-1, meterno-1)
 
     def ripple(self, outputfileno, meterno):
-        return fu.ripple(outputfileno, meterno)
+        return fu.ripple(outputfileno-1, meterno-1)
 
     def mov_avg_final(self, outputfileno, meterno):
-        return fu.moving_avg(outputfileno, meterno)
+        return fu.moving_avg(outputfileno-1, meterno-1)
 
     def store(self, value):
         self.value = value

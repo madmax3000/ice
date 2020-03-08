@@ -18,7 +18,7 @@ import externalvariable as ev
 import globalfile as gf
 gv.counter=0
 def initalization():
-    print(" \n!!!!  optimization algorithum is running   !!!!\n")
+    print(" \n!!!!  optimization algorithum procedures have started.   !!!!\n")
     gv.c = 1  # global variable
     ev.uservariable()
     # optimizer  input intialisation
@@ -38,7 +38,7 @@ def initalization():
     outpu = int(input("enter no of output parameters to optimize"))
     for out in range(1, outpu + 1):
         outer = []
-        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # take mean set as an target value
+        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms\n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # take mean set as an target value
         outer.append(rval)
         if rval==100: # will be deleted later
             gv.esse.append(int(input("enter the meter no of output voltage:\n"))-1)#enter the output voltage meter no
