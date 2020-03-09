@@ -255,22 +255,28 @@ def starter():#user initialisation
             rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\n"))  # compute vallues
             if (rval == 1):
                 num = (int(input("enter file output number\n")) - 1)
-                print(avg(num,rval))
+                rval1 = (int(input("enter the meter number : ")))
+                print(avg(num,rval1))
             if (rval == 2):
                 num = (int(input("enter file output number\n")) - 1)
-                print(ripple(num,rval))
+                rval1 = (int(input("enter the meter number : ")))
+                print(ripple(num,rval1))
             if (rval == 3):
                 num = (int(input("enter file output number\n")) - 1)
-                print(rms(num,rval))
+                rval1 = (int(input("enter the meter number : ")))
+                print(rms(num,rval1))
             if (rval == 4):
                 num = (int(input("enter file output number\n")) - 1)
-                print(thd(num,rval))
+                rval1 = (int(input("enter the meter number : ")))
+                print(thd(num,rval1))
             if (rval == 5):
                 num = (int(input("enter file output number\n")) - 1)
-                print(moving_avg(num,rval))
+                rval1 = (int(input("enter the meter number : ")))
+                print(moving_avg(num,rval1))
             if (rval == 6):
                 num = (int(input("enter file output number\n")) - 1)
-                print(peak(num,rval))
+                rval1 = (int(input("enter the meter number : ")))
+                print(peak(num,rval1))
             if (rval == 7):
                 posoffile = int(input("enter the  variable list no\n"))
                 ev.uservariable()
