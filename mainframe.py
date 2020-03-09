@@ -236,9 +236,9 @@ def ga(variables, outpu):#genetic algorithm function
 def starter():#user initialisation
 
     cs.main()
-    a=input("Do you want to plot?\n y or n")
+    a=input("Do you want to plot?\n y or n  ")
     if a=='y':
-        b=input("plotting options available are:\n1.single plot\n2.multiplot")
+        b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\n")
         if b=='2':
             multiplot()
         else:
@@ -248,38 +248,38 @@ def starter():#user initialisation
                 meterno=int(input("Enter the Meter number\n"))
                 title=input("Enter the title of the plot\n")
                 plot(flname,meterno,title)
-                go=input("Do you want to plot again?\n y or n")
-    appa = input("do you want to compute any values from the data like avg,rms,etc? press y or n")
+                go=input("Do you want to plot again?\n y or n\n")
+    appa = input("do you want to compute any values from the data like avg,rms,etc? press y or n\n")
     if appa == 'y':
         while appa == 'y':
-            rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # compute vallues
+            rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\n"))  # compute vallues
             if (rval == 1):
-                num = (int(input("enter file output number")) - 1)
+                num = (int(input("enter file output number\n")) - 1)
                 print(avg(num,rval))
             if (rval == 2):
-                num = (int(input("enter file output number")) - 1)
+                num = (int(input("enter file output number\n")) - 1)
                 print(ripple(num,rval))
             if (rval == 3):
-                num = (int(input("enter file output number")) - 1)
+                num = (int(input("enter file output number\n")) - 1)
                 print(rms(num,rval))
             if (rval == 4):
-                num = (int(input("enter file output number")) - 1)
+                num = (int(input("enter file output number\n")) - 1)
                 print(thd(num,rval))
             if (rval == 5):
-                num = (int(input("enter file output number")) - 1)
+                num = (int(input("enter file output number\n")) - 1)
                 print(moving_avg(num,rval))
             if (rval == 6):
-                num = (int(input("enter file output number")) - 1)
+                num = (int(input("enter file output number\n")) - 1)
                 print(peak(num,rval))
             if (rval == 7):
-                posoffile = int(input("enter the  variable list no"))
+                posoffile = int(input("enter the  variable list no\n"))
                 ev.uservariable()
                 print((gv.externalvariable[posoffile - 1]).value)
-            appa = input("do you want to compute any values from the data like avg,rms,etc again? press y or n")
+            appa = input("do you want to compute any values from the data like avg,rms,etc again? press y or n\n")
 
-    opt=input("Do you want to optimize?\n y or n")
+    opt=input("Do you want to optimize?\n y or n\n")
     if(opt=='y'):
-        feat=int(input("Which of the following feature do you want?\n 1.Optimization \n 2.Topology change and Optimization"))
+        feat=int(input("Which of the following feature do you want?\n 1.Optimization \n 2.Topology change and Optimization\n"))
         if(feat==1):
             initalization()
         elif(feat==2):
@@ -288,11 +288,11 @@ def starter():#user initialisation
 
 
 def vctmain():
-    n = int(input("enter the no of elements to change")) # eneter the no of elements in which vectorization is to be done
+    n = int(input("enter the no of elements to change\n")) # eneter the no of elements in which vectorization is to be done
     gv.ele_chg = n
-    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?")) # the no of iterations in each veactorization instance
+    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?\n")) # the no of iterations in each veactorization instance
     for i in range(0, n):
-        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address,polarity address)")
+        spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address,polarity address : )")
         spec = spec.split(",")  #take splitting of files
         spec[0]=int(spec[0])
         gv.bigvect.append(spec)
