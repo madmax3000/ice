@@ -1,8 +1,8 @@
 Name of the circuit file, Change the file name to the name of the circuit file. The file has to be .csv file so do not use another extension.,Inverter_ckt.csv,rectifier_ckt.csv,single_phase_xmer.csv
-Time duration of simulation, This is the time in seconds.,1,,
-Time step of the simulation, Recommened to be less than 10 microseconds for accuracy.,1.00E-06,,
-Time step of data storage, This is the time step with data is stored and has to be equal to or greater than the simulation time step.,1.00E-06,,
+Time duration of simulation, This is the time in seconds.,0.04,,
+Time step of the simulation, Recommened to be less than 10 microseconds for accuracy.,1.00E-05,,
+Time step of data storage, This is the time step with data is stored and has to be equal to or greater than the simulation time step.,1.00E-05,,
 Name of the data storage file, This is where all meter data and control signals will be stored., ckt_output.dat,,
 Name of control files, Add or remove as many control files as needed in separate columns., mag_transf.py,inv_modulator.py,
-Split the output file?, Say yes if you think the data file is too large and plotting is taking too much time or else say no.,No,,
-Length of time windows, There should be at least two intervals for storage.,0.005,,
+Split the output file?, Say yes if you think the data file is too large and plotting is taking too much time or else say no.,Yes,,
+Length of time windows, There should be at least two intervals for storage.,0.02,,

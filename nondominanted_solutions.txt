@@ -60,3 +60,75 @@ this is a set of nondominanted_solutions values
  this is solution  10
 1 th element value is 0.11285022255132937
 1 th  objective error  value is 0.24999848716547673
+
+this is a set of nondominanted_solutions values
+
+ this is solution  1
+1 th element value is 0.6046417867798709
+2 th element value is 0.7772979151518152
+3 th element value is 0.73189679290153
+4 th element value is 0.33478042282709075
+1 th  objective error  value is 1600.0
+
+ this is solution  2
+1 th element value is 0.10508304195043261
+2 th element value is 0.6935094947337431
+3 th element value is 0.4940688501223528
+4 th element value is 0.6099406809212504
+1 th  objective error  value is 1600.0
+
+ this is solution  3
+1 th element value is 0.033774573302776445
+2 th element value is 0.6884782294344058
+3 th element value is 0.5356117362779047
+4 th element value is 0.2530670545088449
+1 th  objective error  value is 1600.0
+
+ this is solution  4
+1 th element value is 0.6123604925035246
+2 th element value is 0.20535353999274886
+3 th element value is 0.5281680478778435
+4 th element value is 0.5108199887186841
+1 th  objective error  value is 1600.0
+
+ this is solution  5
+1 th element value is 0.980884832830824
+2 th element value is 0.0724250794038368
+3 th element value is 0.5745542624787177
+4 th element value is 0.34057232888126754
+1 th  objective error  value is 1600.0
+
+ this is solution  6
+1 th element value is 0.06995842889160542
+2 th element value is 0.21803324834421145
+3 th element value is 0.9527035991469758
+4 th element value is 0.48286550919715954
+1 th  objective error  value is 1600.0
+
+ this is solution  7
+1 th element value is 0.16494220249010705
+2 th element value is 0.3644696970613399
+3 th element value is 0.6207462013381849
+4 th element value is 0.5606282885923523
+1 th  objective error  value is 1600.0
+
+ this is solution  8
+1 th element value is 0.06841714699759927
+2 th element value is 0.1619549305116783
+3 th element value is 0.5184421902677377
+4 th element value is 0.6539553991994053
+1 th  objective error  value is 1600.0
+
+ this is solution  9
+1 th element value is 0.28688206113523285
+2 th element value is 0.7260553122070835
+3 th element value is 0.811883491840093
+4 th element value is 0.7792380319534092
+1 th  objective error  value is 1600.0
+
+ this is solution  10
+1 th element value is 0.8019864482500297
+2 th element value is 0.9540530810161645
+3 th element value is 0.3063281246357584
+4 th element value is 0.007155404561053458
+1 th  objective error  value is 1600.0

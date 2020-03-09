@@ -68,13 +68,7 @@ def thd(c,n):
     sq_harmonics = sq_sum-(max(abs_data))**2.0
     thd = 100*sq_harmonics**0.5/max(abs_data)
     return thd
-def efficiency(outputfileno):
-    p1 = avg(gf.outputarray[outputfileno],gv.esse[0])
-    p2 = avg(gf.outputarray[outputfileno],gv.esse[1])
-    p3 = avg(gf.outputarray[outputfileno],gv.esse[2])
-    p4 = avg(gf.outputarray[outputfileno],gv.esse[3])
-    n=((p1*p2)/(p3*p4))
-    return n*100
+
 def moving_avg(c,k):
     a=data_extractor(c,k)
     n=sv(a,5,2)

@@ -6,7 +6,7 @@ Created on Wed JAN 20 14:22:10 2020
 #from test2 import input
 from vector import permutation, indexfinder, reader, writer_of_vector
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
-from function import avg,ripple,rms,thd,efficiency,moving_avg,peak
+from function import avg,ripple,rms,thd,moving_avg,peak
 import circuit_solver as cs
 import gv
 import csv
@@ -26,7 +26,7 @@ def initalization():
     variables = int(input("enter no of elements to vary\n"))
     for res in range(0, variables):
         spec = []
-        spec=input("Specify the element's parameters in the following format \n (element sheet no ,element row no ,max,min)")
+        spec=input("Specify the element's parameters in the following format \n (element sheet no ,element row no ,max,min : )")
         spec=spec.split(",")
         spec.append(3)#column no:
         for i  in range(0,len(spec)):
@@ -40,13 +40,6 @@ def initalization():
         outer = []
         rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms\n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # take mean set as an target value
         outer.append(rval)
-        if rval==100: # will be deleted later
-            gv.esse.append(int(input("enter the meter no of output voltage:\n"))-1)#enter the output voltage meter no
-            gv.esse.append(int(input("enter the meter no of output current:\n"))-1)  # enter the output current meter no
-            gv.esse.append(int(input("enter the meter no of input voltage:\n"))-1)  # enter the input voltage meter no
-            gv.esse.append(int(input("enter the meter no of input current:\n"))-1)  # enter the input current meter no
-            outer.append(9) #junk value to make the matrix work as a charm
-            outer.append(8)  # junk value to get the matrix right it is used to make squared error works for all
         if rval==7:
             posoffile = int(input("enter the  variable list no"))
             outer.append(posoffile)
@@ -70,7 +63,7 @@ def initalization():
         for kup in range(con):
             kooper=[]                                                  #creation of a constraint matrix
             tat  = int(input("enter variable list number : "))         #variable list number
-            tata = gv.externalvariable[tat]
+            tata = gv.externalvariable[tat-1]
             kooper.append(tata.value)
             kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))     #constraint type is specified
             kooper.append(kup2)
@@ -134,10 +127,6 @@ def evaluator(vars):
             x = thd(lul,lol)
             gv.bigout[n][4] = x
             # print("this is thd",x)
-        elif gv.bigout[n][0] == 100:   #will delete later
-            x = efficiency() # returns the curr ent efficency
-            gv.bigout[n][4] = x #places to an early dummy value
-            # print("this is efficency",x)
         elif gv.bigout[n][0] == 5:
             lol = gv.bigout[n][2]
             lul = gv.bigout[n][1]
@@ -235,7 +224,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-    cs.main()
+    #cs.main()
     a=input("Do you want to plot?\n y or n  ")
     if a=='y':
         b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\n")
