@@ -47,7 +47,7 @@ def initalization():
     outpu = int(input("enter no of output parameters to optimize\nuser input: "))
     for out in range(1, outpu + 1):
         outer = []
-        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms\n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\nuser input: "))  # take mean set as an target value
+        rval = float(input("functions available:\n1.avg\n2.ripple\n3.rms\n4.THD\n5.for moving average\n6.peak\n7optimizing an external variable or expression\nuser input: "))  # take mean set as an target value
         outer.append(rval)
         if rval==7:
             posoffile = int(input("enter the  variable list no\nuser input: "))
@@ -112,7 +112,7 @@ def evaluator(vars):
 
     cs.main()
     ev.uservariable()
-
+    #simulator is done
     gv.optotimer = 1
     gv.vectotimer = 1
     for n in range(0, len(gv.bigout)):
@@ -254,7 +254,7 @@ def starter():#user initialisation
     appa = input("do you want to compute any values from the data like avg,rms,etc? press y or n\n")
     if appa == 'y':
         while appa == 'y':
-            rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\nuser input: "))  # compute vallues
+            rval = int(input("functions available:\n1.avg\n2.ripple\n3.rms \n4.THD\n5.moving average\n6.peak\n7.optimizing an external variable or expression\nuser input: "))  # compute vallues
             if (rval == 1):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
                 rval1 = (int(input("enter the meter number\nuser input: ")))
@@ -314,9 +314,9 @@ def vctmain():
         element = reader(gv.bigvect[i][0],value1)
         address.append(gv.bigvect[i][1])  #added upto address matrixes
         elements.append(element)
-        print(elements)
+        #print(elements)
     superlist=permutation(elements) #creates a super list
-    print(superlist)
+    #print(superlist)
     gv.vector= 1
     initalization()
     chi = input("do you want to keep same initialisation file for all run?\ny/n\n")

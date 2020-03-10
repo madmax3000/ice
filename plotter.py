@@ -14,7 +14,7 @@ def plot(flname,meterno,ttl):
     plt.plot(X,Y,'r')
     plt.title(ttl)
     plt.show()
-    a=input("do you want plot a specific range of values?\npress y or n\n")
+    a=input("do you want plot a specific range of values?\npress y or n\nuser input: ")
     while(a=='y'):
         x = float((input("Enter T-min\nuser input: ")))
         y = float((input("Enter T-max\nuser input: ")))
