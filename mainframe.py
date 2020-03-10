@@ -237,7 +237,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-    #cs.main()
+    cs.main()
     a=input("Do you want to plot?\n y or n  ")
     if a=='y':
         b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\n")

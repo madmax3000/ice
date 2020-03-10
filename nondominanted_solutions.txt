@@ -132,3 +132,13 @@ this is a set of nondominanted_solutions values
 3 th element value is 0.3063281246357584
 4 th element value is 0.007155404561053458
 1 th  objective error  value is 1600.0
+
+this is a set of nondominanted_solutions values
+
+ this is solution  1
+1 th element value is 0.16694654618219373
+2 th element value is 0.7340093486004503
+3 th element value is 0.7942445512086238
+4 th element value is 0.4231290427783977
+5 th element value is 0.0009630581830532303
+1 th  objective error  value is 0.9954047483233971

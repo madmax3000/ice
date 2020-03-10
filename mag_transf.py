@@ -12,7 +12,6 @@ RT1wdg1 = 1000000.0
 RT1wdg2 = 1000000.0
 M = 0.5
 Ls = gf.controlvariable[0]
-print(Ls)
 
 if (t_clock <= dt):
     curr_vector = [0.0, 0.0]
