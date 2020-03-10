@@ -22,7 +22,7 @@ def initalization():
     gv.c = 1  # global variable
     ev.uservariable()
     # optimizer  input intialisation
-    variables = int(input("enter no of elements to vary\n"))
+    variables = int(input("enter no of elements to vary\nuser input: "))
     for res in range(0, variables):
         spec = []
         spec=input("Specify the element's parameters in the following format \n (element sheet no ,element row no ,max,min : )")
@@ -33,30 +33,30 @@ def initalization():
         gv.bigres.append(spec)  # combine to a large matrix global matrix in gv.py
     for r in range(0, len(gv.bigres)):
         print(gv.bigres[r])
-    controlv=input("do you need to vary a control variable with the algorithm? y or n \n")
+    controlv=input("do you need to vary a control variable with the algorithm? y or n \nuser input: ")
     if controlv == 'y':
-        variables1 = int(input("enter no of control variables to vary\n"))
+        variables1 = int(input("enter no of control variables to vary\nuser input: "))
         for i in range(variables1):
             spec = []
-            spec.append(int(input("enter the control variable index in python number format starting from 0")))
+            spec.append(int(input("enter the control variable index in python number format starting from 0\nuser input: ")))
             spec.append(-1) # dummy values to adjust the matrix and these values will be used to distigiung the elements and control variables
-            spec.append(float(input('enter maximum value of the control value')))
-            spec.append(float(input('enter minimum value of the control value')))
+            spec.append(float(input('enter maximum value of the control value\nuser input: ')))
+            spec.append(float(input('enter minimum value of the control value\nuser input: ')))
             gv.bigres.append(spec)
     variables=variables+variables1
-    outpu = int(input("enter no of output parameters to optimize"))
+    outpu = int(input("enter no of output parameters to optimize\nuser input: "))
     for out in range(1, outpu + 1):
         outer = []
-        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms\n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression"))  # take mean set as an target value
+        rval = float(input("functions available:\n1 for avg\n2 for ripple\n3 for rms\n4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\nuser input: "))  # take mean set as an target value
         outer.append(rval)
         if rval==7:
-            posoffile = int(input("enter the  variable list no"))
+            posoffile = int(input("enter the  variable list no\nuser input: "))
             outer.append(posoffile)
             outer.append(9)#junk value to make it work
         else:
-            posoffile = int(input("enter the  output file no"))
+            posoffile = int(input("enter the  output file no\nuser input: "))
             outer.append(posoffile-1)
-            pos = int(input("enter output meter no in output file "))
+            pos = int(input("enter output meter no in output file\nuser input: "))
             outer.append(pos-1)
         ole=input("Enter the max and min limits of the output in the following format \n ( max,min)")
         ole =ole.split(",")#ole is a list of max and min values
@@ -68,13 +68,13 @@ def initalization():
             print(gv.bigout[r])
     gv.constraint=input("do you want add constraint?\n press y or n\n")
     if gv.constraint == "y":
-        con = int(input("enter the no of constraints?"))
+        con = int(input("enter the no of constraints?\nuser input: "))
         for kup in range(con):
             kooper=[]                                                  #creation of a constraint matrix
-            tat  = int(input("enter variable list number : "))         #variable list number
+            tat  = int(input("enter variable list number\nuser input: "))         #variable list number
             tata = gv.externalvariable[tat-1]
             kooper.append(tata.value)
-            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0"))     #constraint type is specified
+            kup2=int(input("enter the constraint no:\n1.<=0\n2.>=0\nuser input: "))     #constraint type is specified
             kooper.append(kup2)
             gv.bigconst.append(kooper)
     if (gv.vector==0):
@@ -109,10 +109,10 @@ def evaluator(vars):
             a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
             b = int(gv.bigres[m][4])
             write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
-    print("simulation running started")
+
     cs.main()
     ev.uservariable()
-    print("simulation running stopped")
+
     gv.optotimer = 1
     gv.vectotimer = 1
     for n in range(0, len(gv.bigout)):
@@ -175,7 +175,7 @@ def evaluator(vars):
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def ga(variables, outpu):#genetic algorithm function
     if gv.vector==0:
-        gv.algo=int(input("Enter the no: of iterations"))
+        gv.algo=int(input("Enter the no: of iterations\nuser input: "))
     if gv.constraint == "n":
         problem = Problem(variables, outpu)
     if gv.constraint == "y":
@@ -238,56 +238,56 @@ def ga(variables, outpu):#genetic algorithm function
 def starter():#user initialisation
 
     cs.main()
-    a=input("Do you want to plot?\n y or n  ")
+    a=input("Do you want to plot?\n y or n")
     if a=='y':
-        b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\n")
+        b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\nuser input: ")
         if b=='2':
             multiplot()
         else:
             go='y'
             while(go=='y'):
-                flname=gf.outputarray[int(input("Enter the output file no you want to plot?\n"))-1]
-                meterno=int(input("Enter the Meter number\n"))
-                title=input("Enter the title of the plot\n")
+                flname=gf.outputarray[int(input("Enter the output file no you want to plot?\nuser input: "))-1]
+                meterno=int(input("Enter the Meter number\nuser input: "))
+                title=input("Enter the title of the plot\nuser input: ")
                 plot(flname,meterno,title)
                 go=input("Do you want to plot again?\n y or n\n")
     appa = input("do you want to compute any values from the data like avg,rms,etc? press y or n\n")
     if appa == 'y':
         while appa == 'y':
-            rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\n"))  # compute vallues
+            rval = int(input("functions available:\n1 for avg\n2 for ripple\n3 for rms \n 4 for THD\n5 for moving average\n6 for peak\n7for optimizing an external variable or expression\nuser input: "))  # compute vallues
             if (rval == 1):
-                num = (int(input("enter file output number\n")) - 1)
-                rval1 = (int(input("enter the meter number : ")))
+                num = (int(input("enter file output number\nuser input: ")) - 1)
+                rval1 = (int(input("enter the meter number\nuser input: ")))
                 print(avg(num,rval1))
             if (rval == 2):
-                num = (int(input("enter file output number\n")) - 1)
-                rval1 = (int(input("enter the meter number : ")))
+                num = (int(input("enter file output number\nuser input: ")) - 1)
+                rval1 = (int(input("enter the meter number\nuser input: ")))
                 print(ripple(num,rval1))
             if (rval == 3):
-                num = (int(input("enter file output number\n")) - 1)
-                rval1 = (int(input("enter the meter number : ")))
+                num = (int(input("enter file output number\nuser input: ")) - 1)
+                rval1 = (int(input("enter the meter number\nuser input: ")))
                 print(rms(num,rval1))
             if (rval == 4):
-                num = (int(input("enter file output number\n")) - 1)
-                rval1 = (int(input("enter the meter number : ")))
+                num = (int(input("enter file output number\nuser input: ")) - 1)
+                rval1 = (int(input("enter the meter number\nuser input: ")))
                 print(thd(num,rval1))
             if (rval == 5):
-                num = (int(input("enter file output number\n")) - 1)
-                rval1 = (int(input("enter the meter number : ")))
+                num = (int(input("enter file output number\nuser input: ")) - 1)
+                rval1 = (int(input("enter the meter number\nuser input: ")))
                 print(moving_avg(num,rval1))
             if (rval == 6):
-                num = (int(input("enter file output number\n")) - 1)
-                rval1 = (int(input("enter the meter number : ")))
+                num = (int(input("enter file output number\nuser input: ")) - 1)
+                rval1 = (int(input("enter the meter number\nuser input: ")))
                 print(peak(num,rval1))
             if (rval == 7):
-                posoffile = int(input("enter the  variable list no\n"))
+                posoffile = int(input("enter the  variable list no\nuser input: "))
                 ev.uservariable()
                 print((gv.externalvariable[posoffile - 1]).value)
             appa = input("do you want to compute any values from the data like avg,rms,etc again? press y or n\n")
 
     opt=input("Do you want to optimize?\n y or n\n")
     if(opt=='y'):
-        feat=int(input("Which of the following feature do you want?\n 1.Optimization \n 2.Topology change and Optimization\n"))
+        feat=int(input("Which of the following feature do you want?\n 1.Optimization \n 2.Topology change and Optimization\nuser input: "))
         if(feat==1):
             initalization()
         elif(feat==2):
@@ -296,9 +296,9 @@ def starter():#user initialisation
 
 
 def vctmain():
-    n = int(input("enter the no of elements to change\n")) # eneter the no of elements in which vectorization is to be done
+    n = int(input("enter the no of elements to change\nuser input: ")) # eneter the no of elements in which vectorization is to be done
     gv.ele_chg = n
-    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?\n")) # the no of iterations in each veactorization instance
+    gv.algo = int(input("Enter the no: of iterations in each vectorization instance?\nuser input: ")) # the no of iterations in each veactorization instance
     for i in range(0, n):
         spec = input("Specify the element's parameters in the following format \n (element ckt file no ,element address,polarity address : )")
         spec = spec.split(",")  #take splitting of files
