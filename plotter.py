@@ -16,8 +16,8 @@ def plot(flname,meterno,ttl):
     plt.show()
     a=input("do you want plot a specific range of values?\npress y or n\n")
     while(a=='y'):
-        x = float((input("Enter T-min")))
-        y = float((input("Enter T-max")))
+        x = float((input("Enter T-min\nuser input: ")))
+        y = float((input("Enter T-max\nuser input: ")))
         data = np.loadtxt(flname)
         result = data[:, 0]
         #print(result)
@@ -39,11 +39,11 @@ def plot(flname,meterno,ttl):
 def multiplot():
     #ckt_output2.dat
 
-    n=int(input("How many plots do you want\n maximum 5 plots are only possible"))
-    fl=gf.outputarray[int(input("Enter the output file no you want to plot?\n"))-1]
+    n=int(input("How many plots do you want\n maximum 5 plots are only possible\nuser input: "))
+    fl=gf.outputarray[int(input("Enter the output file no you want to plot?\nuser input: "))-1]
     mr=[]
     for i in range(n):
-        mn=int(input("Enter meter numbers"))
+        mn=int(input("Enter meter numbers\nuser input: "))
         mr.append(mn)
     data = np.loadtxt(fl)
     X=data[:,0]
