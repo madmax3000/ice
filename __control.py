@@ -1,5 +1,7 @@
 import math
 
+import globalfile as gf
+
 import math
 
 def mag_transf_func(interface_inputs, interface_outputs, interface_static, interface_time, interface_variablestore,                                 interface_events, circuit_components, pos, t_clock, sys_t_events):
@@ -26,7 +28,7 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 	RT1wdg1 = 1000000.0
 	RT1wdg2 = 1000000.0
 	M = 0.5
-	Ls = 0.0001
+	Ls = gf.controlvariable[0]
 	
 	if (t_clock <= dt):
 	    curr_vector = [0.0, 0.0]

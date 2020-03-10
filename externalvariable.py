@@ -10,7 +10,7 @@ def uservariable():
     isrc = cf.avg(2,3)
     vsrc = cf.avg(2,6)
     kik = ((iload*vload)/(isrc*vsrc))
-    cf.store(kik)
+    cf.store(kik-30)
     gv.externalvariable = [cf]
     ## '''
     return

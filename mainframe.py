@@ -22,7 +22,6 @@ def initalization():
     gv.c = 1  # global variable
     ev.uservariable()
     # optimizer  input intialisation
-    #gv.paramsfile=input("Enter circuit_params_file name\n")
     variables = int(input("enter no of elements to vary\n"))
     for res in range(0, variables):
         spec = []
@@ -34,7 +33,17 @@ def initalization():
         gv.bigres.append(spec)  # combine to a large matrix global matrix in gv.py
     for r in range(0, len(gv.bigres)):
         print(gv.bigres[r])
-    #gv.outpu1 = input("Enter the output file in which the optimization targets are present \n ")
+    controlv=input("do you need to vary a control variable with the algorithm? y or n \n")
+    if controlv == 'y':
+        variables1 = int(input("enter no of control variables to vary\n"))
+        for i in range(variables1):
+            spec = []
+            spec.append(int(input("enter the control variable index in python number format starting from 0")))
+            spec.append(-1) # dummy values to adjust the matrix and these values will be used to distigiung the elements and control variables
+            spec.append(float(input('enter maximum value of the control value')))
+            spec.append(float(input('enter minimum value of the control value')))
+            gv.bigres.append(spec)
+    variables=variables+variables1
     outpu = int(input("enter no of output parameters to optimize"))
     for out in range(1, outpu + 1):
         outer = []
@@ -92,10 +101,14 @@ def evaluator(vars):
     gv.counter = gv.counter + 1
     print("the counter value is ", gv.counter)
     for m in range(0, len(gv.bigres)):
-        flname = int(gv.bigres[m][0]) #the no in the params
-        a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
-        b = int(gv.bigres[m][4])
-        write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
+        if gv.bigres[m][1] == -1:
+            controlvariableindex = gv.bigres[m][0]
+            gf.controlvariable[controlvariableindex]=vars[m]
+        else:
+            flname = int(gv.bigres[m][0]) #the no in the params
+            a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
+            b = int(gv.bigres[m][4])
+            write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
     print("simulation running started")
     cs.main()
     ev.uservariable()
