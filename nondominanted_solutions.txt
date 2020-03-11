@@ -1,5 +1,1 @@
-
-Inductor_l1   address: 1D
-Capacitor_c1   address: 8H
-Capacitor_c2   address: 8AK
-Inductor_l2   address: 1AL
+ The results are given below

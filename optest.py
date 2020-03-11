@@ -36,10 +36,18 @@ algorithm.run(1000)
 feasible_solutions = [s for s in algorithm.result if s.feasible]
 #print(feasible_solutions[0].constraints,"\n")
 #print("\n",feasible_solutions[0].variables[1])
-print(feasible_solutions[0].constraint_violation)
+#print(feasible_solutions[0].constraint_violation)
 nondominanted_solutions=nondominated(algorithm.result)
-for i in range(len(feasible_solutions[0].variables)):
+"""for i in range(0,len(feasible_solutions[1].variables)):
     f = open("feasible_test.txt", "a")
-    f.write(str(i)+" th element" + " value is "+str(feasible_solutions[0].variables[i])+"\n")
+    f.write(str(i)+" th element" + " value is "+str(feasible_solutions[0].variables)+"\n")
     #f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
-    f.close()
+    f.close()"""
+f = open("feasible_test.txt", "w")
+f.write(" let us see if it is working \n")
+#f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
+f.close()
+f = open("feasible_test.txt", "a")
+f.write(" let us see if it is working \n")
+#f.write(str(i) + " th  objective error " + " value is " + str(feasible_solutions[0].objectives[i]) + "\n")
+f.close()

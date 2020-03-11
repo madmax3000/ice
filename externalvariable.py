@@ -10,7 +10,7 @@ def uservariable():
     isrc = cf.avg(2,3)  #average input current
     vsrc = cf.avg(2,6)  #average output voltage
     kik = ((iload*vload)/(isrc*vsrc)) #calculating efficency
-    cf.store(kik) #entering in a special format
+    cf.store(kik*100) #entering in a special format
     gv.externalvariable = [cf]
     ## '''
     return

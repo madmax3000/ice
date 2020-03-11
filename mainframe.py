@@ -289,6 +289,12 @@ def starter():#user initialisation
 
     opt=input("Do you want to optimize?\n y or n\n")
     if(opt=='y'):
+        f = open("feasible.txt", "w")
+        f.write(" The results are given below\n")
+        f.close()
+        f = open("nondominanted_solutions.txt", "w")
+        f.write(" The results are given below\n")
+        f.close()
         feat=int(input("Which of the following feature do you want?\n 1.Optimization \n 2.Topology change and Optimization\nuser input: "))
         if(feat==1):
             initalization()
