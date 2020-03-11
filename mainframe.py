@@ -104,12 +104,13 @@ def evaluator(vars):
         if gv.bigres[m][1] == -1:
             controlvariableindex = gv.bigres[m][0]
             gf.controlvariable[controlvariableindex]=vars[m]
+            print("the ",m,"th elements current value  is",vars[m])
         else:
             flname = int(gv.bigres[m][0]) #the no in the params
             a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
             b = int(gv.bigres[m][4])
             write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
-
+            print("the ", m, "th elements current value  is", vars[m])
     cs.main()
     ev.uservariable()
     #simulator is done
@@ -168,6 +169,7 @@ def evaluator(vars):
         lis = []
         for n in range(0, len(gv.bigout)):
             a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
+            print("the ",n,"th objectives's current error is",a)
             lis.append(a)  # returns result out put to genetic algorithm
         return lis,coco
 
