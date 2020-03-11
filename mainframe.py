@@ -160,6 +160,7 @@ def evaluator(vars):
         lis = []
         for n in range(0, len(gv.bigout)):
             a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
+            print(" the ",n,"th objective error is",a)
             lis.append(a)  # returns result out put to genetic algorithm
         return lis
     if gv.constraint == 'y':
