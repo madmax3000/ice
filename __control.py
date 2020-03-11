@@ -21,7 +21,7 @@ def mag_transf_func(interface_inputs, interface_outputs, interface_static, inter
 	dt = 1.0e-6
 	
 	V1rating = 120.0
-	V2rating = 240.0
+	V2rating = 120.0
 	turns_ratio = V2rating/V1rating
 	Rw1 = 0.1
 	Rw2 = 0.1*turns_ratio*turns_ratio
