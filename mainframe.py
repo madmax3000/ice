@@ -240,7 +240,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-    cs.main()
+    #cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\nuser input: ")
@@ -260,27 +260,27 @@ def starter():#user initialisation
             rval = int(input("functions available:\n1.avg\n2.ripple\n3.rms \n4.THD\n5.moving average\n6.peak\n7.optimizing an external variable or expression\nuser input: "))  # compute vallues
             if (rval == 1):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
-                rval1 = (int(input("enter the meter number\nuser input: ")))
+                rval1 = (int(input("enter the meter number\nuser input: ")) - 1)
                 print(avg(num,rval1))
             if (rval == 2):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
-                rval1 = (int(input("enter the meter number\nuser input: ")))
+                rval1 = (int(input("enter the meter number\nuser input: "))-1)
                 print(ripple(num,rval1))
             if (rval == 3):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
-                rval1 = (int(input("enter the meter number\nuser input: ")))
+                rval1 = (int(input("enter the meter number\nuser input: "))-1)
                 print(rms(num,rval1))
             if (rval == 4):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
-                rval1 = (int(input("enter the meter number\nuser input: ")))
+                rval1 = (int(input("enter the meter number\nuser input: "))-1)
                 print(thd(num,rval1))
             if (rval == 5):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
-                rval1 = (int(input("enter the meter number\nuser input: ")))
+                rval1 = (int(input("enter the meter number\nuser input: "))-1)
                 print(moving_avg(num,rval1))
             if (rval == 6):
                 num = (int(input("enter file output number\nuser input: ")) - 1)
-                rval1 = (int(input("enter the meter number\nuser input: ")))
+                rval1 = (int(input("enter the meter number\nuser input: "))-1)
                 print(peak(num,rval1))
             if (rval == 7):
                 posoffile = int(input("enter the  variable list no\nuser input: "))

@@ -131,10 +131,10 @@ def inv_modulator_func(interface_inputs, interface_outputs, interface_static, in
 	tcarr=interface_time[pos]['tcarr']
 	T1_flux=interface_variablestore['T1_flux'][0]
 	VarStor1=interface_variablestore['VarStor1'][0]
-	S1inv1gate=interface_outputs[pos]['7C0'][1][2]
-	S2inv1gate=interface_outputs[pos]['17C0'][1][2]
-	S3inv1gate=interface_outputs[pos]['7H0'][1][2]
-	S4inv1gate=interface_outputs[pos]['17H0'][1][2]
+	S1inv1gate=interface_outputs[pos]['7E0'][1][2]
+	S2inv1gate=interface_outputs[pos]['17E0'][1][2]
+	S3inv1gate=interface_outputs[pos]['7J0'][1][2]
+	S4inv1gate=interface_outputs[pos]['17J0'][1][2]
 	
 	dt_carr = 5.0e-7
 	carr_freq = 85000.0
@@ -171,26 +171,26 @@ def inv_modulator_func(interface_inputs, interface_outputs, interface_static, in
 
 	interface_events[pos] = 0
 
-	if not interface_outputs[pos]['7C0'][1][2]==S1inv1gate:
+	if not interface_outputs[pos]['7E0'][1][2]==S1inv1gate:
 		interface_events[pos] = 1
 
-	if not interface_outputs[pos]['17C0'][1][2]==S2inv1gate:
+	if not interface_outputs[pos]['17E0'][1][2]==S2inv1gate:
 		interface_events[pos] = 1
 
-	if not interface_outputs[pos]['7H0'][1][2]==S3inv1gate:
+	if not interface_outputs[pos]['7J0'][1][2]==S3inv1gate:
 		interface_events[pos] = 1
 
-	if not interface_outputs[pos]['17H0'][1][2]==S4inv1gate:
+	if not interface_outputs[pos]['17J0'][1][2]==S4inv1gate:
 		interface_events[pos] = 1
 
-	circuit_components['7C0'].control_values[0]=S1inv1gate
-	interface_outputs[pos]['7C0'][1][2]=S1inv1gate
-	circuit_components['17C0'].control_values[0]=S2inv1gate
-	interface_outputs[pos]['17C0'][1][2]=S2inv1gate
-	circuit_components['7H0'].control_values[0]=S3inv1gate
-	interface_outputs[pos]['7H0'][1][2]=S3inv1gate
-	circuit_components['17H0'].control_values[0]=S4inv1gate
-	interface_outputs[pos]['17H0'][1][2]=S4inv1gate
+	circuit_components['7E0'].control_values[0]=S1inv1gate
+	interface_outputs[pos]['7E0'][1][2]=S1inv1gate
+	circuit_components['17E0'].control_values[0]=S2inv1gate
+	interface_outputs[pos]['17E0'][1][2]=S2inv1gate
+	circuit_components['7J0'].control_values[0]=S3inv1gate
+	interface_outputs[pos]['7J0'][1][2]=S3inv1gate
+	circuit_components['17J0'].control_values[0]=S4inv1gate
+	interface_outputs[pos]['17J0'][1][2]=S4inv1gate
 	interface_static[pos]['x_tri']=x_tri
 	interface_static[pos]['x_tri_sign']=x_tri_sign
 	interface_static[pos]['modsignal']=modsignal

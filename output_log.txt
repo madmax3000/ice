@@ -1,5 +1,5 @@
 The data in the output file is as follows: 
-Time Ammeter-5K1 Ammeter-1S2 Ammeter-1AD2 Voltmeter-8P1 Voltmeter-9L2 Voltmeter-9AF2 
+Time Ammeter-4A0 Ammeter-5K1 Ammeter-1S2 Ammeter-1AD2 Voltmeter-12C0 Voltmeter-8P1 Voltmeter-9L2 Voltmeter-9AF2 
  
 For plotting using Gnuplot, a sample command will be: 
 plot 'ckt_output.dat' u 1:2 w l 
