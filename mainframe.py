@@ -161,6 +161,7 @@ def evaluator(vars):
         for n in range(0, len(gv.bigout)):
             a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
             print(" the ",n,"th objective error is",a)
+            print(" the ", n, "th objective current value  is", gv.bigout[n][4])
             lis.append(a)  # returns result out put to genetic algorithm
         return lis
     if gv.constraint == 'y':
@@ -171,6 +172,7 @@ def evaluator(vars):
         for n in range(0, len(gv.bigout)):
             a = (gv.bigout[n][4] - gv.bigout[n][3]) ** 2
             print("the ",n,"th objectives's current error is",a)
+            print(" the ", n, "th objective current value  is", gv.bigout[n][4])
             lis.append(a)  # returns result out put to genetic algorithm
         return lis,coco
 
@@ -240,7 +242,7 @@ def ga(variables, outpu):#genetic algorithm function
 #-------------------------------------------------------------------------------------------------------------------------------------------
 def starter():#user initialisation
 
-    #cs.main()
+    cs.main()
     a=input("Do you want to plot?\n y or n")
     if a=='y':
         b=input("plotting options available are press the no  eg 1 or 2:\n1.single plot\n2.multiplot\nuser input: ")
