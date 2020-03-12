@@ -29,7 +29,7 @@ def signalselector(a):
     gv.l=[]
     for i in range(0,gv.n3):
         gv.l.append(a[i])
-    print (gv.l)
+    #print (gv.l)
     return gv.l
     
 def ripple(c,a):
@@ -72,8 +72,11 @@ def thd(c,n):
 def moving_avg(c,k):
     a=data_extractor(c,k)
     n=sv(a,5,2)
-    fs=len(n)
-    return n[fs-1] #moving average implemented
+    s = 0
+    for x in range(0, len(n)):
+        s += n[x]
+    av = s / len(n)  # average value
+    return av #moving average implemented
 def peak(c,m):
     a=data_extractor(c,m)
     c = max(a) #peak implemented
