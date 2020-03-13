@@ -1,1 +1,88 @@
  The results are given below
+
+Inductor_l1   address: 1D
+Capacitor_c1   address: 8H
+this is a set of feasible_solutions values
+
+ this is solution  1
+1 th element value is 9.940773807696267e-06
+2 th element value is 2.589515215146383e-06
+3 th element value is 0.00461836100547819
+4 th element value is 0.0001758864590751859
+5 th element value is 0.00194773406483969
+1 th  objective error  value is 7015.1562305720445
+
+ this is solution  2
+1 th element value is 1.1528451272298362e-06
+2 th element value is 1.0604271049796854e-06
+3 th element value is 0.007350448376186316
+4 th element value is 0.000553514076616208
+5 th element value is 0.008768006256145518
+1 th  objective error  value is 1500.0695902963291
+
+ this is solution  3
+1 th element value is 7.948871756636461e-06
+2 th element value is 4.166625747309548e-06
+3 th element value is 0.004321463625445891
+4 th element value is 8.652581071290126e-05
+5 th element value is 0.002717470107317432
+1 th  objective error  value is 7217.355080427825
+
+ this is solution  4
+1 th element value is 9.491159263347007e-06
+2 th element value is 4.45619717272385e-07
+3 th element value is 0.004544160033741139
+4 th element value is 0.00093773324845886
+5 th element value is 0.009425119062797176
+1 th  objective error  value is 4428.636096147016
+
+ this is solution  5
+1 th element value is 6.787529442110171e-06
+2 th element value is 4.163621913536919e-06
+3 th element value is 0.0001788209877618476
+4 th element value is 0.00025405058769671597
+5 th element value is 0.0027708621601556746
+1 th  objective error  value is 8752.45457464543
+
+ this is solution  6
+1 th element value is 5.77218604870074e-06
+2 th element value is 4.117902395881954e-06
+3 th element value is 0.0063898804452955866
+4 th element value is 0.0006268413324761386
+5 th element value is 0.0032937442002117286
+1 th  objective error  value is 5600.205793535138
+
+ this is solution  7
+1 th element value is 2.333103328243092e-06
+2 th element value is 5.67824611549057e-06
+3 th element value is 0.006780650376833169
+4 th element value is 0.00011568036202372529
+5 th element value is 0.004954956687895925
+1 th  objective error  value is 5657.696432477213
+
+ this is solution  8
+1 th element value is 2.459123106708455e-06
+2 th element value is 8.77523410897167e-06
+3 th element value is 0.000773244213460986
+4 th element value is 0.0006166917565949855
+5 th element value is 0.0068962528521136785
+1 th  objective error  value is 7791.908759008653
+
+ this is solution  9
+1 th element value is 4.576710336818673e-06
+2 th element value is 1.2908730437275743e-06
+3 th element value is 0.007837438924814527
+4 th element value is 0.0004990713543759767
+5 th element value is 0.0062645326764776636
+1 th  objective error  value is 5361.716976679268
+
+ this is solution  10
+1 th element value is 5.876226953181349e-06
+2 th element value is 1.402399059985601e-06
+3 th element value is 0.004674669203180516
+4 th element value is 0.000982592213001998
+5 th element value is 0.007667783701611974
+1 th  objective error  value is 7117.539512187187
+
+Capacitor_c1   address: 1D
+Inductor_l1   address: 8H

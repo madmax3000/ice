@@ -1,1 +1,16 @@
  The results are given below
+
+Inductor_l1   address: 1D
+Capacitor_c1   address: 8H
+this is a set of nondominanted_solutions values
+
+ this is solution  1
+1 th element value is 1.1528451272298362e-06
+2 th element value is 1.0604271049796854e-06
+3 th element value is 0.007350448376186316
+4 th element value is 0.000553514076616208
+5 th element value is 0.008768006256145518
+1 th  objective error  value is 1500.0695902963291
+
+Capacitor_c1   address: 1D
+Inductor_l1   address: 8H

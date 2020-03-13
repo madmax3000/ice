@@ -330,14 +330,15 @@ def vctmain():
     #print(superlist)
     gv.vector= 1
     initalization()
-    chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
+    chi ="n"
+    #chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
     if chi =='y':
         gv.inti_repeat = 1
     for i in range(0,len(superlist)):
         for j in range(0,len(address)):
             writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][0])
             x = re.split("\_", superlist[i][j])  # split the file at '_'
-            print(x[0]) #debug
+            #print(x[0]) #debug
             if x[0]=="Capacitor":  #"check for polar elemnet"
                 fileno=gv.bigvect[j][0]
                 with open(gf.paramsarray[int(fileno) - 1], 'r') as f:
