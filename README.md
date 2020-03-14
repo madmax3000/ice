@@ -1,7 +1,7 @@
 # ice
-Circuit Optimization Simulator
+power electronic circuit Optimization tool
 
 
-
-the various tutuorials would be provided later
-it would be great to know your feedback
+please note:
+1.the various tutuorials would be provided later
+2.it would be great to know your feedback
