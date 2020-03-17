@@ -47,7 +47,7 @@ $ pip install pandas
 ```
 To install numpy
 ```sh
-$ pip install scipy
+$ pip install numpy
 ```
 To install matlibplot
 ```sh
@@ -59,6 +59,7 @@ $ pip install matplotlib
 Want to contribute? Great! contact us 
 ### help
 Have any doubts contact us : icesoftwarehelp@gmail.com
+
 we will be providing tutorials soon.
 
 ### General Instructions for users
@@ -74,7 +75,7 @@ we will be providing tutorials soon.
 please check the above  links !
 ### future plans
 
- - Write Tutorials
+ - Create Tutorials
  - Convert to Cython for faster running
 
 License
