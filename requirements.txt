@@ -1,0 +1,11 @@
+requirements:
+
+
+
+platypus-opt: pip install platypus-opt
+
+pandas : pip install pandas
+
+numpy :pip install numpy
+
+matplotlib : pip install matplotlib
