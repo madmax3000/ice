@@ -43,7 +43,7 @@ def initalization():
             spec.append(float(input('enter maximum value of the control value\nuser input: ')))
             spec.append(float(input('enter minimum value of the control value\nuser input: ')))
             gv.bigres.append(spec)
-    variables=variables+variables1
+        variables=variables+variables1
     outpu = int(input("enter no of output parameters to optimize\nuser input: "))
     for out in range(1, outpu + 1):
         outer = []

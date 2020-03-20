@@ -17,8 +17,8 @@ def data_extractor(outputarrayno,meterno):
     y = signalselector(x)   #signal selector is directly called
     return y
 def signalselector(a):
-    f = pd.read_csv("circuit_inputs.csv", header=None, index_col=False)
-    ele = f.iloc[3,2]
+    f = pd.read_csv("circuit_inputs.csv")
+    ele = f.iloc[1,0]
     t2=float(ele) #t2-step size
     t1=1/60 #default time period
     #n1=len(a)#n1-total number of samples
