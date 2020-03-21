@@ -58,9 +58,10 @@ $ pip install matplotlib
 
 Want to contribute? Great! contact us 
 ### Help
-Have any doubts contact us : icesoftwarehelp@gmail.com
+Our Youtube channel link : https://www.youtube.com/channel/UCz87vhPQBKPhbMWVIRI-svA
 
-we will be providing tutorials soon.
+
+If you have  any doubts contact us : icesoftwarehelp@gmail.com
 
 ### General Instructions for users
 - Ability to use the simulator Python Power Electronics is required to operate this software
@@ -75,7 +76,7 @@ Here are some resources
 
 ### Future plans
 
- - Create Tutorials
+ - Create more Tutorials
  - Convert to Cython for faster running
 
 License
