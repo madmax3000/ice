@@ -60,6 +60,8 @@ def initalization():
             outer.append(pos-1)
         ole=input("Enter the max and min limits of the output in the following format \n ( max,min)")
         ole =ole.split(",")#ole is a list of max and min values
+        gv.hardconstraint.append(float(ole[0]))
+        gv.hardconstraint.append(float(ole[1]))
         me=(float(ole[0])+float(ole[1]))/2
         outer.append(me)
         outer.append(2.5)#dummmy value to store future values
@@ -78,7 +80,10 @@ def initalization():
             kooper.append(kup2)
             gv.bigconst.append(kooper)
     if (gv.vector==0):
-        ga(variables, outpu)  # call genetic algorithm
+        lil = len(gv.hardconstraint)
+        for nu in range(lil):
+            gv.constraintfinal.append(0)
+        ga(variables, outpu , lil)  # call genetic algorithm
     return
 
 #-----------------------------------------------------------------------------------------------------------------------------------
@@ -163,7 +168,10 @@ def evaluator(vars):
             print(" the ",n,"th objective error is",a)
             print(" the ", n, "th objective current value  is", gv.bigout[n][4])
             lis.append(a)  # returns result out put to genetic algorithm
-        return lis
+        for n in range(0, len(gv.bigout)):
+            gv.constraintfinal[2*n] = gv.bigout[n][4]-gv.hardconstraint[2*n]
+            gv.constraintfinal[2 * n +1] = gv.bigout[n][4] - gv.hardconstraint[2 * n + 1]
+        return lis,gv.constraintfinal
     if gv.constraint == 'y':
         coco=[]
         for kio in range(len(gv.bigconst)):
@@ -178,11 +186,11 @@ def evaluator(vars):
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
-def ga(variables, outpu):#genetic algorithm function
+def ga(variables, outpu ,lil ):#genetic algorithm function
     if gv.vector==0:
         gv.algo=int(input("Enter the no: of iterations\nuser input: "))
     if gv.constraint == "n":
-        problem = Problem(variables, outpu)
+        problem = Problem(variables, outpu , lil)# incoparate the constraint
     if gv.constraint == "y":
         problem = Problem(variables, outpu,len(gv.bigconst))  # specify the no of objectives and inputs
     for i in range(0, len(gv.bigres)):
@@ -193,6 +201,11 @@ def ga(variables, outpu):#genetic algorithm function
                 problem.constraints[i:i + 1] = "<=0"   #constraint assigning
             elif gv.bigconst[i][j] == 2:
                 problem.constraints[i:i + 1] = ">=0"
+    for k in range(len(gv.hardconstraint)):
+        if (k % 2 == 0):
+            problem.constraints[k:k + 1] = "<=0"
+        else:
+            problem.constraints[k:k + 1] = ">=0"
     problem.function = evaluator  # call the simulator
     v_population_size = 10
     init_pop = [Solution(problem) for i in range(v_population_size)]
