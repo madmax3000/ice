@@ -7,11 +7,10 @@ Created on Tue Oct 22 14:36:30 2019
 c = 0# to stop seeing repeated steps
 bigres=[]#the big matrix of parameters which can be changed
 bigout=[]#the big matrix of output targets to be achieved
-bigvect=[]
-bigconst=[]
-hardconstraint=[]
-constraintfinal=[]
+bigvect=[]#big vector for vectorisation
+bigconst=[] #big vector for constraints
 counter=0#debugging
+algoindex=1 # to identify which algorithm to choose
 l=[]#list which stores the samples produced during timeperiod t1
 n3=0#for signal selector
 algo=10#no of default iterations
