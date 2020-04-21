@@ -3,6 +3,7 @@
 import sys
 import math
 import gv
+from vector import bigres_memory_update
 import circuit_exceptions as CktEx
 import circuit_elements as CktElem
 from matrix import *
@@ -2408,6 +2409,9 @@ def read_circuit_parameters(nw_input, conn_matrix, branch_params, component_obje
         cont_ans="n"
     if gv.c == 1:  # here too automation of user input has been done to stop repetition of user input
         cont_ans="y"
+        if gv.inti_repeat == 1 and gv.autoparams == 1 :
+            bigres_memory_update()
+            gv.autoparams = 0
     #cont_ans="y"
     if gv.c ==0:
         print("The following circuit schematics have the corresponding parameter files:")

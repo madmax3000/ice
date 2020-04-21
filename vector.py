@@ -94,6 +94,48 @@ def splitString(str):
             special += str[i]
     return [alpha,num]
 #-----------------------------------------------------------------------
+def read(flname,a,b):
+
+    with open(gf.paramsarray[flname-1], 'r') as f:
+        reader = csv.reader(f)  # read parameter file
+        urlist = list(reader)  # converting parameter file as a list
+    c = urlist[a][b]  # assigning parameter value to the variable
+    new = pd.DataFrame(urlist)  # rewriting the parameters back
+    new.to_csv(gf.paramsarray[flname-1], sep=',', header=False, index=False, )
+    return c
+
+#-----------------------------------------------------------------------
+def vectormemorycreation():
+    for i in range(len(gv.bigres)):
+        if gv.bigres[i][1] != -1:  # check if it is a control elements
+            vector_line=[]          # dummy vector to form rows
+            flname =  gv.bigres[i][0] #file name data
+            a =  gv.bigres[i][1]   # the row position
+            vector_line.append(flname)
+            vector_line.append(read(flname,a,0)) # the elemnt type info
+            vector_line.append(read(flname, a, 1)) # the tag name
+        if gv.bigres[i][1] != -1:
+            gv.autovect.append(vector_line)
+    return
+#----------------------------------------------------------------------
+def indexsearch(flname,a,b):
+    with open(gf.paramsarray[flname-1], 'r') as f:
+        reader = csv.reader(f)  # read parameter file
+        urlist = list(reader)  # converting parameter file as a list
+    for i in range(len(urlist)):
+        if urlist[i][0] == a:
+            if urlist[i][i] == b:
+               return i
+    return print(" index finding in params failed")
+#----------------------------------------------------------------------
+def bigres_memory_update():
+    for i in range(len(gv.autovect)):
+        flname = gv.autovect[i][0]
+        a = gv.autovect[i][1]
+        b = gv.autovect[i][2]
+        gv.bigres[i][1] = indexsearch(flname,a,b)+1
+    return
+#----------------------------------------------------------------------
 def indexfinder(f):
     apna = splitString(f.upper())
     r=int(apna[1])-1  #now support added for
@@ -169,7 +211,7 @@ def writer_of_vector(address,element_to_write,fileno):
     urlize[a][b] = c  # assigning parameter value to the list
     new = pd.DataFrame(urlize)  # rewriting the parameters back
     new.to_csv(gf.diagramarray[int(fileno)-1], sep=',', header=False, index=False, )
-    #for  fix of writer
+    #print("writing is working") #for  fix of writer
     return
 
 

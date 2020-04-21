@@ -4,7 +4,7 @@ Created on Wed JAN 20 14:22:10 2020
 @author: John JOSE
 """
 #from test2 import input
-from vector import permutation, indexfinder, reader, writer_of_vector
+from vector import permutation, indexfinder, reader, writer_of_vector,bigres_memory_update
 from platypus import *
 from platypus import NSGAII, Problem, Real,nondominated,InjectedPopulation,Solution
 from function import avg,ripple,rms,thd,moving_avg,peak
@@ -37,6 +37,7 @@ def initalization():
     controlv=input("Do you need to vary a control variable with the algorithm? y/n \nUser input: ")
     if controlv == 'y':
         variables1 = int(input("Enter no of control variables to vary\nUser input: "))
+        gv.controlcount = variables1
         for i in range(variables1):
             spec = []
             spec.append(int(input("Enter the control variable index in python number format starting from 0\nUser input: ")))
@@ -287,7 +288,7 @@ def ga(variables, outpu):#genetic algorithm function
 def starter():#user initialisation
 
     cs.main()
-    a=input("Do you want to plot?\n y/n\nUserinput:")
+    a=input("Do you want to plot?\n y/n\nUserinput:")  #help user plot graphs
     if a=='y':
         b=input("Plotting options available are press the no  eg 1 or 2:\n1.Single plot\n2.Multiplot\nUser input: ")
         if b=='2':
@@ -334,7 +335,7 @@ def starter():#user initialisation
                 print((gv.externalvariable[posoffile - 1]).value)
             appa = input("Do you want to compute any functions press y/n\n")
 
-    opt=input("Do you want to optimize?\n y/n\n")
+    opt=input("Do you want to optimize?\n y/n\nUserinput: ")
     if(opt=='y'):
         f = open("feasible.txt", "w")
         f.write(" The results are given below\n")
@@ -359,7 +360,7 @@ def vctmain():
         spec = spec.split(",")  #take splitting of files
         spec[0]=int(spec[0])
         gv.bigvect.append(spec)
-        #se = input("pleases specify if ")
+
         ''' this loop just took done the ckt file no details and elemanet addreses in coma format then turns no from string to 
         an integer so as to process it later on'''
     address=[]
@@ -375,10 +376,10 @@ def vctmain():
     gv.vector= 1
     initalization()
     chi ="n"
-    #chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
-    print(" please note: after each combination in vectorisation it is mandatory to update the parameter details")
+    chi = input("do you want to keep same initialisation file for all run?\ny/n\n")
     if chi =='y':
         gv.inti_repeat = 1
+        gv.autoparams = 1
     for i in range(0,len(superlist)):
         for j in range(0,len(address)):
             writer_of_vector(address[j], superlist[i][j],gv.bigvect[j][0])
@@ -415,11 +416,14 @@ def vctmain():
             f.write(address[j])
             f.close()
         ga(len(gv.bigres), len(gv.bigout))
-        if gv.inti_repeat == 0: # 0 must be the one but currently working on using same initialisation file
+        if gv.inti_repeat == 0 and i < len(superlist): # 0 must be the one but currently working on using same initialisation file
             gv.bigres.clear()
             #gv.bigout.clear()
             gv.vector = 2
             initalization()
+        if gv.inti_repeat == 1 and i < len(superlist):
+            gv.autoparams = 1
+
 
 
     return
