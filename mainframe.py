@@ -105,17 +105,25 @@ def write(flname,a, b, c):
 def evaluator(vars):
     gv.counter = gv.counter + 1
     print("\nThe counter value is ", gv.counter)
+    f = open("searchlog.txt", "a")
+    f.write("\n\n\n\n"+"this is iteration number"+str(gv.counter))
     for m in range(0, len(gv.bigres)):
         if gv.bigres[m][1] == -1:
             controlvariableindex = gv.bigres[m][0]
             gf.controlvariable[controlvariableindex]=vars[m]
-            print("\nThe  current value of  element" ,m,"is :",vars[m])
+            print("\nThe  current value of  element " ,m," is :",vars[m])
+            f = open("searchlog.txt", "a")
+            f.write("\nThe  current value of  element "+str(m)+" is :"+str(vars[m]))
+            f.close()
         else:
             flname = int(gv.bigres[m][0]) #the no in the params
             a = int(gv.bigres[m][1])  # write parameters to the circuit para meters
             b = int(gv.bigres[m][4])
             write(flname,a-1, b, vars[m])  # vars is the output from the prediction of genetic algorithm
-            print("\nThe  current value of  element", m, "is :", vars[m])
+            print("\nThe  current value of  element ", m, " is :", vars[m])
+            f = open("searchlog.txt", "a")
+            f.write("\nThe  current value of  element " + str(m) + " is :" + str(vars[m]))
+            f.close()
     cs.main()
     ev.uservariable()
     #simulator is done
@@ -168,9 +176,15 @@ def evaluator(vars):
             if gv.bigout[n][3] >= 0:
                 tru = gv.bigout[n][3]-a**0.5
                 print("\n The value of  target ",n + 1," is ",tru," and the corresponding error value is ",a,"\n")
+                f = open("searchlog.txt", "a")
+                f.write("\n The value of  target "+str(n + 1)+" is "+str(tru)+" and the corresponding error value is "+str(a)+"\n")
+                f.close()
             else:
                 tru = gv.bigout[n][3] + a** 0.5
                 print(" The value of  target ",n + 1, " is " ,tru, " and the corresponding error value is ",a,"\n")
+                f = open("searchlog.txt", "a")
+                f.write("\n The value of  target " + str(n + 1) + " is " + str(tru) + " and the corresponding error value is " + str(a) + "\n")
+                f.close()
             lis.append(a)  # returns result out put to genetic algorithm
         return lis
     if gv.constraint == 'y':
@@ -183,9 +197,15 @@ def evaluator(vars):
             if gv.bigout[n][3] >= 0:
                 tru = gv.bigout[n][3]-a**0.5
                 print("\n The value of  target ",n + 1," is ",tru," and the corresponding error value is ",a,"\n")
+                f = open("searchlog.txt", "a")
+                f.write("\n The value of  target " + str(n + 1) + " is " + str(tru) + " and the corresponding error value is " + str(a) + "\n")
+                f.close()
             else:
                 tru = gv.bigout[n][3] + a** 0.5
                 print(" The value of  target ",n + 1, " is " ,tru, " and the corresponding error value is ",a,"\n")
+                f = open("searchlog.txt", "a")
+                f.write("\n The value of  target " + str(n + 1) + " is " + str(tru) + " and the corresponding error value is " + str(a) + "\n")
+                f.close()
             lis.append(a)  # returns result out put to genetic algorithm
         return lis,coco
 
@@ -343,6 +363,9 @@ def starter():#user initialisation
         f = open("nondominanted_solutions.txt", "w")
         f.write(" The results are given below\n")
         f.close()
+        f = open("searchlog.txt", "w")
+        f.write(" the logging procedures have started")
+        f.close()
         feat=int(input("Which of the following feature do you want?\n 1.Optimization \n 2.Topology change and Optimization\nUser input: "))
         if(feat==1):
             initalization()
@@ -402,7 +425,9 @@ def vctmain():
                             urlize[k][4] = "Positive polarity towards (cell) = "+str(gv.bigvect[j][2]) .upper()# assigning polarity  value to the list
                 new = pd.DataFrame(urlize)  # rewriting the parameters back
                 new.to_csv(gf.paramsarray[int(fileno) - 1], sep=',', header=False, index=False, )
-
+            f = open("searchlog.txt", "a")
+            f.write("\n\n\n the log of new vectoring instance")
+            f.close()
             f = open("feasible.txt", "a")
             f.write("\n")
             f.write(superlist[i][j])    #writing before each file creation to see list positions
