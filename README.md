@@ -1,6 +1,6 @@
 # ICE
 
-![N|Solid](https://raw.githubusercontent.com/madmax3000/ice/master/ice%20logo.jpg)
+![](https://github.com/madmax3000/ice/blob/master/ice%20logo.jpg)
 
 
 Intelligent Circuit Enhancer  (ICE)  is an Circuit optimization tool developed in python with focus on power electronic circuits.
