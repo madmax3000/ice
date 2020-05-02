@@ -1,13 +1,13 @@
 # ICE
 
-[![N|Solid](https://raw.githubusercontent.com/madmax3000/ice/master/ice%20logo.jpg)](https://nodesource.com/products/nsolid)
+![N|Solid](https://raw.githubusercontent.com/madmax3000/ice/master/ice%20logo.jpg)
 
 
 Intelligent Circuit Enhancer  (ICE)  is an Circuit optimization tool developed in python with focus on power electronic circuits.
 #  Features! 
   - Simple  python based optimizer which makes easy it run on cloud platforms like google colab
   - Pseudo-drawing with the help of python Power Electronic Simulator makes it removes the issues with netlist based circuit representation and makes it easy to run in cloud platforms
-# supported algorithms:
+# Supported algorithms:
 - NSGAII
 - NSGAIII
 - CMAES
@@ -38,7 +38,7 @@ ICE uses a number of open source projects to work properly:
 
 ### Installation
 
-ICE requires python 3.5+ to run.
+ICE requires python 3.7+ to run.
 Please install latest versions of all these libraries
 
 Install requirements 
@@ -88,6 +88,7 @@ Here are some resources
 
  - Create more Tutorials
  - Convert to Cython for faster running
+ - Provide support for more Circuit Simulators
 
 License
 ----
