@@ -7,7 +7,17 @@ Intelligent Circuit Enhancer  (ICE)  is an Circuit optimization tool developed i
 #  Features! 
   - Simple  python based optimizer which makes easy it run on cloud platforms like google colab
   - Pseudo-drawing with the help of python Power Electronic Simulator makes it removes the issues with netlist based circuit representation and makes it easy to run in cloud platforms
-  - Powered by NSGAII which can handle large number of objectives
+# supported algorithms:
+- NSGAII
+- NSGAIII
+- CMAES
+- GDE3
+- IBEA
+- MOEAD
+- OMOPSO
+- SMPSO
+- SPEA2
+- EpsMOEA
 
 
 
@@ -82,7 +92,7 @@ Here are some resources
 License
 ----
 
-MIT
+GPL 3.0
 
 
 **Free Software, Hell Yeah!**
