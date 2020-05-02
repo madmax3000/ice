@@ -2,10 +2,8 @@ requirements:
 
 
 
-platypus-opt: pip install platypus-opt
-
-pandas : pip install pandas
-
-numpy :pip install numpy
-
-matplotlib : pip install matplotlib
+Platypus-Opt==1.0.4
+numpy==1.18.3
+matplotlib==3.2.1
+pandas==1.0.3
+scipy==1.4.1
